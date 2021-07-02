@@ -18,7 +18,7 @@ These projects will be automatically added into [https://projects.ce.pdn.ac.lk](
 
 ```
 {
-  "title": "This is the title of the project",
+  "title": "Smart Cradle",
   "team": [
     {
       "name": "Madush Chandrasena",
