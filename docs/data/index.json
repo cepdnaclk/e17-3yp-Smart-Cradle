@@ -1,7 +1,7 @@
 {
     "team": [
         {
-            "name": "Chandrasena M.M.D",
+            "name": "Madush Chandrasena",
             "email": "e17040@eng.pdn.ac.lk",
             "eNumber": "E/17/040",
             "github_profile":"github.com/madUSH1198",
@@ -9,7 +9,7 @@
             "website": "#"
         },
         {
-            "name": "Upekha H.P.S",
+            "name": "Shashini Upekha ",
             "email": "e17356@eng.pdn.ac.lk",
             "eNumber": "E/17/356",
             "github_profile":"github.com/ShashiniUpekha",
@@ -17,7 +17,7 @@
             "website": "#"
         },
         {
-            "name": "Wijesooriya H.D",
+            "name": "Hasara Wijesooriya ",
             "email": "e17407@eng.pdn.ac.lk",
             "eNumber": "E/17/407",
             "github_profile":"github.com/WijesooriyaHD",
@@ -27,15 +27,15 @@
     ],
     "supervisors": [
         {
-            "name": "Dr. Supervisor 1",
-            "email": "email@eng.pdn.ac.lk",
+            "name": "Dr.Isuru Nawinne",
+            "email": "isurun@eng.pdn.ac.lk",
             "linkedin_profile":"#",
             "website": "#",
             "researchgate_profile":"#"
         },
         {
-            "name": "Supervisor 2",
-            "email": "email@eng.pdn.ac.lk",
+            "name": "Dr. Mahanama Wickramasinghe",
+            "email": "mahanamaw@eng.pdn.ac.lk",
             "linkedin_profile":"#",
             "website": "#",
             "researchgate_profile":"#"

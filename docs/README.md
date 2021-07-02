@@ -3,20 +3,20 @@ layout: home
 permalink: index.html
 
 # Please update this with your repository name and title
-repository-name: eYY-3yp-project-template
-title:
+repository-name: e17-3yp-Smart-Cradle
+title: Smart Cradle 
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
-# Project Title
+# Smart Cradle 
 
 ---
 
 ## Team
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
+-  E/17/040, Madush Chandrasena, [e17040@eng.pdn.ac.lk](e17040@eng.pdn.ac.lk)
+-  E/17/356, Shashini Upekha, [e17356@eng.pdn.ac.lk](e17356@eng.pdn.ac.lk)
+-  E/17/407, Hasara Wijesooriya, [e17407@eng.pdn.ac.lk](e17407@eng.pdn.ac.lk)
 
 ## Table of Contents
 1. [Introduction](#introduction)

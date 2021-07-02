@@ -21,29 +21,29 @@ These projects will be automatically added into [https://projects.ce.pdn.ac.lk](
   "title": "This is the title of the project",
   "team": [
     {
-      "name": "Team Member Name 1",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Madush Chandrasena",
+      "email": "e17040@eng.pdn.ac.lk",
+      "eNumber": "E/17/040"
     },
     {
-      "name": "Team Member Name 2",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Shashini Upekha",
+      "email": "e17356@eng.pdn.ac.lk",
+      "eNumber": "E/17/356"
     },
     {
-      "name": "Team Member Name 3",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Hasara Wijesooriya",
+      "email": "e17407@eng.pdn.ac.lk",
+      "eNumber": "E/17/407"
     }
   ],
   "supervisors": [
     {
-      "name": "Dr. Supervisor 1",
-      "email": "email@eng.pdn.ac.lk"
+      "name": "Dr. Isuru Nawinne",
+      "email": "isurun@eng.pdn.ac.lk"
     },
     {
-      "name": "Supervisor 2",
-      "email": "email@eng.pdn.ac.lk"
+      "name": "Dr. Mahanama Wickramasinghe",
+      "email": "mahanamaw@eng.pdn.ac.lk"
     }
   ],
   "tags": ["Web", "Embedded Systems"]
