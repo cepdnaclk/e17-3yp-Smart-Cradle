@@ -66,10 +66,7 @@ Functions controlled by the mobile application:
 
 
 
-![app1](./images/app1.png)
-![app2](./images/app2.png)
-
-
+![app](./images/app.png)
 
 
 
