@@ -31,7 +31,6 @@ title: Smart Cradle
 
 ## Introduction
 
-Description of the real world problem and solution, impact
 
 This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/)
 
@@ -54,11 +53,15 @@ To balance professional life and their babies life
 
 ## Solution Architecture
 
-High level diagram + description
+Big picture of the project:
+
+![Big Picture](./images/Big_Picture.png)
+
+
 
 ## Hardware and Software Designs
 
-Detailed designs with many sub-sections
+
 
 ## Testing
 
