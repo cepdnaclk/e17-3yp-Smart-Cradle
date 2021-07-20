@@ -61,6 +61,19 @@ Big picture of the project:
 
 ## Hardware and Software Designs
 
+Mobile Application :
+
+Functions controlled by the mobile application:
+*Monitor the baby 
+*Check the room temperature 
+*Switch on the fan
+*Control the swing 
+*Play some music 
+
+
+
+![app1](./images/app1.png)
+![app2](./images/app2.png)
 
 
 ## Testing
