@@ -37,6 +37,20 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ![Sample Image](./images/sample.png)
 
+Solutions
+Smart Cradle System using IOT.
+
+It helps to the parent to monitor their child even if they are away from home and detect every activity of the baby from any distant corner of the world.
+
+Design a smart cradle with automatic swing(using cry detection),switch on fan automatically (using environment temperature)
+
+Motivation
+Decrease the gap between parent and baby
+
+To keep an eye on the baby while working , in a secure and safe manner.
+
+To balance professional life and their babies life 
+
 
 ## Solution Architecture
 
