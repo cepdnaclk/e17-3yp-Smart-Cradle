@@ -76,6 +76,32 @@ Functions controlled by the mobile application:
 ![app2](./images/app2.png)
 
 
+
+
+
+Hardware Componets
+
+    To swing the cradel:
+	    Gear Motor
+	    Motor driver
+	    Power pack
+    To monitor the baby:
+	    Camara shield
+    To detect cry:
+	    Sound sensor
+    To play music:
+	    Mini speaker
+    To measure temperature
+	    Temperature Sensor
+    Microcontroller:
+	    NodeMCU
+    Others:
+	    Mini fan
+	    wires etc
+
+
+
+
 ## Testing
 
 Testing done on hardware and software, detailed + summarized results
@@ -84,13 +110,34 @@ Testing done on hardware and software, detailed + summarized results
 
 All items and costs
 
-| Item          | Quantity  | Unit Cost  | Total  |
-| ------------- |:---------:|:----------:|-------:|
-| Sample item   | 5         | 10 LKR     | 50 LKR |
+| Item             | Quantity  | Unit Cost  | Total    |
+| ---------------  |:---------:|:----------:|---------:|
+|Gear Motor        | 1         | 1790 LKR   | 1790 LKR |
+|Camera Shield     | 1         | 2950 LKR   | 2950 LKR |
+|Sound Sensor      | 1         | 185 LKR    | 185 LKR  |
+|Mini Speaker      | 1         | 1150 LKR   | 1150 LKR |
+|Temperature sensor| 1         | 135 LKR    | 135 LKR  |
+|Mini fan          | 1         | 600 LKR    | 600 LKR  |
+|NodeMCU           | 1         | 1250 LKR   | 1250 LKR |
+|Motor driver      | 1         | 850 LKR    | 850 LKR  |
+|Power pack        | 1         | 700 LKR    | 700 LKR  |
+|Other items       |           | 500 LKR    | 500 LKR  |
+|                  |           |   Total    | 10110 LKR|
 
 ## Conclusion
 
-What was achieved, future developments, commercialization plans
+Our future plans
+
+    Add some more features:- 
+	    A display to play videos 
+	    A method to play different songs
+	    Add a musical toy
+	    A display such that both parent and baby can see each other
+
+    Introduce our product to different market segments:-
+	    Hospitals
+	    Day care center
+
 
 ## Links
 
