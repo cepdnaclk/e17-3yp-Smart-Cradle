@@ -31,24 +31,18 @@ title: Smart Cradle
 
 ## Introduction
 
-
-This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/)
-
-![Sample Image](./images/sample.png)
-
 Solutions
-Smart Cradle System using IOT.
 
-It helps to the parent to monitor their child even if they are away from home and detect every activity of the baby from any distant corner of the world.
-
-Design a smart cradle with automatic swing(using cry detection),switch on fan automatically (using environment temperature)
+1.)Smart Cradle System using IOT.
+2.)It helps to the parent to monitor their child even if they are away from home and detect every activity of the baby from any distant corner of the world.
+3.)switch on fan automatically (using environment temperature), play some music,
+send message to parent (using cry detection)
 
 Motivation
-Decrease the gap between parent and baby
 
-To keep an eye on the baby while working , in a secure and safe manner.
-
-To balance professional life and their babies life 
+1.)Decrease the gap between parent and baby
+2.)To keep an eye on the baby while working , in a secure and safe manner.
+3.)To balance professional life and their babies life 
 
 
 ## Solution Architecture
