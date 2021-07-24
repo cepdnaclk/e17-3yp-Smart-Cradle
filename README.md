@@ -1,8 +1,6 @@
 
 [//]: # (Please refer the instructions in below URL for the configurations)
 [//]: # (https://projects.ce.pdn.ac.lk/docs/how-to-add-a-project)
-# 3rd Year Project
-![image](https://user-images.githubusercontent.com/85993992/126452282-2769430d-f711-4deb-b29e-8311c9d0838d.png)
 
 # Smart Cradle
 
