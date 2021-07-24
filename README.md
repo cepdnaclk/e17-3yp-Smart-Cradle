@@ -7,12 +7,13 @@
 # Smart Cradle
 
 ## An automated cradle which is controlled by a mobile application
-Available Features:
-  1.Swing the cradle
-  2.Cry detection
-  3.Play songs
-  4.Check the environment temperature 
-  5.Switch on a fan
+* Available Features:
+<p>&nbsp;</p>
+1. Swing the cradle
+2. Cry detection
+3. Play songs
+4. Check the environment temperature 
+5. Switch on a fan
 
 
 
