@@ -1,57 +1,43 @@
-___
 
-___
+[//]: # (Please refer the instructions in below URL for the configurations)
+[//]: # (https://projects.ce.pdn.ac.lk/docs/how-to-add-a-project)
+# 3rd Year Project
+![image](https://user-images.githubusercontent.com/85993992/126452282-2769430d-f711-4deb-b29e-8311c9d0838d.png)
 
-# eYY-3yp-project-template
+# Smart Cradle
 
-This is a sample repository you can use for your Embedded Systems project. Once you followed these instructions, remove the text and add a brief introduction to here.
+## An automated cradle which is controlled by a mobile application
+Available Features:
+  1.Swing the cradle
+  2.Cry detection
+  3.Play songs
+  4.Check the environment temperature 
+  5.Switch on a fan
 
-### Enable GitHub Pages
 
-You can put the things to be shown in GitHub pages into the _docs/_ folder. Both html and md file formats are supported. You need to go to settings and enable GitHub pages and select _main_ branch and _docs_ folder from the dropdowns, as shown in the below image.
 
-![image](https://user-images.githubusercontent.com/11540782/98789936-028d3600-2429-11eb-84be-aaba665fdc75.png)
+## Team Members
+1. E/17/040 Chandrasena M.M.D [[e17040@eng.pdn.ac.lk](mailto:e17040@eng.pdn.ac.lk)]
+2. E/17/356 Upekha H.P.S [[e17356@eng.pdn.ac.lk](mailto:e17356@eng.pdn.ac.lk)]
+3. E/17/407 Wijesooriya H.D [[e17407@eng.pdn.ac.lk](mailto:e17407@eng.pdn.ac.lk)]
 
-### Special Configurations
+<!--
+## Supervisors
+1. Supervisor1 [[Website](http://www.ce.pdn.ac.lk/academic-staff/), [Email](mailto:lecturer@ce.pdn.ac.lk)]
+2. Supervisor2 [[Website](http://www.ce.pdn.ac.lk/academic-staff/), [Email](mailto:lecturer@ce.pdn.ac.lk)]    -->
 
-These projects will be automatically added into [https://projects.ce.pdn.ac.lk](). If you like to show more details about your project on this site, you can fill the parameters in the file, _/docs/index.json_
 
-```
-{
-  "title": "Smart Cradle",
-  "team": [
-    {
-      "name": "Madush Chandrasena",
-      "email": "e17040@eng.pdn.ac.lk",
-      "eNumber": "E/17/040"
-    },
-    {
-      "name": "Shashini Upekha",
-      "email": "e17356@eng.pdn.ac.lk",
-      "eNumber": "E/17/356"
-    },
-    {
-      "name": "Hasara Wijesooriya",
-      "email": "e17407@eng.pdn.ac.lk",
-      "eNumber": "E/17/407"
-    }
-  ],
-  "supervisors": [
-    {
-      "name": "Dr. Isuru Nawinne",
-      "email": "isurun@eng.pdn.ac.lk"
-    },
-    {
-      "name": "Dr. Mahanama Wickramasinghe",
-      "email": "mahanamaw@eng.pdn.ac.lk"
-    }
-  ],
-  "tags": ["Web", "Embedded Systems"]
-}
-```
+## Links
 
-Once you filled this _index.json_ file, please verify the syntax is correct. (You can use [this](https://jsonlint.com/) tool).
 
-### Page Theme
+1. [Project page]( https://cepdnaclk.github.io/e17-3yp-Smart-Cradle/)
+2. [Github repo](https://github.com/cepdnaclk/e17-3yp-Smart-Cradle)
+3. [Department of computer engineering](http://ce.pdn.ac.lk)
 
-A custom theme integrated with this GitHub Page, which is based on [github.com/cepdnaclk/eYY-project-theme](https://github.com/cepdnaclk/eYY-project-theme). If you like to remove this default theme, you can remove the file, _docs/\_config.yml_ and use HTML based website.
+<!--
+## Publications
+1. [Semester 7 report](https://cepdnaclk.github.io/e15-4yp-minimal-template)
+2. [Semester 7 sldies](https://cepdnaclk.github.io/e15-4yp-minimal-template)
+3. [Semester 8 report](https://cepdnaclk.github.io/e15-4yp-minimal-template)
+4. [Semester 8 slides](https://cepdnaclk.github.io/e15-4yp-minimal-template)
+5. Author1, Author2 and Author2 "Research paper title" in Conference name 2021. [Download PDF ](https://cepdnaclk.github.io/e15-4yp-minimal-template)     -->
