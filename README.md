@@ -11,6 +11,7 @@
   3. Play songs
   4. Check the environment temperature 
   5. Switch on a fan
+  6. Monitor the baby
 
 
 
