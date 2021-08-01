@@ -31,7 +31,7 @@
 
 1. [Project page]( https://cepdnaclk.github.io/e17-3yp-Smart-Cradle/)
 2. [Github repo](https://github.com/cepdnaclk/e17-3yp-Smart-Cradle)
-3. [Department of computer engineering](http://ce.pdn.ac.lk)
+3. [Department of computer engineering](http://www.ce.pdn.ac.lk/)
 
 <!--
 ## Publications
