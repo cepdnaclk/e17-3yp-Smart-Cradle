@@ -74,7 +74,7 @@ class SignupPage extends StatelessWidget {
                   minWidth: double.infinity,
                   height: 60,
                   onPressed: () {},
-                  color: Color(0xff0095FF),
+                  color: Color(0xff0095FF), //add colour
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
@@ -148,12 +148,12 @@ Widget inputFile({label, obscureText = false})
                 horizontal: 10),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: Color(0xFFBDBDBD)
+                  color: Color(0xFFBDBDBD) //add colour
               ),
 
             ),
             border: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFBDBDBD))
+                borderSide: BorderSide(color: Color(0xFFBDBDBD)) 
             )
         ),
       ),

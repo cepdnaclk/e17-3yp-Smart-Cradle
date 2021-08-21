@@ -109,7 +109,7 @@ class LoginPage extends StatelessWidget {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/background.png"),
+                      image: AssetImage("assets/images/background.png"), // add an image to the background 
                       fit: BoxFit.fitHeight
                     ),
 
@@ -152,7 +152,7 @@ Widget inputFile({label, obscureText = false})
           horizontal: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xFFBDBDBD)
+              color: Color(0xFFBDBDBD)  // add colour
             ),
 
           ),
