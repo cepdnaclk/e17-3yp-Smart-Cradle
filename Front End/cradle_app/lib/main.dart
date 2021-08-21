@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:cradle/login.dart';
-import 'package:cradle/signup.dart';
+import 'package:cradle_app/login.dart';
+import 'package:cradle_app/signup.dart';
 
 void main() {
   runApp(MaterialApp(
