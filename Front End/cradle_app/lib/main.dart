@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/welcome.png") //add  an image to welcome page
+                    image: AssetImage("assets/images/home.jpg") //add  an image to welcome page
                   )
                 ),
               ),
