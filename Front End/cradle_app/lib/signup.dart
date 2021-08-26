@@ -87,7 +87,7 @@ class SignupPage extends StatelessWidget {
 
                   ),
                   child: Text(
-                    "Sign up", style: TextStyle(
+                    "Submit", style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                     color: Colors.white,
@@ -138,14 +138,14 @@ Widget inputFile({label, obscureText = false})
       Text(
         label,
         style: TextStyle(
-            fontSize: 15,
+            fontSize: 13,
             fontWeight: FontWeight.w400,
             color:Colors.black87
         ),
 
       ),
       SizedBox(
-        height: 5,
+        height: 3,
       ),
       TextField(
         obscureText: obscureText,

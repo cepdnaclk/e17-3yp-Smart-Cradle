@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
                     child: Text(
                       "Login",
                       style: TextStyle(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         fontSize: 18
                       ),
                     ),
@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
                       "Sign up",
                       style: TextStyle(
                         color: Colors.white,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         fontSize: 18
                       ),
                     ),
