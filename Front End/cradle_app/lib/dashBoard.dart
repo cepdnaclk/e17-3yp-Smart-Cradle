@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cradle_app/music.dart';
+import 'package:cradle_app/temperature.dart';
+
 
 class DashBoardPage extends StatelessWidget {
   @override
@@ -173,7 +175,10 @@ class DashBoardPage extends StatelessWidget {
             iconSize: 80,
             color: Colors.red,
             icon: Icon(Icons.thermostat),
-            onPressed: () => print('Check the temperature'),
+            onPressed: () {
+
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Temp()));
+                        },
           ),
         
           IconButton(
