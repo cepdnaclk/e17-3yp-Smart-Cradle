@@ -47,7 +47,7 @@ class DashBoardPage extends StatelessWidget {
                 ),
                
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100),
+                  padding: EdgeInsets.symmetric(horizontal: 200),
                   child: Row(
                     children:<Widget>[
 
@@ -79,7 +79,7 @@ class DashBoardPage extends StatelessWidget {
              
                   
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100),
+                  padding: EdgeInsets.symmetric(horizontal: 200),
                   child: Row(
                     children:<Widget>[
 
@@ -107,7 +107,7 @@ class DashBoardPage extends StatelessWidget {
                 ),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 150),
+                  padding: EdgeInsets.symmetric(horizontal: 250),
                   child: Row(
                     children:<Widget>[
 
