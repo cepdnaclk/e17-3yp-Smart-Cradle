@@ -44,7 +44,7 @@ class Temp extends StatelessWidget {
                   ],
                 ),
                Container(
-                height: MediaQuery.of(context).size.height / 2,
+                height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/temp.jpeg") //add  an image 
