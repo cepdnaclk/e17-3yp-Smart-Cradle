@@ -44,7 +44,7 @@ class MusicPage extends StatelessWidget {
                   ],
                 ),
                Container(
-                height: MediaQuery.of(context).size.height / 2,
+                height: MediaQuery.of(context).size.height / 5,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/music.jpeg") //add  an image to welcome page
