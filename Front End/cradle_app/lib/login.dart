@@ -110,17 +110,30 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
 ///////////////
-                Container(
-                  padding: EdgeInsets.only(top: 100),
-                  height: 200,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/key.jpg"), // add an image to the background 
-                      fit: BoxFit.fitHeight
-                    ),
+                  
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 150),
+                  child: Row(
+                    children:<Widget>[
 
+                       IconButton(
+                        iconSize: 80,
+                        
+                        color: Colors.blue,
+                        icon: Icon(Icons.lock),
+                        onPressed: () => print('Switch on the fan'),
+        
+                       ),
+        
+                      
+                     
+                    ],
                   ),
-                )
+                
+
+                
+                ),
+                
 /////
               ],
             ))
