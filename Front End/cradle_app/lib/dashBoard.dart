@@ -57,7 +57,7 @@ class DashBoardPage extends StatelessWidget {
          
                       IconButton(
                         iconSize: 80,
-                        color: Colors.yellowAccent[700],
+                        color: Colors.blue,
                         icon: Icon(Icons.music_note),
                         onPressed: () => print('Play Music'),
                       ),
