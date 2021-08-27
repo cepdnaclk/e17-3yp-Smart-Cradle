@@ -47,7 +47,7 @@ class MusicPage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 5,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/music.jpeg") //add  an image to welcome page
+                    image: AssetImage("assets/images/music.jpeg") //add  an image to music page
                   )
                 ),
               ),
@@ -76,7 +76,7 @@ class MusicPage extends StatelessWidget {
              
                   
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100),
+                  padding: EdgeInsets.symmetric(horizontal: 80), //shashini -100
                   child: Row(
                     children:<Widget>[
 
