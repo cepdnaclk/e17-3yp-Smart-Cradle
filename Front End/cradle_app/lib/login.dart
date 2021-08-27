@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:cradle_app/dashBoard.dart';
+import 'package:cradle_app/otp.dart';
+
 
 class LoginPage extends StatelessWidget {
   @override
@@ -76,7 +77,7 @@ class LoginPage extends StatelessWidget {
                         height: 60,
                         onPressed: () {
 
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Otp()));
                         },
                         color: Colors.purple[700],
                         elevation: 0,
