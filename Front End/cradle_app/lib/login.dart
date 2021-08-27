@@ -104,19 +104,19 @@ class LoginPage extends StatelessWidget {
                     ),)
                   ],
                 ),
-
-             /*   Container(
+///////////////
+                Container(
                   padding: EdgeInsets.only(top: 100),
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/background.png"), // add an image to the background 
+                      image: AssetImage("assets/images/login.jpg"), // add an image to the background 
                       fit: BoxFit.fitHeight
                     ),
 
                   ),
-                )*/
-
+                )
+/////
               ],
             ))
           ],
