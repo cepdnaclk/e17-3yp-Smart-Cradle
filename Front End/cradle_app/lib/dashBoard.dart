@@ -95,7 +95,9 @@ class DashBoardPage extends StatelessWidget {
                         iconSize: 80,
                         color: Colors.red[900],
                         icon: Icon(Icons.thermostat),
-                        onPressed: () => print('Check the temperature'),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Temp()));
+                        },
                       ),
                       
                      
