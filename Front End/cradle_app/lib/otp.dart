@@ -46,7 +46,7 @@ class Otp extends StatelessWidget {
                 ),
 
                   Container(
-                height: MediaQuery.of(context).size.height / 2,
+                height: MediaQuery.of(context).size.height / 5,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/otp.jpeg") //add  an image to welcome page
