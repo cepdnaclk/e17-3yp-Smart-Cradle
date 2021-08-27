@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                     "Smart Cradle",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 40,
 
                     ),
                     
@@ -46,8 +46,9 @@ class HomePage extends StatelessWidget {
                   Text("Because you and baby deserve care! ",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.grey[700],
-                    fontSize: 15,
+                    color: Colors.deepPurple[900],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
 
                   ),)
                 ],
