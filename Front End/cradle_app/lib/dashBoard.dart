@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:cradle_app/music.dart';
 
 class DashBoardPage extends StatelessWidget {
   @override
@@ -59,7 +60,11 @@ class DashBoardPage extends StatelessWidget {
                         iconSize: 80,
                         color: Colors.blue,
                         icon: Icon(Icons.music_note),
-                        onPressed: () => print('Play Music'),
+                        
+                        onPressed: () {
+
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> MusicPage()));
+                        },
                       ),
                       
                      
