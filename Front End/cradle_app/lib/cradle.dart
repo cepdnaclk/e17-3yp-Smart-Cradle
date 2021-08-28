@@ -85,7 +85,7 @@ class Swing extends StatelessWidget {
                        IconButton(
                         iconSize: 100,
                         color: Colors.green[900],
-                        icon: Icon(FontAwesomeIcons.toggleOn),
+                        icon: Icon(FontAwesomeIcons.powerOff),
                         onPressed: () => print('play music'),
         
                        ),
@@ -93,7 +93,7 @@ class Swing extends StatelessWidget {
                        IconButton(
                         iconSize: 100,
                         color: Colors.red[900],
-                        icon: Icon(FontAwesomeIcons.toggleOff),
+                        icon: Icon(FontAwesomeIcons.powerOff),
                         onPressed: () => print('off music'),
                       ),
                       

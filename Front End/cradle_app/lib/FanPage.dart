@@ -85,7 +85,7 @@ class FanPage extends StatelessWidget {
                        IconButton(
                         iconSize: 75,
                         color: Colors.green[900],
-                        icon: Icon(FontAwesomeIcons.toggleOn),
+                        icon: Icon(FontAwesomeIcons.powerOff),
                         onPressed: () => print('On Fan'),
         
                        ),
@@ -93,7 +93,7 @@ class FanPage extends StatelessWidget {
                        IconButton(
                         iconSize: 75,
                         color: Colors.red[900],
-                        icon: Icon(FontAwesomeIcons.toggleOff),
+                        icon: Icon(FontAwesomeIcons.powerOff),
                         onPressed: () => print('Off Fan'),
                       ),
                       
