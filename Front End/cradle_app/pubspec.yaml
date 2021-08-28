@@ -54,6 +54,9 @@ flutter:
     - assets/images/otp.jpeg
     - assets/images/temp.jpeg
     - assets/images/fan.jpeg
+    - assets/images/swing.PNG
+    
+
    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
