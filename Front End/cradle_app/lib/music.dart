@@ -34,13 +34,13 @@ class MusicPage extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     Text("Music",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.indigo[700]),),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.blue),),
                     SizedBox(height: 20,),
                     
                     Text("Play some music to soothe your baby...",
                     style: TextStyle(
                       fontSize: 20,
-                    color:Colors.indigo[700]),)
+                    color:Colors.blue),)
                   ],
                 ),
                Container(

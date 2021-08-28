@@ -34,17 +34,17 @@ class Swing extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     Text("Swing The Cradle",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.indigo[700]),),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.green[700]),),
                     SizedBox(height: 20,),
                     
                     Text("Swing the cradle to soothe your baby...",
                     style: TextStyle(
                       fontSize: 20,
-                    color:Colors.indigo[700]),)
+                    color:Colors.green[700]),)
                   ],
                 ),
                Container(
-                height: MediaQuery.of(context).size.height / 5,
+                height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/home.jpg") //add  an image to music page

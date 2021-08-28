@@ -33,11 +33,14 @@ class vedioPage extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
+                    Text("Monitor Your baby",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.indigo[900]),),
+                    SizedBox(height: 30,),
                     
-                    Text("Monitor your baby...",
+                    Text("Loading...",
                     style: TextStyle(
                       fontSize: 20,
-                    color:Colors.indigo[700]),)
+                    color:Colors.indigo[900]),)
                   ],
                 ),
                
@@ -65,34 +68,7 @@ class vedioPage extends StatelessWidget {
                 ),
              
                   
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 80), //shashini -100
-                  child: Row(
-                    children:<Widget>[
-
-                       IconButton(
-                        iconSize: 100,
-                        color: Colors.green[900],
-                        icon: Icon(Icons.play_circle),
-                        onPressed: () => print('play music'),
-        
-                       ),
-        
-                       IconButton(
-                        iconSize: 100,
-                        color: Colors.red[900],
-                        icon: Icon(Icons.stop),
-                        onPressed: () => print('off music'),
-                      ),
-                      
-                     
-                    ],
-                  ),
-                
-
-                
-                ),
-
+              
                
 
 

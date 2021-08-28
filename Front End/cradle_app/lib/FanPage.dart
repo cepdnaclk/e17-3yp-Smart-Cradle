@@ -34,17 +34,17 @@ class FanPage extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     Text("Fan",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.indigo[700]),),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.orange[700]),),
                     SizedBox(height: 20,),
                     
                     Text("Turn on fan to soothe your baby...",
                     style: TextStyle(
                       fontSize: 20,
-                    color:Colors.indigo[700]),)
+                    color:Colors.orange[700]),)
                   ],
                 ),
                Container(
-                height: MediaQuery.of(context).size.height / 5,
+                height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/fan.jpeg") //add  an image to fan page
