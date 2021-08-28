@@ -49,7 +49,7 @@ class Swing extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/home.jpg") //add  an image to music page
+                    image: AssetImage("assets/images/swing.PNG") //add  an image to music page
                   )
                 ),
               ),
