@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:cradle_app/music.dart';
-import 'package:cradle_app/temperature.dart';
-import 'package:cradle_app/FanPage.dart';
-import 'package:cradle_app/cradle.dart';
-import 'package:cradle_app/vedio.dart';
 
-class DashBoardPage extends StatelessWidget {
+
+class vedioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,42 +33,29 @@ class DashBoardPage extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Dashboard",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-                    SizedBox(height: 20,),
-                    Text("welcome to the dashboard",
+                    
+                    Text("Monitor your baby...",
                     style: TextStyle(
-                      fontSize: 15,
-                    color:Colors.grey[700]),)
+                      fontSize: 20,
+                    color:Colors.indigo[700]),)
                   ],
                 ),
                
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100),   //shashini-200
+                  padding: EdgeInsets.symmetric(horizontal: 100),
                   child: Row(
                     children:<Widget>[
 
-                       IconButton(
-                        iconSize: 80,
-                        color: Colors.indigo[900],
-                        icon: Icon(Icons.videocam),
-                        onPressed: () {
-
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> vedioPage())); //vediocam
-                        },
-                       ),
-         
-                      IconButton(
-                        iconSize: 80,
-                        color: Colors.blue,
-                        icon: Icon(Icons.music_note),
-                        
-                        onPressed: () {
-
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> MusicPage()));
-                        },
-                      ),
-                      
+                /*
+                Container(
+                height: MediaQuery.of(context).size.height / 3,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/home.jpg") //add  an image to welcome page
+                  )
+                ),
+              ),
+                     */ 
                      
                     ],
                   ),
@@ -84,28 +66,23 @@ class DashBoardPage extends StatelessWidget {
              
                   
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100), //shashini -200
+                  padding: EdgeInsets.symmetric(horizontal: 80), //shashini -100
                   child: Row(
                     children:<Widget>[
 
                        IconButton(
-                        iconSize: 80,
+                        iconSize: 100,
                         color: Colors.green[900],
-                        icon: Icon(Icons.crib),
-                         onPressed: () {
-
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Swing())); // cradle
-                        },
+                        icon: Icon(Icons.play_circle),
+                        onPressed: () => print('play music'),
         
                        ),
         
                        IconButton(
-                        iconSize: 80,
+                        iconSize: 100,
                         color: Colors.red[900],
-                        icon: Icon(Icons.thermostat),
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Temp()));
-                        },
+                        icon: Icon(Icons.stop),
+                        onPressed: () => print('off music'),
                       ),
                       
                      
@@ -116,31 +93,7 @@ class DashBoardPage extends StatelessWidget {
                 
                 ),
 
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 130), //shashini -250
-                  child: Row(
-                    children:<Widget>[
-
-                       IconButton(
-                        iconSize: 80,
-                        
-                        color: Colors.deepOrange,
-                        icon: Icon(FontAwesomeIcons.fan),
-                         onPressed: () {
-
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> FanPage()));  //fan
-                        },
-        
-                       ),
-        
-                      
-                     
-                    ],
-                  ),
-                
-
-                
-                ),
+               
 
 
 
@@ -188,10 +141,7 @@ class DashBoardPage extends StatelessWidget {
             iconSize: 80,
             color: Colors.red,
             icon: Icon(Icons.thermostat),
-            onPressed: () {
-
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Temp()));
-                        },
+            onPressed: () => print('Check the temperature'),
           ),
         
           IconButton(
