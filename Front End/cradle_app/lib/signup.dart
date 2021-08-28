@@ -61,7 +61,7 @@ class SignupPage extends StatelessWidget {
                 ],
               ),
               Container(
-                padding: EdgeInsets.only(top: 3, left: 3),
+                padding: EdgeInsets.only(top: 0, left: 0), //3,3,s
                 decoration:
                 BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
