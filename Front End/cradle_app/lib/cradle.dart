@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class Swing extends StatelessWidget {
   @override
@@ -83,7 +85,7 @@ class Swing extends StatelessWidget {
                        IconButton(
                         iconSize: 100,
                         color: Colors.green[900],
-                        icon: Icon(Icons.play_circle),
+                        icon: Icon(FontAwesomeIcons.toggleOn),
                         onPressed: () => print('play music'),
         
                        ),
@@ -91,7 +93,7 @@ class Swing extends StatelessWidget {
                        IconButton(
                         iconSize: 100,
                         color: Colors.red[900],
-                        icon: Icon(Icons.stop),
+                        icon: Icon(FontAwesomeIcons.toggleOff),
                         onPressed: () => print('off music'),
                       ),
                       
