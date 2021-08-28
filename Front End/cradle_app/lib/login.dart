@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
                   Padding(padding:
                   EdgeInsets.symmetric(horizontal: 40),
                   child: Container(
-                      padding: EdgeInsets.only(top: 3, left: 3),
+                      padding: EdgeInsets.only(top: 0, left: 0),  //3,3
                       decoration:
                         BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
@@ -87,7 +87,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         child: Text(
                           "Login", style: TextStyle(
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.bold, //bold
                           fontSize: 18,
                           color: Colors.white,
 
