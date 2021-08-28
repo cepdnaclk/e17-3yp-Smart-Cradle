@@ -88,7 +88,7 @@ class SignupPage extends StatelessWidget {
                   ),
                   child: Text(
                     "Submit", style: TextStyle(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.bold, //bold
                     fontSize: 18,
                     color: Colors.white,
 
