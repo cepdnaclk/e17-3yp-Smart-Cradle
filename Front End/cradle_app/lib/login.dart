@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
                   Padding(padding:
                   EdgeInsets.symmetric(horizontal: 40),
                   child: Container(
-                      padding: EdgeInsets.only(top: 0, left: 0),  //3,3
+                      padding: EdgeInsets.only(top: 0, left: 0), //3
                       decoration:
                         BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
@@ -87,7 +87,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         child: Text(
                           "Login", style: TextStyle(
-                          fontWeight: FontWeight.bold, //bold
+                          fontWeight: FontWeight.w600,
                           fontSize: 18,
                           color: Colors.white,
 
@@ -113,7 +113,7 @@ class LoginPage extends StatelessWidget {
 ///////////////
                   
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 250),
+                  padding: EdgeInsets.symmetric(horizontal: 110), //250
                   child: Row(
                     children:<Widget>[
 
@@ -157,7 +157,7 @@ Widget inputFile({label, obscureText = false})
         label,
         style: TextStyle(
           fontSize: 15,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.bold,
           color:Colors.black87
         ),
 
@@ -181,7 +181,7 @@ Widget inputFile({label, obscureText = false})
           )
         ),
       ),
-      SizedBox(height: 10,)
+      SizedBox(height: 5,)
     ],
   );
 }

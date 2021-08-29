@@ -61,7 +61,7 @@ class SignupPage extends StatelessWidget {
                 ],
               ),
               Container(
-                padding: EdgeInsets.only(top: 0, left: 0), //3,3,s
+                padding: EdgeInsets.only(top: 0, left: 0),
                 decoration:
                 BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
@@ -88,7 +88,7 @@ class SignupPage extends StatelessWidget {
                   ),
                   child: Text(
                     "Submit", style: TextStyle(
-                    fontWeight: FontWeight.bold, //bold
+                    fontWeight: FontWeight.w600,
                     fontSize: 18,
                     color: Colors.white,
 
@@ -138,20 +138,20 @@ Widget inputFile({label, obscureText = false})
       Text(
         label,
         style: TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.w400,
+            fontSize: 10, //20
+            fontWeight: FontWeight.bold,  //bold
             color:Colors.black87
         ),
 
       ),
       SizedBox(
-        height: 3,
+        height: 0.5, //3
       ),
       TextField(
         obscureText: obscureText,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0,
-                horizontal: 10),
+                horizontal: 7), //10 emu
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                   color: Color(0xFFBDBDBD) //add colour
@@ -163,7 +163,7 @@ Widget inputFile({label, obscureText = false})
             )
         ),
       ),
-      SizedBox(height: 10,)
+      SizedBox(height: 0.3,) //10
     ],
   );
 }

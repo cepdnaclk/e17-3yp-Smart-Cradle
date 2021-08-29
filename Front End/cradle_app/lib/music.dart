@@ -76,7 +76,7 @@ class MusicPage extends StatelessWidget {
              
                   
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 80), //shashini -100
+                  padding: EdgeInsets.symmetric(horizontal: 60), //shashini -100 //emu-80
                   child: Row(
                     children:<Widget>[
 

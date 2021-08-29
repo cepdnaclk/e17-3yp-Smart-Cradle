@@ -46,7 +46,7 @@ class Swing extends StatelessWidget {
                   ],
                 ),
                Container(
-                height: MediaQuery.of(context).size.height / 3,
+                height: MediaQuery.of(context).size.height / 4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/swing.PNG") //add  an image to music page
@@ -78,12 +78,12 @@ class Swing extends StatelessWidget {
              
                   
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 80), //shashini -100
+                  padding: EdgeInsets.symmetric(horizontal: 90), //shashini -100 //emu-80
                   child: Row(
                     children:<Widget>[
 
                        IconButton(
-                        iconSize: 100,
+                        iconSize: 60, //100
                         color: Colors.green[900],
                         icon: Icon(FontAwesomeIcons.powerOff),
                         onPressed: () => print('play music'),
@@ -91,7 +91,7 @@ class Swing extends StatelessWidget {
                        ),
         
                        IconButton(
-                        iconSize: 100,
+                        iconSize: 60,
                         color: Colors.red[900],
                         icon: Icon(FontAwesomeIcons.powerOff),
                         onPressed: () => print('off music'),
