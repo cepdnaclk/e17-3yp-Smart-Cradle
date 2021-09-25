@@ -21,5 +21,3 @@ primary key(user_name,password),
 foreign key (device_id) references DEVICE(device_id)
 
 );
-
-
