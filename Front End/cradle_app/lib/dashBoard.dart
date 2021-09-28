@@ -5,6 +5,7 @@ import 'package:cradle_app/temperature.dart';
 import 'package:cradle_app/FanPage.dart';
 import 'package:cradle_app/cradle.dart';
 import 'package:cradle_app/vedio.dart';
+import 'package:cradle_app/record.dart';
 
 class DashBoardPage extends StatelessWidget {
   @override
@@ -398,7 +399,7 @@ class DashBoardPage extends StatelessWidget {
                     
                    
                     SizedBox(
-                      width:110.0,
+                      width:130.0,
                       height: 116.0,
                     
                       child: Card(
@@ -456,6 +457,65 @@ class DashBoardPage extends StatelessWidget {
                       ),
                     ),
                  
+                                    
+                    SizedBox(
+                      width:110.0,
+                      height: 116.0,
+                    
+                      child: Card(
+                        color: Colors.purple[100],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)
+                            
+                        ),
+                        child:Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(0.0),
+                              child: Column(
+                                children: <Widget>[
+                                  //Image.asset("assets/settings.png",width: 64.0,),
+                                IconButton(
+                        iconSize: 80,
+                        
+                        color: Colors.brown[900],
+                        icon:  Icon(Icons.mic),
+                         onPressed: () {
+
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> RecordPage()));  //fan
+                        },
+        
+                       ),
+                                  SizedBox(
+                                    height: 0.0,
+                                  ),
+                                  Text(
+                                    "Record",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 10.0
+                                    ),
+                                  ),
+                                 /*
+                                 
+                                  SizedBox(
+                                    height: 5.0,
+                                  ),
+                                  Text(
+                                    "6 Items",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w100
+                                    ),
+                                  )
+                                */
+                                ],
+                              ),
+                            )
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
