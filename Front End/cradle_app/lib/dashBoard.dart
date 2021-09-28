@@ -208,7 +208,7 @@ class DashBoardPage extends StatelessWidget {
                                 height: 0.0,
                               ),
                               Text(
-                                "Video",
+                                "Monitor",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -490,7 +490,7 @@ class DashBoardPage extends StatelessWidget {
                                     height: 0.0,
                                   ),
                                   Text(
-                                    "Record",
+                                    "Voice Message",
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold,
