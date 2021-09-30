@@ -1,11 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 import 'package:cradle_app/otp.dart';
 
+class LoginPageNew extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
 
-class LoginPage extends StatelessWidget {
+class _LoginPageState extends State<LoginPageNew> {
+
+  GlobalKey <FormState> formkey = GlobalKey <FormState>();
+
+  void validate(){
+
+    if(formkey.currentState!.validate()){
+      print("Not valid");
+    }else{
+      print("Valid");
+    }
+
+  }
+
+  String validatePassword(value){
+
+    if(value.isEmpty){
+      return "required *";
+    }else if (value.length < 6 ){ 
+      return "should be atleast 6 characters";
+    }else if (value.length >15){
+      return "should not be more than 15 characters";
+    }else{
+      return " ";
+    }
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -24,17 +58,19 @@ class LoginPage extends StatelessWidget {
 
         ),
       ),
+
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
+          children: <Widget>  [
             Expanded(child: Column(
+
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Column(
-                  children: <Widget>[
+                    children: <Widget>[
                     Text("Login",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
                     SizedBox(height: 20,),
@@ -44,18 +80,60 @@ class LoginPage extends StatelessWidget {
                     color:Colors.grey[700]),)
                   ],
                 ),
+            
+
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40),
-                  child: Column(
-                    children: <Widget>[
-                     inputFile(label: "Username"),
-                     inputFile(label: "Password", obscureText: true),
-                     inputFile(label: "Device ID")
-                    ],
+                  padding: EdgeInsets.all(
+                    15.0
+                    
                   ),
-                ),
-                  Padding(padding:
-                  EdgeInsets.symmetric(horizontal: 40),
+
+                  child: Center(
+                    child:Form (
+                      // ignore: deprecated_member_use
+                      autovalidate: true,
+                      key: formkey,
+                      child: Column(
+                        children: <Widget>[
+                          
+                          TextFormField(
+                            decoration: InputDecoration(
+                              //fillColor: Colors.purple,
+                              
+                              border: OutlineInputBorder(),labelText: "Username"),
+                              
+                              validator: MultiValidator(
+                                [
+                                  RequiredValidator(errorText: "required *"),
+
+                                ]
+                              ),
+
+                            
+                          ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top:15.0
+                  ),
+
+                  child: Center(
+                    child:Form (
+                  
+                      child: Column(
+                        children: <Widget>[
+
+                          TextFormField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+
+                              border: OutlineInputBorder(),labelText: "Password"),
+
+                              validator: validatePassword
+                          ),
+
+                        
+                Padding(padding:
+                  EdgeInsets.only(top: 30),
                   child: Container(
                       padding: EdgeInsets.only(top: 0, left: 0), //3
                       decoration:
@@ -110,7 +188,7 @@ class LoginPage extends StatelessWidget {
                     ),)
                   ],
                 ),
-///////////////
+
                   
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 110), //250
@@ -122,7 +200,7 @@ class LoginPage extends StatelessWidget {
                         
                         color: Colors.blue,
                         icon: Icon(Icons.lock),
-                        onPressed: () => print('Switch on the fan'),
+                        onPressed: validate,
         
                        ),
         
@@ -134,54 +212,56 @@ class LoginPage extends StatelessWidget {
 
                 
                 ),
-                
-/////
+                          
+                        ],
+                        ) ,
+                      
+                      )
+                     ),
+            
+
+                ),
+
+                          
+                        ],
+                        ) ,
+                      
+                      )
+                     ),
+            
+
+                ),
+            
+            
               ],
-            ))
+
+            )
+            )
+
           ],
+
+
+
+
+
+
+
+
+
+
         ),
+
+
+
+
+
       ),
+
+
     );
   }
-
+    
 }
 
-
-// we will be creating a widget for text field
-Widget inputFile({label, obscureText = false})
-{
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        label,
-        style: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-          color:Colors.black87
-        ),
-
-      ),
-      SizedBox(
-        height: 5,
-      ),
-      TextField(
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 0,
-          horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Color(0xFFBDBDBD)  // add colour
-            ),
-
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFBDBDBD))
-          )
-        ),
-      ),
-      SizedBox(height: 5,)
-    ],
-  );
-}
+  
+  
