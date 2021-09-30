@@ -54,7 +54,7 @@ class SignupPage extends StatelessWidget {
                   inputFile(label: "Password", obscureText: true),
                   inputFile(label: "Confirm Password ", obscureText: true),
 
-                  inputFile(label: "Address"),
+                  inputFile(label: "Email"),
                   inputFile(label: "Mobile Number"),
                   inputFile(label: "Device ID"),
 
