@@ -12,7 +12,7 @@ class _SignupPageState extends State<SignupPage> {
 
   String validatePassword(value){
     if(value.isEmpty){
-      return "Please enter  password";
+      return "Please Enter Password";
     }else if (value.length < 6 ){ 
       return "should be atleast 6 characters";
     }else if (value.length >15){
@@ -103,16 +103,15 @@ class _SignupPageState extends State<SignupPage> {
                     validator: (String value){
                       if(value.isEmpty)
                       {
-                        return 'Please enter phone no ';
-                      }
-                      
-                      if(!RegExp("^[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]").hasMatch(value)){
-                        return 'Please a valid Mobile number';
+                        return 'Please Enter Phone No ';
                       }
                       if(value.length!=10)
                       {
                         return 'should be 10 Digit number';
                       }
+                      if(!RegExp("^[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]").hasMatch(value)){
+                        return 'Please a valid Mobile number';
+                      }                      
                       return null;
                     },
                     onSaved: (String value){
@@ -129,7 +128,7 @@ class _SignupPageState extends State<SignupPage> {
                     validator: (String value){
                       if(value.isEmpty)
                       {
-                        return 'Please enter device id ';
+                        return 'Please Enter Device Id ';
                       }
                       return null;
                     },
@@ -159,7 +158,7 @@ class _SignupPageState extends State<SignupPage> {
                     validator: (String value){
                       if(value.isEmpty)
                       {
-                        return 'Please re-enter password';
+                        return 'Please re-enter Password';
                       }
                       if (value.length < 6 )
                       { 

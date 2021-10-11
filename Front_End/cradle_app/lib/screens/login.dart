@@ -12,11 +12,8 @@ class _LoginPageState extends State<LoginPage> {
   String validatePassword(value){
     if(value.isEmpty){
       return "required *";
-    }else if (value.length < 6 ){ 
-      return "should be atleast 6 characters";
-    }else if (value.length >15){
-      return "should not be more than 15 characters";
-    }else{
+    }
+    else{
       return null;
     }
   }
