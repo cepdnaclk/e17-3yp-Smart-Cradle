@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
-
+import 'package:cradle_app/screens/login.dart';
 class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
@@ -21,6 +21,16 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       //==
+      appBar: AppBar(
+        elevation: 0,
+        brightness: Brightness.light,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {Navigator.pop(context);},
+          icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),
+      ),
+      //==
       body: Center(
         child: SingleChildScrollView(
           child: Form(
@@ -162,6 +172,7 @@ class _SignupPageState extends State<SignupPage> {
                       if(_formkey.currentState.validate())
                       {
                         print("successful");
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
 
                         return;
                       }else{

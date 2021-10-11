@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
 import 'package:cradle_app/screens/otp.dart';
-
+import 'package:cradle_app/screens/signup.dart';
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  String validatePassword(value){
+    if(value.isEmpty){
+      return "required *";
+    }else if (value.length < 6 ){ 
+      return "should be atleast 6 characters";
+    }else if (value.length >15){
+      return "should not be more than 15 characters";
+    }else{
+      return null;
+    }
+  }
 
   String name;
 
@@ -20,6 +32,16 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //==
+      appBar: AppBar(
+        elevation: 0,
+        brightness: Brightness.light,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {Navigator.pop(context);},
+          icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),
+      ),
+      //==
       body: Center(
         child: SingleChildScrollView(
           child: Form(
@@ -54,7 +76,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 
-                
+                SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10,left: 10,right: 10),
                   child: TextFormField(
@@ -62,17 +86,12 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true,
                     keyboardType: TextInputType.text,
                     decoration:buildInputDecoration(Icons.lock,"Password"),
-                    validator: (String value){
-                      if(value.isEmpty)
-                      {
-                        return 'Please a Enter Password';
-                      }
-                      return null;
-                    },
-
+                    validator: validatePassword,
                   ),
                 ),
-                
+                SizedBox(
+                  height: 10,
+                ),
 
                 SizedBox(
                   width: 200,
@@ -99,7 +118,28 @@ class _LoginPageState extends State<LoginPage> {
                     textColor:Colors.white,child: Text("Login"),
 
                   ),
-                )
+                ),
+                //==
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Don't have an account?"),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0), //250
+                      child: Row(
+                        children:<Widget>[
+                          TextButton(
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupPage()));
+                            },
+                            child: Text("Sign up"),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                //==
               ],
             ),
           ),
