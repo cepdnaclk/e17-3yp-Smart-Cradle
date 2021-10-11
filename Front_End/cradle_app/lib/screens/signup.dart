@@ -10,6 +10,18 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
 
+  String validatePassword(value){
+    if(value.isEmpty){
+      return "Please enter  password";
+    }else if (value.length < 6 ){ 
+      return "should be atleast 6 characters";
+    }else if (value.length >15){
+      return "should not be more than 15 characters";
+    }else{
+      return null;
+    }
+  }
+
   String name,email,phone,device;
 
   //TextController to read text entered in text field
@@ -71,9 +83,9 @@ class _SignupPageState extends State<SignupPage> {
                     validator: (String value){
                       if(value.isEmpty)
                       {
-                        return 'Please a Enter';
+                        return 'Please Enter E-mail';
                       }
-                      if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                      if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]").hasMatch(value)){
                         return 'Please a valid Email';
                       }
                       return null;
@@ -92,6 +104,14 @@ class _SignupPageState extends State<SignupPage> {
                       if(value.isEmpty)
                       {
                         return 'Please enter phone no ';
+                      }
+                      
+                      if(!RegExp("^[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]").hasMatch(value)){
+                        return 'Please a valid Mobile number';
+                      }
+                      if(value.length!=10)
+                      {
+                        return 'should be 10 Digit number';
                       }
                       return null;
                     },
@@ -126,14 +146,7 @@ class _SignupPageState extends State<SignupPage> {
                     obscureText: true,
                     keyboardType: TextInputType.text,
                     decoration:buildInputDecoration(Icons.lock,"Password"),
-                    validator: (String value){
-                      if(value.isEmpty)
-                      {
-                        return 'Please a Enter Password';
-                      }
-                      return null;
-                    },
-
+                    validator: validatePassword,
                   ),
                 ),
                 Padding(
@@ -147,6 +160,14 @@ class _SignupPageState extends State<SignupPage> {
                       if(value.isEmpty)
                       {
                         return 'Please re-enter password';
+                      }
+                      if (value.length < 6 )
+                      { 
+                        return "should be atleast 6 characters";
+                      }
+                      if (value.length >15)
+                      {
+                      return "should not be more than 15 characters";
                       }
                       print(password.text);
 
