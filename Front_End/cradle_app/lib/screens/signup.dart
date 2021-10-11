@@ -86,7 +86,7 @@ class _SignupPageState extends State<SignupPage> {
                         return 'Please Enter E-mail';
                       }
                       if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]").hasMatch(value)){
-                        return 'Please a valid Email';
+                        return 'Please Enter Valid Email';
                       }
                       return null;
                     },
@@ -107,10 +107,10 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       if(value.length!=10)
                       {
-                        return 'should be 10 Digit number';
+                        return 'Should be a 10 Digit Number';
                       }
                       if(!RegExp("^[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]").hasMatch(value)){
-                        return 'Please a valid Mobile number';
+                        return 'Please Enter valid Mobile number';
                       }                      
                       return null;
                     },
@@ -162,11 +162,11 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       if (value.length < 6 )
                       { 
-                        return "should be atleast 6 characters";
+                        return "Should be atleast 6 characters";
                       }
                       if (value.length >15)
                       {
-                      return "should not be more than 15 characters";
+                      return "Should not be more than 15 characters";
                       }
                       print(password.text);
 
