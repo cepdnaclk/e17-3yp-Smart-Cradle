@@ -2,7 +2,7 @@ const{Router} = require('express');
 
 const router = Router();
 
-const mysqlConnection =require('../database/database');
+const mysqlConnection =require('../connection/connection');
 
 router.get('/',(req,res)=>{
 
