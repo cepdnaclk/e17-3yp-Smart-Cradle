@@ -33,7 +33,7 @@ foreign key (user_name) references USER(user_name)
 );
 
 
-show databases
+
 
 
 
