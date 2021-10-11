@@ -234,7 +234,7 @@ class DashBoardPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width:110.0,
+                      width:130.0,
                       height: 116.0,
                       child: Card(
 
@@ -343,7 +343,7 @@ class DashBoardPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width:110.0,
+                      width:130.0,
                       height: 116.0,
                       child: Card(
 
@@ -459,7 +459,7 @@ class DashBoardPage extends StatelessWidget {
                  
                                     
                     SizedBox(
-                      width:110.0,
+                      width:130.0,
                       height: 116.0,
                     
                       child: Card(
