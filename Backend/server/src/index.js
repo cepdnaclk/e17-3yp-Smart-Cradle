@@ -8,9 +8,9 @@ app.set('port',process.env.PORT || 8000);
 app.use(express.json());
 
 //routes
-//app.use(require('./routes/user'));
-app.use(require('./routes/device'));
-//app.use(require('./routes/addDevice'));
+//app.use(require('./test/user'));
+app.use(require('./test/device'));
+//app.use(require('./test/addDevice'));
 
 //startung the server
 app.listen(app.get('port'),()=>{
