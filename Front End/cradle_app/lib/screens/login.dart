@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
-import 'package:test/screens/otp.dart';
+import 'package:cradle_app/screens/otp.dart';
 
 class LoginPage extends StatefulWidget {
   @override

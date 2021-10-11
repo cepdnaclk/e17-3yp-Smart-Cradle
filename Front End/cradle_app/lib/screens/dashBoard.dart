@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:cradle_app/music.dart';
-import 'package:cradle_app/temperature.dart';
-import 'package:cradle_app/FanPage.dart';
-import 'package:cradle_app/cradle.dart';
-import 'package:cradle_app/vedio.dart';
-import 'package:cradle_app/record.dart';
+import 'package:cradle_app/screens/music.dart';
+import 'package:cradle_app/screens/temperature.dart';
+import 'package:cradle_app/screens/FanPage.dart';
+import 'package:cradle_app/screens/cradle.dart';
+import 'package:cradle_app/screens/vedio.dart';
+import 'package:cradle_app/screens/record.dart';
 
 class DashBoardPage extends StatelessWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:cradle_app/dashBoard.dart';
+import 'package:cradle_app/screens/dashBoard.dart';
 
 class Otp extends StatelessWidget {
   @override

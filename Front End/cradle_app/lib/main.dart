@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:cradle_app/screens/login.dart';
 import 'package:cradle_app/screens/signup.dart';
 
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -69,7 +70,7 @@ class HomePage extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 60,
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPageNew()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
 
                     },
                     // defining the shape
