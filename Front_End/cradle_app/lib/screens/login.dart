@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                       if(_formkey.currentState.validate())
                       {
                         print("successful");
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Otp()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> OTPPage()));
 
                        // return;
                       }else{
