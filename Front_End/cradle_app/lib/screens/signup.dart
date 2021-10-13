@@ -35,7 +35,7 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
        //==
       appBar: AppBar(
-        elevation: 0,
+        //elevation: 0,
         brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
@@ -203,7 +203,7 @@ class _SignupPageState extends State<SignupPage> {
                         borderRadius: BorderRadius.circular(50.0),
                         side: BorderSide(color: Colors.black,width:2)
                     ),
-                    textColor:Colors.white,child: Text("Submit"),
+                    textColor:Colors.white,child: Text("SIGN UP"),
 
                   ),
                 )

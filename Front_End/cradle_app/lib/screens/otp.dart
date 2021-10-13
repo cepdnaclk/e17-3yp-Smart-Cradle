@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
-import 'package:cradle_app/screens/dashBoard.dart';
+//import 'package:cradle_app/screens/dashBoard.dart';
+import 'package:cradle_app/screens/select-device.dart';
 class OTPPage extends StatefulWidget {
   @override
   _OTPPageState createState() => _OTPPageState();
@@ -34,7 +35,7 @@ class _OTPPageState extends State<OTPPage> {
     return Scaffold(
       //==
       appBar: AppBar(
-        elevation: 0,
+        //elevation: 0,
         brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
@@ -93,7 +94,7 @@ class _OTPPageState extends State<OTPPage> {
                       if(_formkey.currentState.validate())
                       {
                         print("successful");
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> MyHomePage()));
                         print(name);
 
                        // return;

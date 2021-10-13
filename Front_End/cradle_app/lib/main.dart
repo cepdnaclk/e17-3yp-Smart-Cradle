@@ -110,12 +110,8 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   )
-
                 ],
               )
-
-
-
             ],
           ),
         ),
