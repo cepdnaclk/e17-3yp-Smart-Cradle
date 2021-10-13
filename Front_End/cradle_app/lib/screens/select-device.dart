@@ -18,6 +18,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+    //==
+    void _showToast(BuildContext context) {
+      final scaffold = ScaffoldMessenger.of(context);
+      scaffold.showSnackBar(
+        SnackBar(
+          content: const Text('Wrong Input'),
+          //action: SnackBarAction(label: 'UNDO', onPressed: scaffold.hideCurrentSnackBar),
+        ),
+      );
+    }
+    //==
     bool _value = false;
     int val = -1;
     TextEditingController password = TextEditingController();
@@ -79,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius:90,
+                  radius:80,
                   child: Image.asset("assets/images/cradle.png"),
                 ),
                 ListTile(
@@ -145,18 +156,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: RaisedButton(
                     color: Colors.purple[700],
                     onPressed: (){
-                        //==
                         if(val!=(-1))
                       {
                         print("successful");
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
-
-                       // return;
                       }
                       else{
                         print("UnSuccessfull");
+                        _showToast(context);
+                        
                       }
-                        //==
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
@@ -178,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children:<Widget>[
                           TextButton(
                             onPressed: (){
-                              //Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupPage()));
+                              //Navigator.push(context, MaterialPageRoute(builder: (context)=> MyApp()));
                               print("Add device");
                             },
                             child: Text("CLICK HERE"),
