@@ -8,7 +8,7 @@ class Swing extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.purple[100],
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,

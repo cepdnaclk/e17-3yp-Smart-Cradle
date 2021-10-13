@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         //elevation: 0,
         brightness: Brightness.light,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {Navigator.pop(context);},
           icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),

@@ -18,17 +18,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-    //==
-    void _showToast(BuildContext context) {
-      final scaffold = ScaffoldMessenger.of(context);
-      scaffold.showSnackBar(
-        SnackBar(
-          content: const Text('Wrong Input'),
-          //action: SnackBarAction(label: 'UNDO', onPressed: scaffold.hideCurrentSnackBar),
-        ),
-      );
-    }
-    //==
     bool _value = false;
     int val = -1;
     TextEditingController password = TextEditingController();
@@ -42,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
             title: Text('Select Your Device'),
             brightness: Brightness.light,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.purple[100],
             leading: IconButton(
             onPressed: () {Navigator.pop(contex);},
             icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),
@@ -90,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius:80,
+                  radius:90,
                   child: Image.asset("assets/images/cradle.png"),
                 ),
                 ListTile(
@@ -156,16 +145,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: RaisedButton(
                     color: Colors.purple[700],
                     onPressed: (){
+                        //==
                         if(val!=(-1))
                       {
                         print("successful");
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+
+                       // return;
                       }
                       else{
                         print("UnSuccessfull");
-                        _showToast(context);
-                        
                       }
+                        //==
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
@@ -187,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children:<Widget>[
                           TextButton(
                             onPressed: (){
-                              //Navigator.push(context, MaterialPageRoute(builder: (context)=> MyApp()));
+                              //Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupPage()));
                               print("Add device");
                             },
                             child: Text("CLICK HERE"),

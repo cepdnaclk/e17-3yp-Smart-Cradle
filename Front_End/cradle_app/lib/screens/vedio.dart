@@ -10,7 +10,7 @@ class vedioPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
