@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+class FanPage extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
 
-class FanPage extends StatelessWidget {
+
+class _State extends State<FanPage>  {
+  bool isSwitched = false;
+  bool _value = false;
+    int val = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +20,7 @@ class FanPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
-        backgroundColor: Colors.purple[100],
+        backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -53,7 +61,7 @@ class FanPage extends StatelessWidget {
                   )
                 ),
               ),
-              Padding(
+              /*Padding(
                   padding: EdgeInsets.symmetric(horizontal: 100),
                   child: Row(
                     children:<Widget>[
@@ -74,10 +82,10 @@ class FanPage extends StatelessWidget {
                 
 
                 
-                ),
+                ),*/
              
                   
-              Padding(
+              /*Container(
                   padding: EdgeInsets.symmetric(horizontal: 80), //shashini -100
                   child: Row(
                     children:<Widget>[
@@ -100,9 +108,127 @@ class FanPage extends StatelessWidget {
                      
                     ],
                   ),
-                
+                ),*/
 
+                //
                 
+                //==
+              
+                /*children: <Widget>[
+                  Text(
+                    "ON/OFF",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              
+              Container(
+                child:Transform.scale(
+                  scale:1.5,
+                  child: Switch(
+                    value: isSwitched,
+                    onChanged: (value) {
+                      setState(() {
+                        isSwitched = value;
+                        print(isSwitched);
+                      });
+                    },
+                    activeTrackColor: Colors.red,
+                    activeColor: Colors.red,
+                  ),
+                ),
+              ),*/
+                
+                Column(
+                children: <Widget>[
+                  Text(
+                    "Select speed",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+              
+              
+                ListTile(
+                    title: Text("LOW"),
+                    leading: Radio(
+                    value: 1,
+                    groupValue: val,
+                    onChanged: (value) {
+                        setState(() {
+                        val = value;
+                        print(val);
+                        });
+                    },
+                    activeColor: Colors.red[200],
+                    ),
+                ),
+                ListTile(
+                    title: Text("MEDIUM"),
+                    leading: Radio(
+                    value: 2,
+                    groupValue: val,
+                    onChanged: (value) {
+                        setState(() {
+                        val = value;
+                        print(val);
+                        });
+                    },
+                    activeColor: Colors.red[500],
+                    ),
+                ),
+                ListTile(
+                    title: Text("MAXIMUM"),
+                    leading: Radio(
+                    value: 3,
+                    groupValue: val,
+                    onChanged: (value) {
+                        setState(() {
+                        val = value;
+                        print(val);
+                        });
+                    },
+                    activeColor: Colors.red[700],
+                    ),
+                ),
+                //==
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("POWER         ", style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color:Colors.red
+                    ),),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0), //250
+                      child: Row(
+                        children:<Widget>[
+                          Container(
+                            child:Transform.scale(
+                            scale:1.8,
+                            child: Switch(
+                              value: isSwitched,
+                              onChanged: (value) {
+                                setState(() {
+                                  isSwitched = value;
+                                  print(isSwitched);
+                                });
+                              },
+                              activeTrackColor: Colors.red,
+                              activeColor: Colors.red,
+                  ),
+                ),
+              ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
 
                

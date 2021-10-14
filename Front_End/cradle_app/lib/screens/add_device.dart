@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
-
 import 'package:cradle_app/screens/select_device.dart';
-class OTPPage extends StatefulWidget {
+class Add_devicePage extends StatefulWidget {
   @override
-  _OTPPageState createState() => _OTPPageState();
+  _Add_deviceState createState() => _Add_deviceState();
 }
-String name;
-class _OTPPageState extends State<OTPPage> {
+
+class _Add_deviceState extends State<Add_devicePage> {
 
   String validatePassword(value){
     if(value.isEmpty){
-      return "Please Enter Received OTP";
-    }
-    else if(value.length!=6){
-      return "Please Enter 6 Digit, Received OTP";
+      return "required *";
     }
     else{
-      name = value;
       return null;
     }
   }
 
-  
+  String name;
 
   //TextController to read text entered in text field
   TextEditingController password = TextEditingController();
@@ -50,22 +45,11 @@ class _OTPPageState extends State<OTPPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              Column(
-                children: <Widget>[
-                  Text(
-                    "OTP Verification",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40,
-                    ),
-                  ),
-                ],
-              ),
-              
+                
                CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius:90,
-                  child: Image.asset("assets/images/otp.jpeg"),
+                  radius:70,
+                  child: Image.asset("assets/images/DeviceID.png"),
                 ),
                 SizedBox(
                   height: 10,
@@ -73,17 +57,38 @@ class _OTPPageState extends State<OTPPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom:10,left: 10,right: 10),
                   child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    decoration: buildInputDecoration(Icons.lock,"___ ___ ___  ___ ___ ___"),
-                    validator: validatePassword,
-                    
+                    keyboardType: TextInputType.text,
+                    decoration: buildInputDecoration(Icons.person,"Username"),
+                    validator: (String value){
+                      if(value.isEmpty)
+                      {
+                        return 'Please Enter Name';
+                      }
+                      return null;
+                    },
+                    onSaved: (String value){
+                      name = value;
+                    },
                   ),
                 ),
-
-                SizedBox(
-                  height:10
-                ),
                 
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10,left: 10,right: 10),
+                  child: TextFormField(
+                    //controller: password,
+                    //obscureText: true,
+                    keyboardType: TextInputType.text,
+                    decoration:buildInputDecoration(Icons.lock,"Device_ID"),
+                    validator: validatePassword,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+
                 SizedBox(
                   width: 200,
                   height: 50,
@@ -95,7 +100,6 @@ class _OTPPageState extends State<OTPPage> {
                       {
                         print("successful");
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
-                        print(name);
 
                        // return;
                       }else{
@@ -107,32 +111,10 @@ class _OTPPageState extends State<OTPPage> {
                         side: BorderSide(color: Colors.black,width:2)
                         
                     ),
-                    textColor:Colors.white,child: Text("SUBMIT"),
+                    textColor:Colors.white,child: Text("Add"),
 
                   ),
                 ),
-                //==
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Didn't Received  an OTP?"),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 0), //250
-                      child: Row(
-                        children:<Widget>[
-                          TextButton(
-                            onPressed: (){
-                              //Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupPage()));
-                              print("Resend OTP");
-                            },
-                            child: Text("Resend"),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                //==
               ],
             ),
           ),

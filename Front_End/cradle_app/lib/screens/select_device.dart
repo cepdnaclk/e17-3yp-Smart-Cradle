@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:cradle_app/screens/dashBoard.dart';
-
+import 'package:cradle_app/screens/add_device.dart';
 
 class Selectd extends StatefulWidget {
   @override
   _SelectdState createState() => _SelectdState();
 }
 class _SelectdState extends State<Selectd> {
+
+   void _showToast(BuildContext context) {
+      final scaffold = ScaffoldMessenger.of(context);
+      scaffold.showSnackBar(
+        SnackBar(
+          content: const Text('Wrong Input'),
+          //action: SnackBarAction(label: 'UNDO', onPressed: scaffold.hideCurrentSnackBar),
+        ),
+      );
+    }
   int dropdownvalue ;
-  var items =  [001,002];
+  int check = -1;
+  var items =  [001,002,003,111];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,6 +88,8 @@ class _SelectdState extends State<Selectd> {
                 onChanged: (int newValue){
                   setState(() {
                     dropdownvalue = newValue;
+                    check = newValue;
+                    print(check);
                   });
                 },
               hint:Text("Select Device ID",
@@ -101,7 +114,15 @@ class _SelectdState extends State<Selectd> {
                     minWidth: 150,
                    // height: 50,
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+                      if(check!=(-1)){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+                      }
+                      else{
+                        print("UnSuccessfull");
+                        _showToast(context);
+                        
+                      }
+                      
 
                     },
                     color: Colors.purple[700],
@@ -129,7 +150,7 @@ class _SelectdState extends State<Selectd> {
                         children:<Widget>[
                           TextButton(
                             onPressed: (){
-                              //Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupPage()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Add_devicePage()));
                               print("Add device");
                             },
                             child: Text("CLICK HERE"),

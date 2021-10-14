@@ -1,5 +1,5 @@
 
-import 'package:cradle_app/screens/selectDevice.dart';
+import 'package:cradle_app/screens/select_device.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cradle_app/screens/music.dart';
