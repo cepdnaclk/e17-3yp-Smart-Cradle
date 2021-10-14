@@ -1,17 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_volume_slider/flutter_volume_slider.dart';
 
 
-class MusicPage extends StatelessWidget {
+class MusicPage extends StatefulWidget {
+  @override
+  _Mstate createState() => _Mstate();
+}
+
+
+class _Mstate extends State<MusicPage>  {
+  //bool isSwitched = false;
+  //bool _value = false;
+  //int val = -1;
+
+  String dropdownvalue ;
+  String check = "-1";
+  var items =  ["Song 1","Song 2","Song 3"];
+
+     @override
+  void initState() {
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
-        
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {
@@ -36,12 +55,12 @@ class MusicPage extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     Text("Music",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.blue),),
-                    SizedBox(height: 20,),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color:Colors.blue),),
+                   // SizedBox(height: 25,),
                     
                     Text("Play some music to soothe your baby...",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                     color:Colors.blue),)
                   ],
                 ),
@@ -49,41 +68,69 @@ class MusicPage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 5,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/music.jpeg") //add  an image to music page
+                    image: AssetImage("assets/images/music.jpeg") //add  an image to fan page
                   )
                 ),
               ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100),
-                  child: Row(
-                    children:<Widget>[
-
-                /*
-                Container(
-                height: MediaQuery.of(context).size.height / 3,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/home.jpg") //add  an image to welcome page
-                  )
-                ),
-              ),
-                     */ 
-                     
-                    ],
-                  ),
+              
                 
-
                 
-                ),
-             
-                  
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 60), //shashini -100 //emu-80
+              
+              
+                               
+            Padding(
+              padding:EdgeInsets.only(bottom: 20,left: 63,right: 63),
+
+              child: Container(
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Colors.blue[50],
+              border: Border.all()),
+
+
+              child: (
+                DropdownButton(
+                  value: dropdownvalue,
+                  //icon: Icon(Icons.keyboard_arrow_down),
+                  items:items.map((String items) {
+                       return DropdownMenuItem (
+                           value: items,
+                           child: Text(items)
+                       );
+                  }
+                  ).toList(),
+                onChanged: (String newValue){
+                  setState(() {
+                    dropdownvalue = newValue;
+                    check = newValue;
+                    print(check);
+                  });
+                },
+              hint:Text("Select a Song",
+              style: TextStyle(color: Colors.indigo[800],fontSize: 20, fontWeight: FontWeight.bold),),
+              disabledHint:Text("Disabled"),
+              //elevation: 80,
+              style:TextStyle(color:Colors.blue[900], fontSize: 20,fontWeight: FontWeight.bold),
+              icon: Icon(Icons.arrow_drop_down_circle),
+              iconDisabledColor: Colors.red,
+              iconEnabledColor: Colors.blue[900],
+              isExpanded: true,
+              dropdownColor: Colors.blue[50],
+            
+              
+              )
+            ),
+          ),
+            ),
+
+                Padding(
+                  padding: EdgeInsets.only(bottom: 50,left:100 ,right: 50), //shashini -100 //emu-80
                   child: Row(
                     children:<Widget>[
 
                        IconButton(
-                        iconSize: 100,
+                        iconSize: 50,
                         color: Colors.green[900],
                         icon: Icon(Icons.play_circle),
                         onPressed: () => print('play music'),
@@ -91,7 +138,7 @@ class MusicPage extends StatelessWidget {
                        ),
         
                        IconButton(
-                        iconSize: 100,
+                        iconSize: 65,
                         color: Colors.red[900],
                         icon: Icon(Icons.stop),
                         onPressed: () => print('off music'),
@@ -104,12 +151,30 @@ class MusicPage extends StatelessWidget {
 
                 
                 ),
+                //==
+                
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 30,left: 50,right: 10), //250
+                      child: Row(
+                        children:<Widget>[
+
+                          FlutterVolumeSlider(
+                            display: Display.HORIZONTAL,
+                            sliderActiveColor: Colors.blue,
+                            sliderInActiveColor: Colors.grey,
+                          ),
+                      
+                        ],
+                      ),
+                    ),
+                  ],
+                
 
                
 
 
 
-              ],
+              
             ))
           ],
         ),
@@ -120,52 +185,3 @@ class MusicPage extends StatelessWidget {
 }
 
 
-// we will be creating a widget for icons
- /*Widget buildNormalIcons() => GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        children: [
-          IconButton(
-            iconSize: 80,
-            color: Colors.blue,
-            icon: Icon(Icons.videocam),
-            onPressed: () => print('You can moniter the baby now'),
-          ),
-         
-
-          IconButton(
-            iconSize: 80,
-            color: Colors.yellow,
-            icon: Icon(Icons.music_note),
-            onPressed: () => print('Play Music'),
-          ),
-
-          IconButton(
-            iconSize: 80,
-            color: Colors.green,
-            icon: Icon(Icons.crib),
-            onPressed: () => print('Swing the cardle'),
-        
-          ),
-        
-          IconButton(
-            iconSize: 80,
-            color: Colors.red,
-            icon: Icon(Icons.thermostat),
-            onPressed: () => print('Check the temperature'),
-          ),
-        
-          IconButton(
-            iconSize: 80,
-            color: Colors.blue,
-            icon: Icon(Icons.videocam),
-            onPressed: () => print('You can moniter the baby now'),
-          ),
-        
-        
-        
-        
-        
-        ],
-      );*/
