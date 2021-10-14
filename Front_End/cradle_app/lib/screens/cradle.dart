@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+class SwingPage extends StatefulWidget {
+  @override
+  _Sstate createState() => _Sstate();
+}
 
 
-class Swing extends StatelessWidget {
+class _Sstate extends State<SwingPage>  {
+  //bool isSwitched = false;
+ // bool _value = false;
+  //int val = -1;
+
+  
+  String dropdownvalue ;
+  String check = "-1";
+  var items =  ["Pattern 1","Pattern 2","Pattern 3"];
+
+     @override
+  void initState() {
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
-        
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {
@@ -37,9 +53,9 @@ class Swing extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Swing The Cradle",
+                    Text("Swing",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.green[700]),),
-                    SizedBox(height: 20,),
+                   // SizedBox(height: 25,),
                     
                     Text("Swing the cradle to soothe your baby...",
                     style: TextStyle(
@@ -48,54 +64,80 @@ class Swing extends StatelessWidget {
                   ],
                 ),
                Container(
-                height: MediaQuery.of(context).size.height / 4,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/swing.PNG") //add  an image to music page
-                  )
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100),
-                  child: Row(
-                    children:<Widget>[
-
-                /*
-                Container(
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/home.jpg") //add  an image to welcome page
+                    image: AssetImage("assets/images/swing.PNG") //add  an image to fan page
                   )
                 ),
               ),
-                     */ 
-                     
-                    ],
-                  ),
-                
+              
+                                             
+            Padding(
+              padding:EdgeInsets.only(bottom: 20,left: 63,right: 63),
 
-                
-                ),
-             
-                  
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 90), //shashini -100 //emu-80
+              child: Container(
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Colors.green[50],
+              border: Border.all()),
+
+
+              child: (
+                DropdownButton(
+                  value: dropdownvalue,
+                  //icon: Icon(Icons.keyboard_arrow_down),
+                  items:items.map((String items) {
+                       return DropdownMenuItem (
+                           value: items,
+                           child: Text(items)
+                       );
+                  }
+                  ).toList(),
+                onChanged: (String newValue){
+                  setState(() {
+                    dropdownvalue = newValue;
+                    check = newValue;
+                    print(check);
+                  });
+                },
+              hint:Text("Select a Pattern",
+              style: TextStyle(color: Colors.green[800],fontSize: 20, fontWeight: FontWeight.bold),),
+              disabledHint:Text("Disabled"),
+              //elevation: 80,
+              style:TextStyle(color:Colors.green[900], fontSize: 20,fontWeight: FontWeight.bold),
+              icon: Icon(Icons.arrow_drop_down_circle),
+              iconDisabledColor: Colors.red,
+              iconEnabledColor: Colors.green[900],
+              isExpanded: true,
+              dropdownColor: Colors.green[50],
+            
+              
+              )
+            ),
+          ),
+            ), 
+          
+              
+              
+               Padding(
+                  padding: EdgeInsets.only(bottom: 50,left:100 ,right: 50), //shashini -100 //emu-80
                   child: Row(
                     children:<Widget>[
 
                        IconButton(
-                        iconSize: 60, //100
+                        iconSize: 50,
                         color: Colors.green[900],
-                        icon: Icon(FontAwesomeIcons.powerOff),
+                        icon: Icon(Icons.play_circle),
                         onPressed: () => print('play music'),
         
                        ),
         
                        IconButton(
-                        iconSize: 60,
+                        iconSize: 65,
                         color: Colors.red[900],
-                        icon: Icon(FontAwesomeIcons.powerOff),
+                        icon: Icon(Icons.stop),
                         onPressed: () => print('off music'),
                       ),
                       
@@ -106,7 +148,8 @@ class Swing extends StatelessWidget {
 
                 
                 ),
-
+                //==
+               
                
 
 
@@ -122,52 +165,3 @@ class Swing extends StatelessWidget {
 }
 
 
-// we will be creating a widget for icons
- /*Widget buildNormalIcons() => GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        children: [
-          IconButton(
-            iconSize: 80,
-            color: Colors.blue,
-            icon: Icon(Icons.videocam),
-            onPressed: () => print('You can moniter the baby now'),
-          ),
-         
-
-          IconButton(
-            iconSize: 80,
-            color: Colors.yellow,
-            icon: Icon(Icons.music_note),
-            onPressed: () => print('Play Music'),
-          ),
-
-          IconButton(
-            iconSize: 80,
-            color: Colors.green,
-            icon: Icon(Icons.crib),
-            onPressed: () => print('Swing the cardle'),
-        
-          ),
-        
-          IconButton(
-            iconSize: 80,
-            color: Colors.red,
-            icon: Icon(Icons.thermostat),
-            onPressed: () => print('Check the temperature'),
-          ),
-        
-          IconButton(
-            iconSize: 80,
-            color: Colors.blue,
-            icon: Icon(Icons.videocam),
-            onPressed: () => print('You can moniter the baby now'),
-          ),
-        
-        
-        
-        
-        
-        ],
-      );*/

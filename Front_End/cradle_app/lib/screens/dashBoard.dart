@@ -134,7 +134,7 @@ class DashBoardPage extends StatelessWidget {
                                  // Image.asset("assets/calendar.png",width: 64.0,),
                         IconButton(iconSize: 80,color: Colors.green[900],icon: Icon(Icons.crib),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> Swing())); // cradle
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> SwingPage())); // cradle
                           },
                         ),
                         SizedBox(
