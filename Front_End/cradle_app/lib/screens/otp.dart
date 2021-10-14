@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
 
-import 'package:cradle_app/screens/select-device.dart';
 import 'package:cradle_app/screens/selectDevice.dart';
 class OTPPage extends StatefulWidget {
   @override
