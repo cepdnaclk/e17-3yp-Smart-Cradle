@@ -53,10 +53,19 @@ class _SelectdState extends State<Selectd> {
  
                
             Padding(
-              padding:EdgeInsets.all(20.0),
-            child: (
-              DropdownButton(
-                value: dropdownvalue,
+              padding:EdgeInsets.all(63.0),
+
+              child: Container(
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Colors.purple[50],
+              border: Border.all()),
+
+
+              child: (
+                DropdownButton(
+                  value: dropdownvalue,
                   //icon: Icon(Icons.keyboard_arrow_down),
                   items:items.map((int items) {
                        return DropdownMenuItem <int>(
@@ -71,7 +80,7 @@ class _SelectdState extends State<Selectd> {
                   });
                 },
               hint:Text("Select Device ID",
-              style: TextStyle(color: Colors.blue,fontSize: 20, fontWeight: FontWeight.bold),),
+              style: TextStyle(color: Colors.indigo[800],fontSize: 20, fontWeight: FontWeight.bold),),
               disabledHint:Text("Disabled"),
               //elevation: 80,
               style:TextStyle(color:Colors.purple[700], fontSize: 20,fontWeight: FontWeight.bold),
@@ -84,12 +93,12 @@ class _SelectdState extends State<Selectd> {
               
               )
             ),
-      
+          ),
             ),
 
-            SizedBox(height:10,width: 200,),
+            SizedBox(height:5,width: 200,),
                   MaterialButton(
-                    minWidth: 200,
+                    minWidth: 150,
                    // height: 50,
                     onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
@@ -108,7 +117,28 @@ class _SelectdState extends State<Selectd> {
                         fontSize: 20
                       ),
                     ),
-                  )
+                  ),
+
+                  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Want to add a new device?"),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0), //250
+                      child: Row(
+                        children:<Widget>[
+                          TextButton(
+                            onPressed: (){
+                              //Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupPage()));
+                              print("Add device");
+                            },
+                            child: Text("CLICK HERE"),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
     
               ],
             ))
