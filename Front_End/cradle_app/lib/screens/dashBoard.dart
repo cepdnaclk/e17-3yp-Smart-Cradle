@@ -79,7 +79,7 @@ class DashBoardPage extends StatelessWidget {
                         SizedBox(
                           height: 0.0,
                         ),
-                        Text("Monitor",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 11.0),),
+                        Text("Monitor",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0),),
                             ],
                             ),
                           )
@@ -109,7 +109,7 @@ class DashBoardPage extends StatelessWidget {
                             SizedBox(
                               height: 0.0,
                             ),
-                            Text("Music",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 11.0),),
+                            Text("Music",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0),),
                                 ],
                               ),
                             )
@@ -139,7 +139,7 @@ class DashBoardPage extends StatelessWidget {
                         SizedBox(
                           height: 0.0,
                         ),
-                        Text("Swing",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 11.0),),
+                        Text("Swing",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0),),
                                 ],
                               ),
                             )
@@ -170,7 +170,7 @@ class DashBoardPage extends StatelessWidget {
                                 SizedBox(
                                   height: 0.0,
                                 ),
-                                Text("Temperature",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 11.0),),
+                                Text("Temperature",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0),),
                                 ],
                               ),
                             )
@@ -200,7 +200,7 @@ class DashBoardPage extends StatelessWidget {
                                 SizedBox(
                                   height: 0.0,
                                 ),
-                                Text("Fan",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 11.0),),
+                                Text("Fan",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0),),
                                 ],
                               ),
                             )
@@ -231,7 +231,7 @@ class DashBoardPage extends StatelessWidget {
                                 SizedBox(
                                   height: 0.0,
                                 ),
-                                Text("Voice Message",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 11.0),),
+                                Text("Voice Message",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0),),
                                 ],
                               ),
                             )
