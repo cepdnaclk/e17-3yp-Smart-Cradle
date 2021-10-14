@@ -2,7 +2,8 @@
 
 import 'package:cradle_app/main.dart';
 import 'package:cradle_app/screens/about.dart';
-import 'package:cradle_app/screens/selectDevice.dart';
+import 'package:cradle_app/screens/add_device.dart';
+import 'package:cradle_app/screens/select_device.dart';
 import 'package:flutter/material.dart';
 import 'package:cradle_app/screens/music.dart';
 import 'package:cradle_app/screens/temperature.dart';
@@ -52,7 +53,9 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.add),
             title: Text('Add a Device'),
-            onTap: () => null,
+             onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Add_devicePage()));
+            } ,
           ),
           
           

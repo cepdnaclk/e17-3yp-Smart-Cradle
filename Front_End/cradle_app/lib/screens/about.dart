@@ -12,6 +12,17 @@ class about extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: AppBar(
+        //elevation: 0,
+        brightness: Brightness.light,
+        backgroundColor: Colors.purple[100],
+        leading: IconButton(
+          onPressed: () {Navigator.pop(context);},
+          icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),
+      ),
+
+
       body: SafeArea(
         child: Container(
           // we will give media query height

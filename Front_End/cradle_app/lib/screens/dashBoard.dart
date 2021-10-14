@@ -9,22 +9,21 @@ import 'package:cradle_app/screens/cradle.dart';
 import 'package:cradle_app/screens/vedio.dart';
 import 'package:cradle_app/screens/record.dart';
 
+import 'nav.dart';
 class DashBoardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
+      drawer:NavBar(),
+
+
       appBar: AppBar(
         //elevation: 0,
         brightness: Brightness.light,
         backgroundColor: Colors.purple[100],
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),
-        ),
+        
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
