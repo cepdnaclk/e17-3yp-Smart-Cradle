@@ -87,17 +87,18 @@ class _SelectdState extends State<Selectd> {
       
             ),
 
-            SizedBox(height:10),
+            SizedBox(height:10,width: 200,),
                   MaterialButton(
-                    minWidth: double.infinity,
-                    height: 50,
+                    minWidth: 200,
+                   // height: 50,
                     onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
 
                     },
                     color: Colors.purple[700],
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50)
+                      borderRadius: BorderRadius.circular(50),
+                      side: BorderSide(color: Colors.black,width:2)
                     ),
                     child: Text(
                       "Select",
