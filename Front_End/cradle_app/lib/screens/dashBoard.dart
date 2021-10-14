@@ -1,3 +1,5 @@
+import 'package:cradle_app/screens/select-device.dart';
+import 'package:cradle_app/screens/selectDevice.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cradle_app/screens/music.dart';
@@ -222,16 +224,16 @@ class DashBoardPage extends StatelessWidget {
                               child: Column(
                                 children: <Widget>[
                                   //Image.asset("assets/settings.png",width: 64.0,),
-                                IconButton(iconSize: 80,color: Colors.brown[900],icon:  Icon(Icons.mic),
+                                IconButton(iconSize: 80,color: Colors.brown[900],icon:  Icon(Icons.logout),
                                   onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> RecordPage()));  //fan
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));  //fan
                                   },
                                 ),
                                   
                                 SizedBox(
                                   height: 0.0,
                                 ),
-                                Text("Voice Message",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0),),
+                                Text("Log out",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0),),
                                 ],
                               ),
                             )
