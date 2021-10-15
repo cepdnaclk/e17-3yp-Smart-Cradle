@@ -7,7 +7,6 @@ import 'package:cradle_app/screens/temperature.dart';
 import 'package:cradle_app/screens/FanPage.dart';
 import 'package:cradle_app/screens/cradle.dart';
 import 'package:cradle_app/screens/vedio.dart';
-import 'package:cradle_app/screens/record.dart';
 
 import 'nav.dart';
 class DashBoardPage extends StatelessWidget {
@@ -23,6 +22,7 @@ class DashBoardPage extends StatelessWidget {
         //elevation: 0,
         brightness: Brightness.light,
         backgroundColor: Colors.purple[100],
+        iconTheme: IconThemeData(color: Colors.purple[900]),
         
       ),
       body: Container(
