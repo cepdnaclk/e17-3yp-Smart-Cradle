@@ -4,6 +4,7 @@ import 'package:cradle_app/main.dart';
 import 'package:cradle_app/screens/about.dart';
 import 'package:cradle_app/screens/add_device.dart';
 import 'package:cradle_app/screens/select_device.dart';
+import 'package:cradle_app/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:cradle_app/screens/music.dart';
 import 'package:cradle_app/screens/temperature.dart';
@@ -65,7 +66,7 @@ class NavBar extends StatelessWidget {
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> about()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> SETTINGPage()));
             } ,
           ),
           Divider(),
