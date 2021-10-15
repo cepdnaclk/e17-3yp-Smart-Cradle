@@ -10,6 +10,17 @@ class about extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: AppBar(
+        //elevation: 0,
+        brightness: Brightness.light,
+        title: Text("Feature Avaiablle in the App ",style: TextStyle(color: Colors.purple[900]),),
+        backgroundColor: Colors.purple[100],
+        leading: IconButton(
+          onPressed: () {Navigator.pop(context);},
+          icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),
+      ),
+
       body: SafeArea(
         child: Container(
           // we will give media query height
@@ -28,14 +39,7 @@ class about extends StatelessWidget {
               Column(
                 children: <Widget>[
 
-                  Text("\nFeatures available in This App ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.deepPurple[900],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-
-                  ),),
+                
 
               ListTile(  
               leading: Icon(Icons.video_camera_back_rounded),  
