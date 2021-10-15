@@ -1,10 +1,8 @@
-// ignore_for_file: camel_case_types
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:cradle_app/screens/login.dart';
-import 'package:cradle_app/screens/signup.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 
@@ -12,17 +10,6 @@ class about extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: AppBar(
-        //elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: Colors.purple[100],
-        leading: IconButton(
-          onPressed: () {Navigator.pop(context);},
-          icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),
-      ),
-
-
       body: SafeArea(
         child: Container(
           // we will give media query height
@@ -30,60 +17,128 @@ class about extends StatelessWidget {
           // while MediaQuery make it big as per the screen
           color: Colors.white,  //add backgroud colour
           width: double.infinity,
-          height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+         // height: MediaQuery.of(context).size.height,
+          padding: EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             // even space distribution
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              
               Column(
                 children: <Widget>[
-                  Text(
-                    "Smart Cradle",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40,
 
-                    ),
-                    
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text("Because you and baby deserve care! ",
+                  Text("\nFeatures available in This App ",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.deepPurple[900],
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: 20,
 
-                  ),)
-                ],
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height / 3,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/home.jpg") //add  an image to welcome page
-                  )
-                ),
-              ),
+                  ),),
 
-              Column(
-                children: <Widget>[
+              ListTile(  
+              leading: Icon(Icons.video_camera_back_rounded),  
+              title: Text('Monitor'),  
+            ),
+            Text("You can monitor the baby at any time staying at any place..",
+                 // textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.deepPurple[900],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+
+                  ),),
+
+
+            Divider(),
+
+             ListTile(  
+              leading: Icon(Icons.music_note_outlined),  
+              title: Text('Music'),  
+            ),
+            Text("Select your favourite music from the dropdown list..\nContol the volume as you want",
+                textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.deepPurple[900],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+
+                  ),),
+
+
+            Divider(),
+
+            ListTile(  
+              leading: Icon(FontAwesomeIcons.fan),  
+              title: Text('Fan'),  
+            ),
+            Text("Select power on\nSelect the control speed as you want",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.deepPurple[900],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+
+                  ),),
+
+
+            Divider(),
+
+            ListTile(  
+              leading: Icon(Icons.thermostat),  
+              title: Text('Temperature'),  
+            ),
+            Text("You can check the room temperature where the cradle is placed",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.deepPurple[900],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+
+                  ),),
+
+            //Divider(),
+            Divider(),
+
+            ListTile(  
+              leading: Icon(Icons.crib),  
+              title: Text('Swing'),  
+            ),
+            Text("Make it on\nSelect your reqiuried swing pattern from the dropdown list..",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.deepPurple[900],
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+
+                  ),),
+
+
+            Divider(),
+            
+              ListTile(  
+              leading: Icon(Icons.settings), 
+              title: Text('Settings'),  
+            ),
+            Text("you can make turn on automatic fan Option\nSelect the temperature to turn on it automatically",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.deepPurple[900],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+
+                  ),),
+
                   
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text("Features available in This App ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.deepPurple[900],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
 
-                  ),)
+
+
+
+           
+            
+
+
                 ],
               ),
 
