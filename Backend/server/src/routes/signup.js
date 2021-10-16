@@ -21,7 +21,6 @@ Router.post('/', function(req, res) {
         device_id:Joi.string().pattern(/^[0-9]+$/).required(),
         password:Joi.string().min(6).max(15).required(),
         conf_password:Joi.any().valid(Joi.ref('password')).required()
-    
     });
 
     const result = schema.validate(req.body);
@@ -38,8 +37,8 @@ Router.post('/', function(req, res) {
     [device_id],(error,rows,fileds)=>{
        
 
-        mysqlConnection.query('insert into USER (user_name,password,email,mobile_number,device_id) values(?,?,?,?,?);',
-        [user_name,password,email,mobile_number,device_id ],(error,rows,fileds)=>{
+        mysqlConnection.query('insert into USER (user_name,password,email,mobile_number) values(?,?,?,?);',
+        [user_name,password,email,mobile_number],(error,rows,fileds)=>{
 
          mysqlConnection.query('insert into OWNERSHIP (device_id,user_name) values(?,?);',
             [device_id,user_name],(error,rows,fileds)=>{
