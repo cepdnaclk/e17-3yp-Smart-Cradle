@@ -3,13 +3,13 @@ const{Router} = require('express');
 const router = Router();
 
 const mysqlConnection =require('../connection/connection');
-
+/*
 router.get('/',(req,res)=>{
 
     res.status(200).json('Server on and database is connected');
 });
-
-router.get('/:ownerships',(req,res)=>{
+*/
+router.get('/',(req,res)=>{
 
     mysqlConnection.query('select *from OWNERSHIP;',(error,rows,fileds)=>{
 
@@ -21,7 +21,7 @@ router.get('/:ownerships',(req,res)=>{
     });
 });
 
-router.post('/:ownerships',(req,res)=>{
+router.post('/',(req,res)=>{
 
     const {device_id,user_name}=req.body;
     console.log(req.body);

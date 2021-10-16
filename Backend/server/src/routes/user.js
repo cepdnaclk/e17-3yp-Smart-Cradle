@@ -4,12 +4,12 @@ const router = Router();
 
 const mysqlConnection =require('../connection/connection');
 
-router.get('/',(req,res)=>{
+/*router.get('/',(req,res)=>{
 
     res.status(200).json('Server on and database is connected');
-});
+});*/
 
-router.get('/:users',(req,res)=>{
+router.get('/',(req,res)=>{
 
     mysqlConnection.query('select *from USER;',(error,rows,fileds)=>{
 
@@ -21,7 +21,7 @@ router.get('/:users',(req,res)=>{
     });
 });
 
-router.post('/:users',(req,res)=>{
+router.post('/',(req,res)=>{
 
     const {user_name,password,email,mobile_number,device_id}=req.body;
     console.log(req.body);
