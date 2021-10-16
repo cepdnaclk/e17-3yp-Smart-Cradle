@@ -15,10 +15,8 @@ user_name varchar(10) NOT NULL,
 password varchar(15) NOT NULL,
 email varchar(50) NOT NULL,
 mobile_number varchar(10) NOT NULL,
-device_id INT NOT NULL,
 
-primary key(user_name),
-foreign key (device_id) references DEVICE(device_id)
+primary key(user_name)
 
 );
 
