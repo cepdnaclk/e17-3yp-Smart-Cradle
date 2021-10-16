@@ -11,6 +11,7 @@ router.get('/',(req,res)=>{
 });
 */
 
+// http get method to get all records in the table DEVICE
 router.get('/',(req,res)=>{
 
     mysqlConnection.query('select *from DEVICE;',(error,rows,fileds)=>{
@@ -23,6 +24,7 @@ router.get('/',(req,res)=>{
     });
 });
 
+// hTTP post method to insert values to DEVICE table
 router.post('/',(req,res)=>{
 
     const {device_id,temperature,cry_analysis,fan}=req.body;
