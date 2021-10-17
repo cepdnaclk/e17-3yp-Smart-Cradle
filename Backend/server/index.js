@@ -11,7 +11,8 @@ app.use(express.json());
 
 //routes
 
-const signuproute = require('./src/routes/signup')
+//const signuproute = require('./src/routes/signup')
+const signuproute = require('./src/routes/signup_hash')
 const loginroute = require('./src/routes/login')
 const userroute =  require('./src/routes/user')
 const ownerroute =  require('./src/routes/ownership')
