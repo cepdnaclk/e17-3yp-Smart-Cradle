@@ -17,6 +17,8 @@ const userroute =  require('./src/routes/user')
 const ownerroute =  require('./src/routes/ownership')
 const deviceroute =  require('./src/routes/device')
 const fanroute =  require('./src/routes/fan')
+const addDeviceroute =  require('./src/routes/adding')
+const selectDeviceroute =  require('./src/routes/select')
 
 app.use('/signups',signuproute);
 app.use('/logins',loginroute);
@@ -24,6 +26,8 @@ app.use('/users',userroute);
 app.use('/owners',ownerroute);
 app.use('/devices',deviceroute);
 app.use('/fans',fanroute);
+app.use('/add',addDeviceroute);
+app.use('/select',selectDeviceroute);
 
 //startung the server
 app.listen(app.get('port'),()=>{
