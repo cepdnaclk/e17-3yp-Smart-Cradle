@@ -43,7 +43,7 @@ Router.post('/', function(req, res) {
             }
 
             if(result.length > 0){
-                res.json({Status:'Already exist'});
+                res.json({Status:'Username already exist'});
 
 
             }else{
