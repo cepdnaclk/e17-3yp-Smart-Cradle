@@ -5,10 +5,13 @@ const Joi =require('joi')
 const Router = express.Router()
 var mysqlConnection = require('../connection/connection')
 
-Router.post('/', function(req, res) {
+const jwt =require('jsonwebtoken')
+const  ensureToken  = require('../middleware/authenticate')
+
+Router.post('/', ensureToken,function(req, res) {
   
 
-    const {user_name,email,mobile_number,device_id,password,conf_password}=req.body;
+    const {user_name,device_id}=req.body;
     console.log(req.body);
 
     //server side validation
@@ -31,7 +34,71 @@ Router.post('/', function(req, res) {
 
     var sql = "SELECT * from USER WHERE user_name = ? ";
 
-    mysqlConnection.query(sql,
+    jwt.verify(req.token,'my_secret_key',function(error,data){
+
+        if(error){
+            res.sendStatus(403);
+            
+        }else{
+
+            mysqlConnection.query(sql,
+                [user_name],(error, result) => {
+        
+                    if(error){
+        
+                        console.log(error);
+        
+                    }
+        
+                    if(!(result.length > 0)){
+                        res.json({Status:'Username is not registerd'});
+        
+        
+                    }else{
+                        var consql = "SELECT * from OWNERSHIP WHERE device_id = ? ";
+                        mysqlConnection.query(consql,
+                            [device_id],(error, result) => {
+                    
+                                if(error){
+                    
+                                    console.log(error);
+                    
+                                }
+                    
+                                if(result.length > 0){
+                                    res.json({Status:'Device is already added'});
+                    
+                    
+                                }else{
+                                    mysqlConnection.query('insert into DEVICE (device_id) values(?);',
+                                    [device_id],(error,rows,fileds)=>{
+               
+        
+                                    mysqlConnection.query('insert into OWNERSHIP (device_id,user_name) values(?,?);',
+                                    [device_id,user_name],(error,rows,fileds)=>{
+                                    if(!error){
+                                        res.json({Status:'Successfully added the device'});
+                                    }else{
+                                        console.log(error);
+                                    }
+        
+            
+                    })
+                
+        
+            })
+        
+                                }
+                            });
+                    }
+                }); 
+           
+
+        }
+    })
+
+
+ /*   mysqlConnection.query(sql,
         [user_name],(error, result) => {
 
             if(error){
@@ -81,7 +148,8 @@ Router.post('/', function(req, res) {
                         }
                     });
             }
-        });   
+        });  
+        */ 
   })
 
   module.exports = Router
