@@ -12,7 +12,7 @@ fan bool default false
 create table USER (
 
 user_name varchar(10) NOT NULL,
-password varchar(15) NOT NULL,
+password varchar(150) NOT NULL,
 email varchar(50) NOT NULL,
 mobile_number varchar(10) NOT NULL,
 
