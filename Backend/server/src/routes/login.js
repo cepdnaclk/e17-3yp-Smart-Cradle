@@ -34,7 +34,7 @@ Router.post('/',function(req, res) {
 
 
 
-    var sql = "SELECT * from USER WHERE user_name = ?";
+    var sql = "SELECT * from USER WHERE user_name = BINARY ?";
 
     mysqlConnection.query(sql,
         [user_name],(error, result) => {
