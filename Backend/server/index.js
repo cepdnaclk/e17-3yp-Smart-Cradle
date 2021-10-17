@@ -16,12 +16,14 @@ const loginroute = require('./src/routes/login')
 const userroute =  require('./src/routes/user')
 const ownerroute =  require('./src/routes/ownership')
 const deviceroute =  require('./src/routes/device')
+const fanroute =  require('./src/routes/fan')
 
 app.use('/signups',signuproute);
 app.use('/logins',loginroute);
 app.use('/users',userroute);
 app.use('/owners',ownerroute);
 app.use('/devices',deviceroute);
+app.use('/fans',fanroute);
 
 //startung the server
 app.listen(app.get('port'),()=>{
