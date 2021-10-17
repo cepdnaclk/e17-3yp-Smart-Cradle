@@ -31,22 +31,51 @@ Router.post('/', function(req, res) {
         return;
     }
 
+    var sql = "SELECT * from USER WHERE user_name = ? ";
+
+    mysqlConnection.query(sql,
+        [user_name],(error, result) => {
+
+            if(error){
+
+                console.log(error);
+
+            }
+
+            if(result.length > 0){
+                res.json({Status:'Already exist'});
 
 
-    mysqlConnection.query('insert into DEVICE (device_id) values(?);',
-    [device_id],(error,rows,fileds)=>{
+            }else{
+                var consql = "SELECT * from OWNERSHIP WHERE device_id = ? ";
+                mysqlConnection.query(consql,
+                    [device_id],(error, result) => {
+            
+                        if(error){
+            
+                            console.log(error);
+            
+                        }
+            
+                        if(result.length > 0){
+                            res.json({Status:'Already exist DEVICE_ID'});
+            
+            
+                        }else{
+                            mysqlConnection.query('insert into DEVICE (device_id) values(?);',
+                            [device_id],(error,rows,fileds)=>{
        
 
-        mysqlConnection.query('insert into USER (user_name,password,email,mobile_number) values(?,?,?,?);',
-        [user_name,password,email,mobile_number],(error,rows,fileds)=>{
+                            mysqlConnection.query('insert into USER (user_name,password,email,mobile_number) values(?,?,?,?);',
+                            [user_name,password,email,mobile_number],(error,rows,fileds)=>{
 
-         mysqlConnection.query('insert into OWNERSHIP (device_id,user_name) values(?,?);',
-            [device_id,user_name],(error,rows,fileds)=>{
-                if(!error){
-                    res.json({Status:'Successful'});
-                }else{
-                    console.log(error);
-                }
+                            mysqlConnection.query('insert into OWNERSHIP (device_id,user_name) values(?,?);',
+                            [device_id,user_name],(error,rows,fileds)=>{
+                            if(!error){
+                                res.json({Status:'Successful'});
+                            }else{
+                                console.log(error);
+                            }
 
     
             })
@@ -54,12 +83,14 @@ Router.post('/', function(req, res) {
 
     })
 
-       
-
-    
+                        }
+                    });
+            }
+        });   
   })
 
   module.exports = Router
+
 
 
 
