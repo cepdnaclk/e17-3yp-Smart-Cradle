@@ -2,9 +2,13 @@ const express = require('express')
 
 const Joi =require('joi')
 const Router = express.Router()
+const jwt =require('jsonwebtoken')
+//const  ensureToken  = require('../middleware/authenticate')
+
 var mysqlConnection = require('../connection/connection')
 
-Router.post('/',  function(req, res) {
+
+Router.post('/',function(req, res) {
   
 
     const {user_name,password}=req.body;
@@ -42,7 +46,23 @@ Router.post('/',  function(req, res) {
             }
 
             if(result.length > 0){
-                res.json({Status:'Successful login'});
+                //res.json({Status:'Successful login'});
+
+                //result.password=undefined;
+
+                const user_name=req.body.user_name;
+
+                const user={user_name:user_name};
+
+                const token= jwt.sign(user,'my_secret_key');
+
+                res.json({
+
+                    success:1,
+                    message:'Successful Login',
+                    token: token
+                })
+
 
 
             }else{
@@ -54,7 +74,7 @@ Router.post('/',  function(req, res) {
         });
 })
 
-module.exports = Router
+  module.exports = Router
 
 
 
