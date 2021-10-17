@@ -5,7 +5,10 @@ const Joi =require('joi')
 const Router = express.Router()
 var mysqlConnection = require('../connection/connection')
 
-Router.post('/', function(req, res) {
+const jwt =require('jsonwebtoken')
+const  ensureToken  = require('../middleware/authenticate')
+
+Router.post('/', ensureToken,function(req, res) {
   
 
     const {device_id,fan}=req.body;
@@ -28,6 +31,65 @@ Router.post('/', function(req, res) {
 
     var sql = `SELECT * from DEVICE WHERE device_id = ${device_id} `;
 
+    jwt.verify(req.token,'my_secret_key',function(error,data){
+
+        if(error){
+            res.sendStatus(403);
+
+        }else{
+
+            mysqlConnection.query(sql,
+                [device_id],(error, result) => {
+        
+                    if(error){
+        
+                        console.log(error);
+        
+                    }
+        
+                    if(result.length > 0){
+                        //==
+                        if(fan=='on'){
+                            mysqlConnection.query(`UPDATE DEVICE set fan=1  WHERE device_id=${device_id};`,
+                            [fan],(error,rows,fileds)=>{
+                                    if(!error){
+                                        res.json({Status:'Successful'});
+                                    }else{
+                                        console.log(error);
+                                    }
+        
+            
+                            })
+                        }
+                        else if(fan=='off'){
+                            //==
+                            mysqlConnection.query(`UPDATE DEVICE set fan=0  WHERE device_id=${device_id};`,
+                            [fan],(error,rows,fileds)=>{
+                                    if(!error){
+                                        res.json({Status:'Successful'});
+                                    }else{
+                                        console.log(error);
+                                    }
+        
+            
+                            })
+                            //==
+                        }
+                        
+                        //==
+                    }
+                    else{
+                        res.json({Status:'Wrong Device ID'});
+                    }
+                });
+            
+
+        }
+    })
+
+
+
+/*
     mysqlConnection.query(sql,
         [device_id],(error, result) => {
 
@@ -71,7 +133,7 @@ Router.post('/', function(req, res) {
             else{
                 res.json({Status:'Wrong Device ID'});
             }
-        });   
+        });   */
   })
 
   module.exports = Router
