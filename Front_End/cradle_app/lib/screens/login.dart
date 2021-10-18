@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
-import 'package:cradle_app/screens/otp.dart';
+import 'package:cradle_app/screens/select_device.dart';
 import 'package:cradle_app/screens/signup.dart';
 class LoginPage extends StatefulWidget {
   @override
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                       if(_formkey.currentState.validate())
                       {
                         print("successful");
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> OTPPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
 
                        // return;
                       }else{

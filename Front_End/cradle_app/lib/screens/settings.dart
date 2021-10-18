@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
-
+import 'package:cradle_app/screens/dashBoard.dart';
 
 class SETTINGPage extends StatefulWidget {
   @override
@@ -51,7 +51,7 @@ class _State1 extends State<SETTINGPage>  {
                   ],
                 ),
                Container(
-                height: MediaQuery.of(context).size.height / 3,
+                height: MediaQuery.of(context).size.height / 4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/set.jpeg") //add  an image to fan page
@@ -179,7 +179,7 @@ class _State1 extends State<SETTINGPage>  {
             Padding(
                   padding: const EdgeInsets.only(bottom:10,left: 10,right: 10),
                   child: TextFormField(
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.number,
                     decoration: buildInputDecoration(Icons.thermostat,"Enter the temperature to automatically switch on fan"),
                     validator: (String value){
                       if(value.isEmpty)
@@ -191,6 +191,30 @@ class _State1 extends State<SETTINGPage>  {
                     
                   ),
                 ),
+               //=====================
+                  MaterialButton(
+                    minWidth: 150,
+                   // height: 50,
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => DashBoardPage()));
+                      print("Settings added");
+                    },
+                    color: Colors.purple[700],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      side: BorderSide(color: Colors.black,width:2)
+                    ),
+                    child: Text(
+                      "Enter",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                      ),
+                    ),
+                  ),
+               //====================
+              
                
 
 
