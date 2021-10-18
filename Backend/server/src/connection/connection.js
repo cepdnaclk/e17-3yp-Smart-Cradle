@@ -4,7 +4,7 @@ const mysqlConnection=mysql.createConnection({
 
     host:'localhost',
     user:'root',
-    password:'Madush@1998',
+    password:'',
     database:'cradle',
 
 });
