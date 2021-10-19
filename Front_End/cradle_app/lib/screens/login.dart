@@ -1,3 +1,6 @@
+
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
 import 'package:cradle_app/screens/select_device.dart';
@@ -18,7 +21,69 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  logIn(String user_name, String password) async {
+    //try {
+      //print("1\n");
+      final response = await http.post(
+        Uri.parse('http://192.168.43.95:8000/logins'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'user_name': user_name,
+          'password': password,
+        }),
+      );
+      print(response.body);
+
+      /*if (response.statusCode == 403) {
+        Fluttertoast.showToast(
+            msg: "Entered email or password Incorrect!",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            fontSize: 16.0,
+            backgroundColor: Colors.red,
+            textColor: Colors.white);
+      }
+
+      if (response.statusCode == 200) {
+        //print("200");
+
+        Map<String, dynamic> output = json.decode(response.body);
+        //print(output["token"]);
+
+        await storage.write(key: "token", value: output["token"]);
+        String? tok = await storage.read(key: "token");
+        print("token from stored");
+        print(tok);
+
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return HomePage();
+            },
+          ),
+          (route) => false,
+        );
+        //return Album.fromJson(jsonDecode(response.body));
+      } else {
+        // If the server did not return a 200 CREATED response,
+        // then throw an exception.
+        print("throw");
+        throw Exception('Failed to create album.');
+      }
+    } on Exception catch (e) {
+      print(e);
+    } catch (e) {
+      print(e);
+    }*/
+  }
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   String name;
+  String pass_word;
 
   //TextController to read text entered in text field
   TextEditingController password = TextEditingController();
@@ -67,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
-                    onSaved: (String value){
+                    onChanged: (String value){
                       name = value;
                     },
                   ),
@@ -84,6 +149,9 @@ class _LoginPageState extends State<LoginPage> {
                     keyboardType: TextInputType.text,
                     decoration:buildInputDecoration(Icons.lock,"Password"),
                     validator: validatePassword,
+                    onChanged: (String value){
+                      pass_word = value;
+                    },
                   ),
                 ),
                 SizedBox(
@@ -97,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.purple[700],
                     onPressed: (){
 
-                      if(_formkey.currentState.validate())
+                      /*if(_formkey.currentState.validate())
                       {
                         print("successful");
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
@@ -105,7 +173,10 @@ class _LoginPageState extends State<LoginPage> {
                        // return;
                       }else{
                         print("UnSuccessfull");
-                      }
+                      }*/
+                      print (name);
+                      print(pass_word);
+                      logIn(name,pass_word);
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
