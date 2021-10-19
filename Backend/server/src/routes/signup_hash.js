@@ -5,23 +5,15 @@ const Joi =require('joi')
 const Router = express.Router()
 var mysqlConnection = require('../connection/connection')
 
-
-
-
-
 Router.post('/', async function(req, res, next) {
   
     const {user_name,email,mobile_number,device_id,password,conf_password}=req.body;
     console.log(req.body);
-
-
-
-
     //server side validation
 
     const schema = Joi.object({
 
-        user_name: Joi.string().max(10).required(),
+        user_name: Joi.string().max(15).required(),
         email: Joi.string().email().max(50).required(),
         mobile_number:Joi.string().pattern(/^[0-9]+$/).min(10).max(10).required(),
         device_id:Joi.string().pattern(/^[0-9]+$/).required(),
@@ -37,10 +29,6 @@ Router.post('/', async function(req, res, next) {
         res.status(400).send(result.error.details[0].message);
         return;
     }
-
-
-
-
     if(req.body.password!=undefined){
       try{
         await bcrypt.hash(req.body.password, 10, function(err, hash) {
@@ -62,7 +50,11 @@ Router.post('/', async function(req, res, next) {
             }
 
             if(result.length > 0){
-                res.json({Status:'Username already exist'});
+                return res.status(401).json({               //already exist user_name
+                    success: 0,
+                    message:'Already exsist user name',
+                    //token: token
+                })
 
 
             }else{
@@ -76,8 +68,12 @@ Router.post('/', async function(req, res, next) {
             
                         }
             
-                        if(result.length > 0){
-                            res.json({Status:'Already exist DEVICE_ID'});
+                        else if(result.length > 0){                  //already exist Device_ID
+                            return res.status(402).json({               
+                                success: 1,
+                                message:'Already exist device_ID',
+                                //token: token
+                            })       
             
             
                         }else{
@@ -91,7 +87,11 @@ Router.post('/', async function(req, res, next) {
                             mysqlConnection.query('insert into OWNERSHIP (device_id,user_name) values(?,?);',
                             [device_id,user_name],(error,rows,fileds)=>{
                             if(!error){
-                                res.json({Status:'Successful'});
+                                return res.status(201).json({
+                                    success: 1,
+                                    message:'Successfully signup',
+                                    //token: token
+                                })
                             }else{
                                 console.log(error);
                             }
@@ -116,6 +116,7 @@ Router.post('/', async function(req, res, next) {
         res.redirect('/')
       }
     }
+    
     
   })
 

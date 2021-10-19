@@ -30,6 +30,7 @@ class _SignupPageState extends State<SignupPage> {
     }
   }
 
+  
   String name,email,phone,device,conf_password,password_;
 
   //TextController to read text entered in text field
@@ -58,7 +59,6 @@ class _SignupPageState extends State<SignupPage> {
           
         }),
       );
-
       print(response.statusCode);
       print(response.body);
       
@@ -67,7 +67,7 @@ class _SignupPageState extends State<SignupPage> {
 
       
       //////
-       if (response.statusCode == 200) {
+       if (response.statusCode == 201) {
               showDialog<String>(
                 context: context,
                 builder: (BuildContext context) => AlertDialog(
@@ -90,8 +90,34 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               );
             } 
-            /*
+            //////////////////////////////
             else if (response.statusCode == 400){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Registration ERROR !'),
+                  content:
+                      const Text('Invalid Input\n"Try again with Valid Inputs'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignupPage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            }
+            //////////////////////////////
+            
+            else if (response.statusCode == 401){
 
                 showDialog<String>(
                 context: context,
@@ -114,13 +140,40 @@ class _SignupPageState extends State<SignupPage> {
                   ],
                 ),
               );
-
-
-
-
             }
+            //==================================================================================================
+            else if (response.statusCode == 402){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Registration ERROR !'),
+                  content:
+                      const Text('Device ID already Exists\nTry again with another Device ID'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignupPage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            }
+
+            /*else{
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupPage()));
+            }*/
+            //==================================================================================================
+
       
-      */
+      
       
       
       
@@ -181,6 +234,9 @@ class _SignupPageState extends State<SignupPage> {
                       {
                         return 'Please Enter Name';
                       }
+                      else if(value.length > 15){
+                        return 'should not be more than 15 characters';
+                      }
                       return null;
                     },
                     onChanged: (String value){
@@ -198,7 +254,11 @@ class _SignupPageState extends State<SignupPage> {
                       {
                         return 'Please Enter E-mail';
                       }
-                      if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]").hasMatch(value)){
+                      else if (value.length >50)
+                      {
+                      return "Should not be more than 50 characters";
+                      }
+                      else if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]").hasMatch(value)){
                         return 'Please Enter Valid Email';
                       }
                       return null;
