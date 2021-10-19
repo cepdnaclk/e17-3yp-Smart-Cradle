@@ -1,16 +1,8 @@
+
+
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
 import 'package:cradle_app/screens/login.dart';
-import 'dart:convert';
-
-//import 'package:dio/dio.dart';
-
-//import 'package:flutter_svg/svg.dart';
-//import 'package:fluttertoast/fluttertoast.dart';
-//import 'package:untitled/constants.dart';
-import 'package:http/http.dart' as http;
-
-
 class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
@@ -30,118 +22,13 @@ class _SignupPageState extends State<SignupPage> {
     }
   }
 
-  String name,email,phone,device,conf_password,password_;
+  String name,email,phone,device;
 
   //TextController to read text entered in text field
   TextEditingController password = TextEditingController();
   TextEditingController confirmpassword = TextEditingController();
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-
-  //http
-  signUp(String name, String email, String mobileno,String deviceid,String password, String confpassword) async {
-    try {
-      //print("1\n");
-      final response = await http.post(
-        Uri.parse('http://192.168.8.129:8000/signups'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode(<String, String>{
-          'user_name': name,
-          'email': email,
-          'mobile_number': mobileno,
-          'device_id': deviceid,
-          'password': password,
-          'conf_password': confpassword,
-
-          
-        }),
-      );
-
-      print(response.statusCode);
-      print(response.body);
-      
-      
-
-
-      
-      //////
-       if (response.statusCode == 200) {
-              showDialog<String>(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                  title: const Text('Registration is Successful'),
-                  content:
-                      const Text('You can login in to your Account Now'),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginPage(
-                            //title: '',
-                          ),
-                        ),
-                      ),
-                      child: const Text('OK'),
-                    ),
-                  ],
-                ),
-              );
-            } 
-            /*
-            else if (response.statusCode == 400){
-
-                showDialog<String>(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                  title: const Text('Registration ERROR !'),
-                  content:
-                      const Text('Username already Exists\nTry again with another name'),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SignupPage(
-                            //title: '',
-                          ),
-                        ),
-                      ),
-                      child: const Text('OK'),
-                    ),
-                  ],
-                ),
-              );
-
-
-
-
-            }
-      
-      */
-      
-      
-      
-      
-      else {
-        // If the server did not return a 201 CREATED response,
-        // then throw an exception.
-        print("throw");
-        throw Exception('Failed to create album.');
-      }
-    } on Exception catch (e) {
-      print(e);
-    } catch (e) {
-      print(e);
-    }
-  }
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +70,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    onChanged: (String value){
+                    onSaved: (String value){
                       name = value;
                     },
                   ),
@@ -203,7 +90,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    onChanged: (String value){
+                    onSaved: (String value){
                       email = value;
                     },
                   ),
@@ -227,7 +114,7 @@ class _SignupPageState extends State<SignupPage> {
                       }                      
                       return null;
                     },
-                    onChanged: (String value){
+                    onSaved: (String value){
                       phone = value;
                     },
                   ),
@@ -245,7 +132,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    onChanged: (String value){
+                    onSaved: (String value){
                       device = value;
                     },
                   ),
@@ -258,10 +145,6 @@ class _SignupPageState extends State<SignupPage> {
                     obscureText: true,
                     keyboardType: TextInputType.text,
                     decoration:buildInputDecoration(Icons.lock,"Password"),
-
-                    onChanged: (String value){
-                      password_ = value;
-                    },
                     validator: validatePassword,
                   ),
                 ),
@@ -272,11 +155,6 @@ class _SignupPageState extends State<SignupPage> {
                     obscureText: true,
                     keyboardType: TextInputType.text,
                     decoration:buildInputDecoration(Icons.lock,"Confirm Password"),
-
-                     onChanged: (String value){
-                      conf_password = value;
-                    },
-
                     validator: (String value){
                       if(value.isEmpty)
                       {
@@ -314,10 +192,9 @@ class _SignupPageState extends State<SignupPage> {
                       if(_formkey.currentState.validate())
                       {
                         print("successful");
-                        signUp(name, email, phone, device, password_, conf_password);
-                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
 
-                        //return;
+                        return;
                       }else{
                         print("UnSuccessfull");
                       }
