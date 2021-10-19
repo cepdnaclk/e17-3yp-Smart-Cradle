@@ -56,23 +56,36 @@ Router.post('/',function(req, res) {
 
                         const token= jwt.sign(user,'my_secret_key');
 
-                        res.json({
+                        /*res.json({
 
                             success:1,
+                            message:'Successful Login',
+                            token: token
+                        })*/
+                        //==
+                        //==
+                        return res.status(201).json({
+                            success: 1,
                             message:'Successful Login',
                             token: token
                         })
                         //==
                     }
                     else{
-                        res.json({Status:'Invalid password'});
+                        return res.status(401).json({
+                            success: 0,
+                            message:'Invalid Password'
+                            //token: token
+                        })
                     }
                 })
 
             }else{
-                
-
-                res.json({Status:'Invalid user name or password'});
+                return res.status(401).json({
+                    success: 0,
+                    message:'Invalid Password'
+                    //token: token
+                })
 
 
             }

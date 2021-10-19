@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
 import 'package:cradle_app/screens/select_device.dart';
 import 'package:cradle_app/screens/signup.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -21,6 +22,18 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  /*void showToast (String str){
+    Fluttertoast.showToast(
+      msg:str,
+      toastLength:Toast.LENGTH_SHORT,
+      gravity:ToastGravity.CENTER,
+      timeInSecForIosWeb:1,
+      backgroundColor:Colors.red,
+      textColor:Colors.white,
+      fontSize:16.0
+    );
+  }*/
+
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   logIn(String user_name, String password) async {
     //try {
@@ -35,7 +48,44 @@ class _LoginPageState extends State<LoginPage> {
           'password': password,
         }),
       );
+      print(response.statusCode);
       print(response.body);
+
+      if(response.statusCode == 201){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
+        
+      }
+      else if(response.statusCode == 401 || response.statusCode == 400){
+        //==
+              showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Invalid Username Or Password!!!'),
+                  content:
+                      const Text('If you not Registered yet,Go to signup page'),
+                  actions: <Widget>[
+
+                    TextButton(
+                      onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupPage()));
+                            },
+                      child: const Text('Sign Up'),
+                    ),
+                    
+                    TextButton(
+                      onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                            },
+                      child: const Text('Ok'),
+                    ),
+
+                    
+                  ],
+                  
+                ),
+              );
+        //==
+      }
 
       /*if (response.statusCode == 403) {
         Fluttertoast.showToast(
@@ -82,8 +132,8 @@ class _LoginPageState extends State<LoginPage> {
   }
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  String name;
-  String pass_word;
+  String name='';
+  String pass_word='';
 
   //TextController to read text entered in text field
   TextEditingController password = TextEditingController();
@@ -130,11 +180,13 @@ class _LoginPageState extends State<LoginPage> {
                       {
                         return 'Please Enter Name';
                       }
-                      return null;
+                      //return null;
                     },
                     onChanged: (String value){
                       name = value;
                     },
+
+                    
                   ),
                 ),
                 
@@ -142,6 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 10,
                 ),
                 Padding(
+                  //pass_word=null;
                   padding: const EdgeInsets.only(bottom: 10,left: 10,right: 10),
                   child: TextFormField(
                     controller: password,
@@ -165,18 +218,23 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.purple[700],
                     onPressed: (){
 
-                      /*if(_formkey.currentState.validate())
+                      if(_formkey.currentState.validate())
                       {
                         print("successful");
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
 
                        // return;
                       }else{
                         print("UnSuccessfull");
-                      }*/
+                      }
                       print (name);
                       print(pass_word);
-                      logIn(name,pass_word);
+                      if(name != '' && pass_word != ''){
+                          logIn(name,pass_word);
+                          //name = null;
+                          //pass_word = null;
+                      }
+                      
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
