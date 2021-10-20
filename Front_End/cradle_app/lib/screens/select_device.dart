@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cradle_app/screens/dashBoard.dart';
 import 'package:cradle_app/screens/add_device.dart';
-
+import 'package:cradle_app/screens/login.dart';
 class Selectd extends StatefulWidget {
   @override
   _SelectdState createState() => _SelectdState();
@@ -29,7 +29,7 @@ class _SelectdState extends State<Selectd> {
         brightness: Brightness.light,
         backgroundColor: Colors.purple[100],
         leading: IconButton(
-          onPressed: () {Navigator.pop(context);},
+           onPressed: () {Navigator.pop(context);},
           icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),
       ),
       

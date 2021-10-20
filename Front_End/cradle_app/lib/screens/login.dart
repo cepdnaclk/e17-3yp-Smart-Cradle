@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'InputDeco_design.dart';
 import 'package:cradle_app/screens/select_device.dart';
 import 'package:cradle_app/screens/signup.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -21,27 +21,18 @@ class _LoginPageState extends State<LoginPage> {
       return null;
     }
   }
-
-  /*void showToast (String str){
-    Fluttertoast.showToast(
-      msg:str,
-      toastLength:Toast.LENGTH_SHORT,
-      gravity:ToastGravity.CENTER,
-      timeInSecForIosWeb:1,
-      backgroundColor:Colors.red,
-      textColor:Colors.white,
-      fontSize:16.0
-    );
-  }*/
-
+  //String? user_name;
+  //String? password;
+  final storage = const FlutterSecureStorage();
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   logIn(String user_name, String password) async {
     //try {
       //print("1\n");
       final response = await http.post(
-        Uri.parse('http://35.175.197.177:8000/logins'),
+        Uri.parse('http://192.168.43.95:8000/logins'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
+          
         },
         body: jsonEncode(<String, String>{
           'user_name': user_name,
@@ -51,18 +42,18 @@ class _LoginPageState extends State<LoginPage> {
       print(response.statusCode);
       print(response.body);
 
-      if(response.statusCode == 201){
+      /*if(response.statusCode == 200){
         Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
         
-      }
-      else if(response.statusCode == 401 || response.statusCode == 400){
+      }*/
+      if(response.statusCode == 403 || response.statusCode == 400){
         //==
               showDialog<String>(
                 context: context,
                 builder: (BuildContext context) => AlertDialog(
                   title: const Text('Invalid Username Or Password!!!'),
                   content:
-                      const Text('If you not Registered yet,Go to signup page'),
+                      const Text("If you Havn't Registered yet,Go to signup page"),
                   actions: <Widget>[
 
                     TextButton(
@@ -85,6 +76,23 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               );
         //==
+      }
+      else if (response.statusCode == 200) {
+        //print("200");
+
+        Map<String, dynamic> output = json.decode(response.body);
+        //print(output["token"]);
+
+        await storage.write(key: "token", value: output["token"]);
+        String tok = await storage.read(key: "token");
+        print("token from stored");
+        print(tok);
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
+      } else {
+        // If the server did not return a 200 CREATED response,
+        // then throw an exception.
+        print("throw");
+        throw Exception('Failed to create album.');
       }
 
       /*if (response.statusCode == 403) {

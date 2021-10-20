@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
 import 'package:cradle_app/screens/select_device.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 class Add_devicePage extends StatefulWidget {
   @override
   _Add_deviceState createState() => _Add_deviceState();
@@ -17,13 +19,191 @@ class _Add_deviceState extends State<Add_devicePage> {
     }
   }
 
-  String name;
+  String name='';
+  String deviceid='';
 
   //TextController to read text entered in text field
   TextEditingController password = TextEditingController();
   TextEditingController confirmpassword = TextEditingController();
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
+  //==================================================================================================================================
+  adding(String user_name,String device_id) async {
+    try {
+      //print("1\n");
+      final response = await http.post(
+        Uri.parse('http://192.168.43.95:8000/add'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'user_name': user_name,
+          'device_id':device_id
+        }),
+      );
+      print(response.statusCode);
+      print(response.body);
+      //////
+       if (response.statusCode == 200) {
+              showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('New device Added'),
+                  content:
+                      const Text('Now You can select your needed device'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Selectd(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            } 
+            //////////////////////////////
+            else if (response.statusCode == 400 || response.statusCode == 401){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('ERROR With Adding New Device!'),
+                  content:
+                      const Text('Invalid Input\n"Try again with Valid Inputs'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Add_devicePage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            }
+            //////////////////////////////
+            else if (response.statusCode == 402){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('UserName is Not Registerd!'),
+                  content:
+                      const Text('Enter your registered Username'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Add_devicePage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            }
+            //==================================================================================================
+            else if (response.statusCode == 403){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('ERROR!'),
+                  content:
+                      const Text('Some Thing Wrong With Token'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Add_devicePage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            }
+            else if (response.statusCode == 404){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Invalid Inputs!'),
+                  content:
+                      const Text('Some problem with inputs'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Add_devicePage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            }
+            else if (response.statusCode == 405){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Device is allready added !!'),
+                  content:
+                      const Text('Add Your New DeviceID'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Add_devicePage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            }
+          else {
+        // If the server did not return a 201 CREATED response,
+        // then throw an exception.
+          print("throw");
+          throw Exception('Failed to create album.');
+         }
+    } on Exception catch (e) {
+      print(e);
+    } catch (e) {
+      print(e);
+    }
+  }
+  //==================================================================================================================================
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +246,7 @@ class _Add_deviceState extends State<Add_devicePage> {
                       }
                       return null;
                     },
-                    onSaved: (String value){
+                    onChanged: (String value){
                       name = value;
                     },
                   ),
@@ -83,6 +263,9 @@ class _Add_deviceState extends State<Add_devicePage> {
                     keyboardType: TextInputType.text,
                     decoration:buildInputDecoration(Icons.lock,"Device_ID"),
                     validator: validatePassword,
+                    onChanged:(String value){
+                      deviceid = value;
+                    },
                   ),
                 ),
                 SizedBox(
@@ -99,7 +282,10 @@ class _Add_deviceState extends State<Add_devicePage> {
                       if(_formkey.currentState.validate())
                       {
                         print("successful");
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));
+                        print(name);
+                        print(deviceid);
+                        adding(name,deviceid);
 
                        // return;
                       }else{

@@ -64,7 +64,7 @@ Router.post('/',function(req, res) {
                         })*/
                         //==
                         //==
-                        return res.status(201).json({
+                        return res.status(200).json({
                             success: 1,
                             message:'Successful Login',
                             token: token
@@ -72,7 +72,7 @@ Router.post('/',function(req, res) {
                         //==
                     }
                     else{
-                        return res.status(401).json({
+                        return res.status(403).json({
                             success: 0,
                             message:'Invalid Password'
                             //token: token
@@ -81,7 +81,7 @@ Router.post('/',function(req, res) {
                 })
 
             }else{
-                return res.status(401).json({
+                return res.status(403).json({
                     success: 0,
                     message:'Invalid Password'
                     //token: token

@@ -87,7 +87,7 @@ Router.post('/', async function(req, res, next) {
                             mysqlConnection.query('insert into OWNERSHIP (device_id,user_name) values(?,?);',
                             [device_id,user_name],(error,rows,fileds)=>{
                             if(!error){
-                                return res.status(201).json({
+                                return res.status(200).json({
                                     success: 1,
                                     message:'Successfully signup',
                                     //token: token

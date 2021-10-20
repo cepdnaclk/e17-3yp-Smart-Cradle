@@ -37,7 +37,11 @@ Router.post('/', ensureToken,function(req, res) {
     jwt.verify(req.token,'my_secret_key',function(error,data){
 
         if(error){
-            res.sendStatus(403);
+            return res.status(401).json({   //            
+                success: 1,
+                message:'Invalid input',
+                //token: token
+            })
             
         }else{
 
@@ -50,8 +54,12 @@ Router.post('/', ensureToken,function(req, res) {
         
                     }
         
-                    if(!(result.length > 0)){
-                        res.json({Status:'Username is not registerd'});
+                    if(!(result.length > 0)){              
+                        return res.status(402).json({               
+                            success: 1,
+                            message:'username is not registered',
+                            //token: token
+                        })
         
         
                     }else{
@@ -62,11 +70,20 @@ Router.post('/', ensureToken,function(req, res) {
                                 if(error){
                     
                                     console.log(error);
+                                    return res.status(404).json({               
+                                        success: 1,
+                                        message:'Invalid',
+                                        //token: token
+                                    })
                     
                                 }
                     
-                                if(result.length > 0){
-                                    res.json({Status:'Device is already added'});
+                                else if(result.length > 0){
+                                    return res.status(405).json({               
+                                        success: 1,
+                                        message:'Device is already added',
+                                        //token: token
+                                    })
                     
                     
                                 }else{
@@ -77,7 +94,11 @@ Router.post('/', ensureToken,function(req, res) {
                                     mysqlConnection.query('insert into OWNERSHIP (device_id,user_name) values(?,?);',
                                     [device_id,user_name],(error,rows,fileds)=>{
                                     if(!error){
-                                        res.json({Status:'Successfully added the device'});
+                                        return res.status(200).json({               
+                                            success: 1,
+                                            message:'Succesfully added the device',
+                                            //token: token
+                                        })
                                     }else{
                                         console.log(error);
                                     }
