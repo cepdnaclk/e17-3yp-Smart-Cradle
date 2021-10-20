@@ -22,6 +22,8 @@ class about extends StatelessWidget {
       ),
 
       body: SafeArea(
+
+        child: SingleChildScrollView(
         child: Container(
           // we will give media query height
           // double.infinity make it big as my parent allows
@@ -152,6 +154,7 @@ class about extends StatelessWidget {
             ],
           ),
         ),
+      ),
       ),
     );
   }
