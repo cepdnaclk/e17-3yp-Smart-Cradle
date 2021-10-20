@@ -3,6 +3,7 @@ import 'InputDeco_design.dart';
 import 'package:cradle_app/screens/select_device.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class Add_devicePage extends StatefulWidget {
   @override
   _Add_deviceState createState() => _Add_deviceState();
@@ -32,10 +33,14 @@ class _Add_deviceState extends State<Add_devicePage> {
   adding(String user_name,String device_id) async {
     try {
       //print("1\n");
+      FlutterSecureStorage storage = const FlutterSecureStorage();
+      String tok = await storage.read(key:"token");
+      print(tok);
       final response = await http.post(
         Uri.parse('http://192.168.43.95:8000/add'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization':'Bearer $tok'
         },
         body: jsonEncode(<String, String>{
           'user_name': user_name,
