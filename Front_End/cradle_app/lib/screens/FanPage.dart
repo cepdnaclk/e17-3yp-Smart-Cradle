@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:cradle_app/screens/login.dart';
+import 'package:cradle_app/screens/select_device.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:http/http.dart' as http;
+import 'package:cradle_app/screens/signup.dart';
+import 'dart:convert';
 
 class FanPage extends StatefulWidget {
   @override
@@ -8,7 +14,147 @@ class FanPage extends StatefulWidget {
 }
 
 
+//changed by hasara
+String speed='';
+String state='';
+
 class _State extends State<FanPage>  {
+
+  //changed by hasara
+   void _showToast(BuildContext context) {
+      final scaffold = ScaffoldMessenger.of(context);
+      scaffold.showSnackBar(
+        SnackBar(
+          content: const Text('Wrong Input'),
+          //action: SnackBarAction(label: 'UNDO', onPressed: scaffold.hideCurrentSnackBar),
+        ),
+      );
+    }
+
+   //=================================================================================================
+   setfan(String speed ,String state) async {
+    try {
+      //print("1\n");
+      FlutterSecureStorage storage = const FlutterSecureStorage();
+      String tok = await storage.read(key:"token");
+      print(tok);
+      //String u_name = await storage.read(key:"user_name");
+      //print(u_name);
+
+      //changed by hsara
+      String d_id = await storage.read(key:"device_id");
+      print(d_id);
+
+      final response = await http.post(
+        Uri.parse('http://192.168.43.75:8000/select'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization':'Bearer $tok'
+        },
+        body: jsonEncode(<String, String>{
+          
+          //changed by hasara
+          'device_id':d_id, 
+          'speed': speed,
+          'state':state,
+        }),
+      );
+      print(response.statusCode);
+      print(response.body);
+      //////
+       if (response.statusCode == 200) {
+         
+         //changed by hasara
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+      } 
+      else if (response.statusCode == 400){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Invalid Inputs!'),
+                  content:
+                      const Text('Some problem with inputs'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Selectd(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            } 
+            else if (response.statusCode == 402){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Invalid Inputs!'),
+                  content:
+                      const Text('WRONG INPUT'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Selectd(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            } 
+            else if (response.statusCode == 403){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Invalid Inputs!'),
+                  content:
+                      const Text('You have not this Device ID'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Selectd(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            } 
+          else {
+        // If the server did not return a 201 CREATED response,
+        // then throw an exception.
+          print("throw");
+          throw Exception('Failed to create album.');
+         }
+    } on Exception catch (e) {
+      print(e);
+    } catch (e) {
+      print(e);
+    }
+  }
+  //=================================================================================================
+
+
+
   bool isSwitched = false;
   bool _value = false;
     int val = -1;
@@ -162,7 +308,8 @@ class _State extends State<FanPage>  {
                     onChanged: (value) {
                         setState(() {
                         val = value;
-                        print(val);
+                        speed=val.toString();
+                        print(speed);
                         });
                     },
                     activeColor: Colors.red[200],
@@ -176,7 +323,8 @@ class _State extends State<FanPage>  {
                     onChanged: (value) {
                         setState(() {
                         val = value;
-                        print(val);
+                        speed=val.toString();
+                        print(speed);
                         });
                     },
                     activeColor: Colors.red[500],
@@ -190,7 +338,8 @@ class _State extends State<FanPage>  {
                     onChanged: (value) {
                         setState(() {
                         val = value;
-                        print(val);
+                        speed=val.toString();
+                        print(speed);
                         });
                     },
                     activeColor: Colors.red[700],
@@ -217,7 +366,17 @@ class _State extends State<FanPage>  {
                               onChanged: (value) {
                                 setState(() {
                                   isSwitched = value;
+
+                                  //changed by hasara
+                                  if(isSwitched==true){
+                                    state="on";
+                                  }else{
+                                    state="off";
+                                  }
                                   print(isSwitched);
+                                  print(state);
+
+                                  setfan(speed, state);
                                 });
                               },
                               activeTrackColor: Colors.red,
