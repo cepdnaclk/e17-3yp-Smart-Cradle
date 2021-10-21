@@ -46,7 +46,7 @@ class _State extends State<FanPage>  {
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://192.168.43.75:8000/select'),
+        Uri.parse('http://192.168.43.95:8000/fans'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'
@@ -54,7 +54,7 @@ class _State extends State<FanPage>  {
         body: jsonEncode(<String, String>{
           
           //changed by hasara
-          'device_id':d_id, 
+          'device_id':d_id,
           'speed': speed,
           'state':state,
         }),

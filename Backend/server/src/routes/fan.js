@@ -16,7 +16,7 @@ Router.post('/', ensureToken,function(req, res) {
 
     //print speed
     // 1=low , 2=medium , 3=maximum
-    console.log("speed=",speed);
+    console.log(speed);
 
     //server side validation
 
