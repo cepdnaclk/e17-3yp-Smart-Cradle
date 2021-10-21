@@ -36,6 +36,8 @@ class _Add_deviceState extends State<Add_devicePage> {
       FlutterSecureStorage storage = const FlutterSecureStorage();
       String tok = await storage.read(key:"token");
       print(tok);
+      String u_name = await storage.read(key:"user_name");
+      print(u_name);
       final response = await http.post(
         Uri.parse('http://192.168.43.95:8000/add'),
         headers: <String, String>{
@@ -44,6 +46,7 @@ class _Add_deviceState extends State<Add_devicePage> {
         },
         body: jsonEncode(<String, String>{
           'user_name': user_name,
+          'cor_user_name':u_name,
           'device_id':device_id
         }),
       );
@@ -81,7 +84,7 @@ class _Add_deviceState extends State<Add_devicePage> {
                 builder: (BuildContext context) => AlertDialog(
                   title: const Text('ERROR With Adding New Device!'),
                   content:
-                      const Text('Invalid Input\n"Try again with Valid Inputs'),
+                      const Text('Invalid Input\nTry again with Valid Inputs'),
                   actions: <Widget>[
                     TextButton(
                       onPressed: () => Navigator.push(
@@ -180,6 +183,30 @@ class _Add_deviceState extends State<Add_devicePage> {
                   title: const Text('Device is allready added !!'),
                   content:
                       const Text('Add Your New DeviceID'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Add_devicePage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            }
+            else if (response.statusCode == 407){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('This not your Login User Name !!'),
+                  content:
+                      const Text('Please use Your Correct User Name'),
                   actions: <Widget>[
                     TextButton(
                       onPressed: () => Navigator.push(

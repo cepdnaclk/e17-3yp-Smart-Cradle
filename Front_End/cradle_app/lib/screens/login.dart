@@ -85,6 +85,8 @@ class _LoginPageState extends State<LoginPage> {
 
         await storage.write(key: "token", value: output["token"]);
         String tok = await storage.read(key: "token");
+        await storage.write(key: "user_name", value: output["user_name"]);
+        String u_name = await storage.read(key: "user_name");
         print("token from stored");
         print(tok);
         Navigator.push(context, MaterialPageRoute(builder: (context)=> Selectd()));

@@ -11,16 +11,19 @@ const  ensureToken  = require('../middleware/authenticate')
 Router.post('/', ensureToken,function(req, res) {
   
 
-    const {user_name,device_id}=req.body;
+    const {user_name,cor_user_name,device_id}=req.body;
     console.log(req.body);
+    //console.log(req.headers);
 
     //server side validation
 
     const schema = Joi.object({
 
         user_name: Joi.string().max(10).required(),
+
+        cor_user_name: Joi.string().max(10).required(),
         
-        device_id:Joi.string().pattern(/^[0-9]+$/).required(),
+        device_id:Joi.string().pattern(/^[0-9]+$/).required()
         
     });
 
@@ -30,6 +33,13 @@ Router.post('/', ensureToken,function(req, res) {
 
         res.status(400).send(result.error.details[0].message);
         return;
+    }
+    if(user_name!=cor_user_name){
+        return res.status(407).json({               
+            success: 0,
+            message:'username and correct user name not equal',
+            //token: token
+        })
     }
 
     var sql = "SELECT * from USER WHERE user_name = ? ";

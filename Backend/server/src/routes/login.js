@@ -67,7 +67,8 @@ Router.post('/',function(req, res) {
                         return res.status(200).json({
                             success: 1,
                             message:'Successful Login',
-                            token: token
+                            token: token,
+                            user_name:user_name,
                         })
                         //==
                     }
