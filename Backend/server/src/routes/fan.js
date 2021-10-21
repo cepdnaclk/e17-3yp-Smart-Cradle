@@ -11,14 +11,19 @@ const  ensureToken  = require('../middleware/authenticate')
 Router.post('/', ensureToken,function(req, res) {
   
 
-    const {device_id,fan}=req.body;
+    const {device_id,state,speed}=req.body;
     console.log(req.body);
+
+    //print speed
+    // 1=low , 2=medium , 3=maximum
+    console.log("speed=",speed);
 
     //server side validation
 
     const schema = Joi.object({
         device_id:Joi.string().pattern(/^[0-9]+$/).required(),
-        fan:Joi.string().min(2).max(3).required(),
+        state:Joi.string().min(2).max(3).required(),
+        speed:Joi.string().pattern(/^[0-9]+$/).required(),
     });
 
     const result = schema.validate(req.body);
@@ -49,9 +54,13 @@ Router.post('/', ensureToken,function(req, res) {
         
                     if(result.length > 0){
                         //==
-                        if(fan=='on'){
+
+                       
+
+                        ///
+                        if(state=='on'){
                             mysqlConnection.query(`UPDATE DEVICE set fan=1  WHERE device_id=${device_id};`,
-                            [fan],(error,rows,fileds)=>{
+                            [state],(error,rows,fileds)=>{
                                     if(!error){
                                         res.json({Status:'Successful'});
                                     }else{
@@ -61,10 +70,10 @@ Router.post('/', ensureToken,function(req, res) {
             
                             })
                         }
-                        else if(fan=='off'){
+                        else if(state=='off'){
                             //==
                             mysqlConnection.query(`UPDATE DEVICE set fan=0  WHERE device_id=${device_id};`,
-                            [fan],(error,rows,fileds)=>{
+                            [state],(error,rows,fileds)=>{
                                     if(!error){
                                         res.json({Status:'Successful'});
                                     }else{
