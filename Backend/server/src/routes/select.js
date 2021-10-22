@@ -65,7 +65,7 @@ Router.post('/', ensureToken,function(req, res) {
         
                     }else{
                         //==================
-                        if((result[0].user_name)==user_name){
+                        if((result[0].user_name)==data.user_name){
                             return res.status(200).json({               
                                 success: 1,
                                 message:'Successfull',

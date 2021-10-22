@@ -23,10 +23,8 @@ Router.post('/', ensureToken,function(req, res) {
 
     const schema = Joi.object({
         device_id:Joi.string().pattern(/^[0-9]+$/).required(),
-        song:Joi.string().required,
-        device_id:Joi.string().required,
-
-        
+        song:Joi.string().min(0).max(100).required(),
+       state:Joi.string().min(0).max(20).required(),
     });
 
     const result = schema.validate(req.body);
@@ -57,10 +55,10 @@ Router.post('/', ensureToken,function(req, res) {
                     }
         
                     if(result.length > 0){
-
-                        console.log("song received = ",song);
-                        console.log("state received = ",state)
-                        //res.status(200);
+                        return res.status(200).json({
+                            success: 1,
+                            message:'Successfully updated',
+                        })
                         
                     }
                     else{

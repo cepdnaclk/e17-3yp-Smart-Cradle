@@ -45,6 +45,7 @@ Router.post('/', ensureToken,function(req, res) {
     var sql = "SELECT * from USER WHERE user_name = ? ";
 
     jwt.verify(req.token,'my_secret_key',function(error,data){
+
         if(error){
             return res.status(401).json({   //            
                 success: 1,
@@ -88,35 +89,43 @@ Router.post('/', ensureToken,function(req, res) {
                                 }
                     
                                 else if(result.length > 0){
-                                    return res.status(405).json({               
-                                        success: 1,
-                                        message:'Device is already added',
-                                        //token: token
-                                    })
+                                    if(result[0].user_name==data.user_name){
+                                        mysqlConnection.query('DELETE FROM DEVICE where device_id = ?;',
+                                        [device_id],(error,rows,fileds)=>{
+               
+        
+                                        mysqlConnection.query('DELETE FROM OWNERSHIP where device_id = ?;',
+                                        [device_id],(error,rows,fileds)=>{
+                                        if(!error){
+                                            return res.status(200).json({               
+                                                success: 1,
+                                                message:'Succesfully Deleted',
+                                                //token: token
+                                        })
+                                        }else{
+                                            console.log(error);
+                                        }
+        
+            
+                                        })
+                                         })
+                                    }
+                                    else{
+                                        return res.status(405).json({               
+                                            success: 1,
+                                            message:'invalid id',
+                                            //token: token
+                                        })
+                                    }
+                                    
                     
                     
                                 }else{
-                                    mysqlConnection.query('insert into DEVICE (device_id) values(?);',
-                                    [device_id],(error,rows,fileds)=>{
-               
-        
-                                    mysqlConnection.query('insert into OWNERSHIP (device_id,user_name) values(?,?);',
-                                    [device_id,data.user_name],(error,rows,fileds)=>{
-                                    if(!error){
-                                        return res.status(200).json({               
-                                            success: 1,
-                                            message:'Succesfully added the device',
-                                            //token: token
-                                        })
-                                    }else{
-                                        console.log(error);
-                                    }
-        
-            
-                    })
-                
-        
-            })
+                                    return res.status(404).json({               
+                                        success: 1,
+                                        message:'invalid id',
+                                        //token: token
+                                    })
         
                                 }
                             });
@@ -183,7 +192,6 @@ Router.post('/', ensureToken,function(req, res) {
   })
 
   module.exports = Router
-
 
 
 

@@ -15,7 +15,8 @@ Router.post('/', ensureToken,function(req, res) {
     console.log(req.body);
 
     //print pattern
-    // 
+    //
+    console.log("device_ID=",device_id); 
     console.log("pattern=",pattern);
     console.log("state=",state);
 
@@ -23,9 +24,8 @@ Router.post('/', ensureToken,function(req, res) {
 
     const schema = Joi.object({
         device_id:Joi.string().pattern(/^[0-9]+$/).required(),
-        pattern:Joi.string().required,
-        state:Joi.string().required,
-        
+        pattern:Joi.string().max(10).required(),
+        state:Joi.string().min(0).max(20).required(),
     });
 
     const result = schema.validate(req.body);
@@ -56,10 +56,10 @@ Router.post('/', ensureToken,function(req, res) {
                     }
         
                     if(result.length > 0){
-
-                        console.log("pattern received = ",pattern);
-                        console.log("state received = ",state);
-                        //res.status(200);
+                        return res.status(200).json({
+                            success: 1,
+                            message:'Successfully updated',
+                        })
                         
                     }
                     else{

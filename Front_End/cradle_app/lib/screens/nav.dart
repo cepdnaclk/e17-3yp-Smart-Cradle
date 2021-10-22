@@ -1,5 +1,3 @@
-
-
 import 'package:cradle_app/main.dart';
 import 'package:cradle_app/screens/about.dart';
 import 'package:cradle_app/screens/add_device.dart';
@@ -11,6 +9,7 @@ import 'package:cradle_app/screens/temperature.dart';
 import 'package:cradle_app/screens/FanPage.dart';
 import 'package:cradle_app/screens/cradle.dart';
 import 'package:cradle_app/screens/vedio.dart';
+import 'package:cradle_app/screens/Remove_device.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -56,6 +55,13 @@ class NavBar extends StatelessWidget {
             title: Text('Add a Device'),
              onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=> Add_devicePage()));
+            } ,
+          ),
+          ListTile(
+            leading: Icon(Icons.crib),
+            title: Text('Remove a Device'),
+             onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Remove_devicePage()));
             } ,
           ),
           

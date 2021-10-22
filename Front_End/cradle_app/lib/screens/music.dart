@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_volume_slider/flutter_volume_slider.dart';
 
-
+import 'package:cradle_app/screens/dashBoard.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cradle_app/screens/login.dart';
 import 'package:cradle_app/screens/select_device.dart';
@@ -59,7 +59,7 @@ class _Mstate extends State<MusicPage>  {
           
           //changed by hasara
           'device_id':d_id,
-          'pattern': dropdownvalue,
+          'song': dropdownvalue,
           'state':state,
 
         }),
@@ -70,7 +70,7 @@ class _Mstate extends State<MusicPage>  {
        if (response.statusCode == 200) {
          
          //changed by hasara
-              //Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
       } 
       else if (response.statusCode == 400){
 
