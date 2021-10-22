@@ -20,6 +20,8 @@ const deviceroute =  require('./src/routes/device')
 const fanroute =  require('./src/routes/fan')
 const addDeviceroute =  require('./src/routes/adding')
 const selectDeviceroute =  require('./src/routes/select')
+const selectSwingPattern =  require('./src/routes/swing')
+const selectSong =  require('./src/routes/song')
 
 app.use('/signups',signuproute);
 app.use('/logins',loginroute);
@@ -29,6 +31,8 @@ app.use('/devices',deviceroute);
 app.use('/fans',fanroute);
 app.use('/add',addDeviceroute);
 app.use('/select',selectDeviceroute);
+app.use('/swing',selectSwingPattern);
+app.use('/song',selectSong);
 
 //startung the server
 app.listen(app.get('port'),()=>{
