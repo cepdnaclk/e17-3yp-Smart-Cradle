@@ -1,14 +1,141 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'InputDeco_design.dart';
 import 'package:cradle_app/screens/dashBoard.dart';
+import 'package:cradle_app/screens/select_device.dart';
+
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:http/http.dart' as http;
 
 class SETTINGPage extends StatefulWidget {
   @override
   _State1 createState() => _State1();
 }
 
+//String speed='';
+String state='';
+
 
 class _State1 extends State<SETTINGPage>  {
+
+
+
+
+   //=================================================================================================
+   setting(String state,String max_temp) async {
+    try {
+      //print("1\n");
+      FlutterSecureStorage storage = const FlutterSecureStorage();
+      String tok = await storage.read(key:"token");
+      print(tok);
+     
+      String d_id = await storage.read(key:"device_id");
+      print(d_id);
+
+      final response = await http.post(
+        Uri.parse('http://192.168.8.129:8000/setting'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization':'Bearer $tok'
+        },
+        body: jsonEncode(<String, String>{
+          
+         
+          'device_id':d_id,
+          'max_temp': max_temp,
+          'state':state,
+        }),
+      );
+      print(response.statusCode);
+      print(response.body);
+      //////
+       if (response.statusCode == 200) {
+
+         print("success");
+        
+      } 
+     
+            else if (response.statusCode == 402){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Invalid Inputs!'),
+                  content:
+                      const Text('WRONG INPUT'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Selectd(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            } 
+            else if (response.statusCode == 403){
+
+                showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Invalid Inputs!'),
+                  content:
+                      const Text('You have not this Device ID'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Selectd(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            } 
+          else {
+        // If the server did not return a 201 CREATED response,
+        // then throw an exception.
+          print("throw");
+          throw Exception('Failed to create album.');
+         }
+    } on Exception catch (e) {
+      print(e);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ String max_temp='';
+
+
+
+
   bool isSwitched = false;
   bool _value = false;
     int val = -1;
@@ -143,6 +270,29 @@ class _State1 extends State<SETTINGPage>  {
             
               
             
+            Padding(
+                  padding: const EdgeInsets.only(bottom:10,left: 10,right: 10),
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: buildInputDecoration(Icons.thermostat,"Enter the temperature to automatically switch on fan"),
+                    validator: (String value){
+                      if(value.isEmpty)
+                      {
+                        return 'Enter the temperature';
+                      }
+                      return null;
+                    },
+
+                    onChanged: (String value){
+                      max_temp = value;
+                    },
+
+
+                    
+                  ),
+                ),
+
+                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -163,7 +313,16 @@ class _State1 extends State<SETTINGPage>  {
                               onChanged: (value) {
                                 setState(() {
                                   isSwitched = value;
+                                  if(isSwitched==true){
+                                    state="on";
+                                  }else{
+                                    state="off";
+                                  }
                                   print(isSwitched);
+                                  print(state);
+                                  print(isSwitched);
+
+                                  setting(state, max_temp);
                                 });
                               },
                               activeTrackColor: Colors.red,
@@ -176,28 +335,36 @@ class _State1 extends State<SETTINGPage>  {
                     ),
                   ],
                 ),
-            Padding(
-                  padding: const EdgeInsets.only(bottom:10,left: 10,right: 10),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    decoration: buildInputDecoration(Icons.thermostat,"Enter the temperature to automatically switch on fan"),
-                    validator: (String value){
-                      if(value.isEmpty)
-                      {
-                        return 'Please Enter Name';
-                      }
-                      return null;
-                    },
-                    
-                  ),
-                ),
+
+
+
                //=====================
                   MaterialButton(
                     minWidth: 150,
                    // height: 50,
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => DashBoardPage()));
-                      print("Settings added");
+                      showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('You have successfully set the temperature\nto Switch on fan Automatically'),
+                  content:
+                      const Text('Automatic Fan option Available Now !'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DashBoardPage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+         
                     },
                     color: Colors.purple[700],
                     shape: RoundedRectangleBorder(
@@ -205,12 +372,13 @@ class _State1 extends State<SETTINGPage>  {
                       side: BorderSide(color: Colors.black,width:2)
                     ),
                     child: Text(
-                      "Enter",
+                      "Save Setting changes",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 20
                       ),
+
                     ),
                   ),
                //====================

@@ -23,6 +23,8 @@ const removeDeviceroute =  require('./src/routes/removing')
 const selectDeviceroute =  require('./src/routes/select')
 const selectSwingPattern =  require('./src/routes/swing')
 const selectsongPattern =  require('./src/routes/song')
+const settingroute =  require('./src/routes/settings')
+const videoroute =  require('./src/routes/video')
 
 app.use('/signups',signuproute);
 app.use('/logins',loginroute);
@@ -35,6 +37,8 @@ app.use('/remove',removeDeviceroute);
 app.use('/select',selectDeviceroute);
 app.use('/swing',selectSwingPattern);
 app.use('/song',selectsongPattern);
+app.use('/setting',settingroute);
+app.use('/video',videoroute);
 
 //startung the server
 app.listen(app.get('port'),()=>{
