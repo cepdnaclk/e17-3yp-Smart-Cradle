@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:cradle_app/screens/dashBoard.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cradle_app/screens/login.dart';
 import 'package:cradle_app/screens/select_device.dart';
@@ -65,7 +65,7 @@ class _State extends State<FanPage>  {
        if (response.statusCode == 200) {
          
          //changed by hasara
-              //Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
       } 
       else if (response.statusCode == 400){
 
@@ -80,7 +80,7 @@ class _State extends State<FanPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => FanPage(
                             //title: '',
                           ),
                         ),
@@ -104,7 +104,7 @@ class _State extends State<FanPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) =>FanPage(
                             //title: '',
                           ),
                         ),
@@ -128,7 +128,7 @@ class _State extends State<FanPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => FanPage(
                             //title: '',
                           ),
                         ),

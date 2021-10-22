@@ -153,28 +153,32 @@ class _SelectdState extends State<Selectd> {
           icon: Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,),),
       ),
       
-      body: Container(
+      body: Center(
+        child: SingleChildScrollView(
         //height: MediaQuery.of(context).size.height,
         //width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Expanded(child: Column(
+        child: Column(  
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
+              children: [
                 Column(
-                  children: <Widget>[
+                  children:[
                     Text("Select a Device",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
                     //SizedBox(height: 10,),
                  
                   ],
                 ),
+                SizedBox(
+                  height: 15,
+                ),
                               
                CircleAvatar(
                   backgroundColor: Colors.white,
                   radius:80,
                   child: Image.asset("assets/images/cradle.png"),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 
             Padding(
@@ -188,6 +192,9 @@ class _SelectdState extends State<Selectd> {
                       dev_id = value;
                     },
                   ),
+                ),
+              SizedBox(
+                  height: 15,
                 ),
                
                   MaterialButton(
@@ -217,6 +224,9 @@ class _SelectdState extends State<Selectd> {
                       ),
                     ),
                   ),
+                SizedBox(
+                  height: 10,
+                ),
 
                   Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -240,12 +250,12 @@ class _SelectdState extends State<Selectd> {
                 ),
     
               ],
-            ))
-          ],
+            
+          
         ),
       ),
 
-
+      ),
 
     );
   }

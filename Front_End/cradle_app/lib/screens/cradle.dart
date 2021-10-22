@@ -82,7 +82,7 @@ class _Sstate extends State<SwingPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => SwingPage(
                             //title: '',
                           ),
                         ),
@@ -106,7 +106,7 @@ class _Sstate extends State<SwingPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => SwingPage(
                             //title: '',
                           ),
                         ),
@@ -130,7 +130,7 @@ class _Sstate extends State<SwingPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => SwingPage(
                             //title: '',
                           ),
                         ),

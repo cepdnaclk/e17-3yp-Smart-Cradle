@@ -85,7 +85,7 @@ class _Mstate extends State<MusicPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => MusicPage(
                             //title: '',
                           ),
                         ),
@@ -109,7 +109,7 @@ class _Mstate extends State<MusicPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => MusicPage(
                             //title: '',
                           ),
                         ),
@@ -133,7 +133,7 @@ class _Mstate extends State<MusicPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => MusicPage(
                             //title: '',
                           ),
                         ),

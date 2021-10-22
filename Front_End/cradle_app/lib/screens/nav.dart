@@ -26,8 +26,8 @@ class NavBar extends StatelessWidget {
           UserAccountsDrawerHeader(
             arrowColor: Colors.purple,
             
-            accountName: Text('Saman'),
-            accountEmail: Text('Saman@gmail.com'),
+            accountName: Text('Hi!'),
+            accountEmail: Text('Welcome to Smart Cradle'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.asset(
