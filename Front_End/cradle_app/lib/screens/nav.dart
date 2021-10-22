@@ -1,6 +1,7 @@
 import 'package:cradle_app/main.dart';
 import 'package:cradle_app/screens/about.dart';
 import 'package:cradle_app/screens/add_device.dart';
+import 'package:cradle_app/screens/login.dart';
 import 'package:cradle_app/screens/select_device.dart';
 import 'package:cradle_app/screens/settings.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,7 @@ class NavBar extends StatelessWidget {
             title: Text('Log out'),
             leading: Icon(Icons.exit_to_app),
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
             } ,
           ),
         ],
