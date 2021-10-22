@@ -147,6 +147,7 @@ class _SelectdState extends State<Selectd> {
       appBar: AppBar(
         //elevation: 0,
         brightness: Brightness.light,
+        title: Text("Select Your Device",style: TextStyle(color: Colors.purple[900]),),
         backgroundColor: Colors.purple[100],
         leading: IconButton(
            onPressed: () {Navigator.pop(context);},
@@ -160,25 +161,18 @@ class _SelectdState extends State<Selectd> {
         child: Column(  
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Column(
-                  children:[
-                    Text("Select a Device",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-                    //SizedBox(height: 10,),
-                 
-                  ],
-                ),
+                
                 SizedBox(
                   height: 15,
                 ),
                               
                CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius:80,
+                  radius:90,
                   child: Image.asset("assets/images/cradle.png"),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
                 
             Padding(
@@ -186,7 +180,7 @@ class _SelectdState extends State<Selectd> {
                   padding: const EdgeInsets.only(bottom: 10,left: 10,right: 10),
                   child: TextFormField(
                     keyboardType: TextInputType.number,
-                    decoration:buildInputDecoration(Icons.lock,"Enter your Device ID"),
+                    decoration:buildInputDecoration(Icons.crib,"Enter your Device ID"),
                     validator: validatePassword,
                     onChanged: (String value){
                       dev_id = value;

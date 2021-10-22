@@ -244,6 +244,7 @@ class _Remove_deviceState extends State<Remove_devicePage> {
       appBar: AppBar(
         //elevation: 0,
         brightness: Brightness.light,
+        title: Text("Remove your Device",style: TextStyle(color: Colors.purple[900]),),
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {Navigator.pop(context);},
@@ -261,10 +262,10 @@ class _Remove_deviceState extends State<Remove_devicePage> {
                CircleAvatar(
                   backgroundColor: Colors.white,
                   radius:70,
-                  child: Image.asset("assets/images/remove.png"),
+                  child: Image.asset("assets/images/delete.jpg"),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom:10,left: 10,right: 10),

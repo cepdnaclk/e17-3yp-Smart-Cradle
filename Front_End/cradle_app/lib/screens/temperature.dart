@@ -10,6 +10,8 @@ class Temp extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
+        title: Text("Temperature",style: TextStyle(color: Colors.purple[900]),),
+
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {
@@ -33,8 +35,6 @@ class Temp extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Temperature",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.red[700]),),
                     SizedBox(height: 20,),
                     
                     Text("You can check the room temperature...",

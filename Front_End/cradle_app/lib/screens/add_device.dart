@@ -244,6 +244,7 @@ class _Add_deviceState extends State<Add_devicePage> {
       appBar: AppBar(
         //elevation: 0,
         brightness: Brightness.light,
+        title: Text("Add New Device",style: TextStyle(color: Colors.purple[900]),),
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {Navigator.pop(context);},
@@ -260,8 +261,8 @@ class _Add_deviceState extends State<Add_devicePage> {
                 
                CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius:70,
-                  child: Image.asset("assets/images/DeviceID.png"),
+                  radius:80,
+                  child: Image.asset("assets/images/add.png"),
                 ),
                 SizedBox(
                   height: 10,

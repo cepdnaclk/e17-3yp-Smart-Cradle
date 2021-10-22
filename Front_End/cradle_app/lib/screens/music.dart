@@ -178,6 +178,7 @@ class _Mstate extends State<MusicPage>  {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
+        title: Text("Music",style: TextStyle(color: Colors.purple[900]),),
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {
@@ -201,13 +202,12 @@ class _Mstate extends State<MusicPage>  {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Music",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color:Colors.blue),),
+                  
                    // SizedBox(height: 25,),
                     
                     Text("Play some music to soothe your baby...",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 20,
                     color:Colors.blue),)
                   ],
                 ),

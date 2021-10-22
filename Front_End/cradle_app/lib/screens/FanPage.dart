@@ -166,6 +166,7 @@ class _State extends State<FanPage>  {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
+        title: Text("Fan",style: TextStyle(color: Colors.purple[900]),),
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {
@@ -189,8 +190,7 @@ class _State extends State<FanPage>  {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Fan",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.orange[700]),),
+                   
                     SizedBox(height: 20,),
                     
                     Text("Turn on fan to soothe your baby...",

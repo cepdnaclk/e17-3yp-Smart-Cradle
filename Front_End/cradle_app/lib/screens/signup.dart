@@ -218,8 +218,8 @@ class _SignupPageState extends State<SignupPage> {
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius: 60,
-                  child: Image.asset("assets/images/signup1.jpeg"),
+                  radius: 80,
+                  child: Image.asset("assets/images/signup.jpg"),
                 ),
                 SizedBox(
                   height: 10,

@@ -10,6 +10,8 @@ class vedioPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
+        title: Text("Monitor",style: TextStyle(color: Colors.purple[900]),),
+
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {

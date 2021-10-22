@@ -73,7 +73,9 @@ flutter:
     - assets/images/cradle.png
     - assets/images/DeviceID.png
     - assets/images/set.jpeg
-    - assets/images/remove.png
+    - assets/images/delete.jpg
+    - assets/images/signup.jpg
+    - assets/images/add.png
     
 
    

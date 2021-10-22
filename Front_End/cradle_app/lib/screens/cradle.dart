@@ -14,7 +14,6 @@ class SwingPage extends StatefulWidget {
   _Sstate createState() => _Sstate();
 }
 
-
 class _Sstate extends State<SwingPage>  {
   //bool isSwitched = false;
  // bool _value = false;
@@ -178,6 +177,7 @@ class _Sstate extends State<SwingPage>  {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
+        title: Text("Swing the cradle",style: TextStyle(color: Colors.purple[900]),),
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {
@@ -201,8 +201,7 @@ class _Sstate extends State<SwingPage>  {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Swing",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.green[700]),),
+                   
                    // SizedBox(height: 25,),
                     
                     Text("Swing the cradle to soothe your baby...",
