@@ -25,6 +25,8 @@ const selectSwingPattern =  require('./src/routes/swing')
 const selectsongPattern =  require('./src/routes/song')
 const settingroute =  require('./src/routes/settings')
 const videoroute =  require('./src/routes/video')
+const temproute =  require('./src/routes/temp')
+
 
 app.use('/signups',signuproute);
 app.use('/logins',loginroute);
@@ -39,6 +41,8 @@ app.use('/swing',selectSwingPattern);
 app.use('/song',selectsongPattern);
 app.use('/setting',settingroute);
 app.use('/video',videoroute);
+app.use('/temp',temproute);
+
 
 //startung the server
 app.listen(app.get('port'),()=>{

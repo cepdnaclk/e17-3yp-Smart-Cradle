@@ -55,56 +55,13 @@ class DashBoardPage extends StatelessWidget {
      
             else if (response.statusCode == 402){
               print("Invalid inputs");
-/*
-                showDialog<String>(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                  title: const Text('Invalid Inputs!'),
-                  content:
-                      const Text('WRONG INPUT'),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Selectd(
-                            //title: '',
-                          ),
-                        ),
-                      ),
-                      child: const Text('OK'),
-                    ),
-                  ],
-                ),
-              );
-              */
+
+               
             } 
             else if (response.statusCode == 403){
 
               print("invalid inputs");
-/*
-                showDialog<String>(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                  title: const Text('Invalid Inputs!'),
-                  content:
-                      const Text('You have not this Device ID'),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Selectd(
-                            //title: '',
-                          ),
-                        ),
-                      ),
-                      child: const Text('OK'),
-                    ),
-                  ],
-                ),
-              );
-              */
+
             } 
           else {
         // If the server did not return a 201 CREATED response,
@@ -118,6 +75,62 @@ class DashBoardPage extends StatelessWidget {
       print(e);
     }
   }
+
+  temp() async {
+    try {
+      //print("1\n");
+      FlutterSecureStorage storage = const FlutterSecureStorage();
+      String tok = await storage.read(key:"token");
+      print(tok);
+     
+      String d_id = await storage.read(key:"device_id");
+      print(d_id);
+
+      final response = await http.post(
+        Uri.parse('http://192.168.8.129:8000/temp'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization':'Bearer $tok'
+        },
+        body: jsonEncode(<String, String>{
+          
+         
+          'device_id':d_id,
+          
+        }),
+      );
+      print(response.statusCode);
+      print(response.body);
+      //////
+       if (response.statusCode == 200) {
+
+         print("Checking the Room temperature..");
+        
+      } 
+     
+            else if (response.statusCode == 402){
+              print("Invalid inputs");
+
+               
+            } 
+            else if (response.statusCode == 403){
+
+              print("invalid inputs");
+
+            } 
+          else {
+        // If the server did not return a 201 CREATED response,
+        // then throw an exception.
+          print("throw");
+          throw Exception('Failed to create album.');
+         }
+    } on Exception catch (e) {
+      print(e);
+    } catch (e) {
+      print(e);
+    }
+  }
+
 
 
 
@@ -280,6 +293,7 @@ class DashBoardPage extends StatelessWidget {
                                   //Image.asset("assets/settings.png",width: 64.0,),
                                 IconButton(iconSize: 80,color: Colors.red[900],icon: Icon(Icons.thermostat),
                                   onPressed: (){
+                                    temp();
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=> Temp()));
                                   },
                                 ),
