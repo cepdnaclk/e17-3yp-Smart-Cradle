@@ -147,6 +147,8 @@ class _State1 extends State<SETTINGPage>  {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
+        title: Text("Settings",style: TextStyle(color: Colors.purple[900]),),
+
         backgroundColor: Colors.purple[100],
         leading: IconButton(
           onPressed: () {
@@ -170,8 +172,6 @@ class _State1 extends State<SETTINGPage>  {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Settings",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color:Colors.orange[700]),),
                     SizedBox(height: 20,),
                     
                     

@@ -13,9 +13,9 @@ class Selectd extends StatefulWidget {
 }
 TextEditingController password = TextEditingController();
 final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-String dev_id='';
-class _SelectdState extends State<Selectd> {
 
+class _SelectdState extends State<Selectd> {
+String dev_id='';
    void _showToast(BuildContext context) {
       final scaffold = ScaffoldMessenger.of(context);
       scaffold.showSnackBar(
