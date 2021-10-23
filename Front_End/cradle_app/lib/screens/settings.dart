@@ -34,7 +34,7 @@ class _State1 extends State<SETTINGPage>  {
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://192.168.8.129:8000/setting'),
+        Uri.parse('http://34.204.36.199:8000/setting'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'
