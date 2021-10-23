@@ -84,7 +84,7 @@ Router.post('/',function(req, res) {
             }else{
                 return res.status(403).json({
                     success: 0,
-                    message:'Invalid Password'
+                    message:'Invalid Username'
                     //token: token
                 })
 
