@@ -55,10 +55,11 @@ Router.post('/', ensureToken,function(req, res) {
         }else{
 
             mysqlConnection.query(sql,
-                [data.user_name],(error, result) => {
+                [user_name],(error, result) => {
         
                     if(error){
         
+                        
                         console.log(error);
         
                     }
