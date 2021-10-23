@@ -13,7 +13,7 @@ Router.post('/', async function(req, res, next) {
 
     const schema = Joi.object({
 
-        user_name: Joi.string().max(15).required(),
+        user_name: Joi.string().min(5).max(15).required(),
         email: Joi.string().email().max(50).required(),
         mobile_number:Joi.string().pattern(/^[0-9]+$/).min(10).max(10).required(),
         device_id:Joi.string().pattern(/^[0-9]+$/).required(),
