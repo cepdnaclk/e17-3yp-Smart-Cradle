@@ -46,7 +46,7 @@ class _State extends State<FanPage>  {
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://192.168.43.95:8000/fans'),
+        Uri.parse('http://34.229.89.117:8000/fans'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'

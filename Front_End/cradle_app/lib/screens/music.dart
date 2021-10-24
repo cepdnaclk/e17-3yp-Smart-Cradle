@@ -50,7 +50,7 @@ class _Mstate extends State<MusicPage>  {
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://192.168.43.95:8000/song'),
+        Uri.parse('http://34.229.89.117:8000/song'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'
