@@ -51,12 +51,32 @@ class _State1 extends State<SETTINGPage>  {
       print(response.body);
       //////
        if (response.statusCode == 200) {
-
-         print("success");
+        print("success");
+        showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('You have successfully set the temperature\nto Switch on fan Automatically'),
+                  content:
+                      const Text('Automatic Fan option Available Now !'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DashBoardPage(
+                            //title: '',
+                          ),
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
         
       } 
      
-            else if (response.statusCode == 402){
+            else if (response.statusCode == 402 || response.statusCode == 400){
 
                 showDialog<String>(
                 context: context,
@@ -69,7 +89,7 @@ class _State1 extends State<SETTINGPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => SETTINGPage(
                             //title: '',
                           ),
                         ),
@@ -93,7 +113,7 @@ class _State1 extends State<SETTINGPage>  {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Selectd(
+                          builder: (context) => SETTINGPage(
                             //title: '',
                           ),
                         ),
@@ -322,7 +342,7 @@ class _State1 extends State<SETTINGPage>  {
                                   print(state);
                                   print(isSwitched);
 
-                                  setting(state, max_temp);
+                                  //setting(state, max_temp);
                                 });
                               },
                               activeTrackColor: Colors.red,
@@ -343,28 +363,7 @@ class _State1 extends State<SETTINGPage>  {
                     minWidth: 150,
                    // height: 50,
                     onPressed: (){
-                      showDialog<String>(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                  title: const Text('You have successfully set the temperature\nto Switch on fan Automatically'),
-                  content:
-                      const Text('Automatic Fan option Available Now !'),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DashBoardPage(
-                            //title: '',
-                          ),
-                        ),
-                      ),
-                      child: const Text('OK'),
-                    ),
-                  ],
-                ),
-              );
-         
+                      setting(state, max_temp);
                     },
                     color: Colors.purple[700],
                     shape: RoundedRectangleBorder(
