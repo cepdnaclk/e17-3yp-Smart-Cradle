@@ -5,15 +5,36 @@
 # Smart Cradle 
 an automated cradle that can be controlled by a mobile application.
 
-## Problem
-<p align="justify">As we are very well familiar with the hurdles faced by Parents to nurture their infant and especially in case if both the Parents are working. To give 24 hours of time in such cases is next to impossible. However they still need to look after their babies,thereby increasing workload and stress. They either send their babies to their parents or hire a baby caregiver while they are working. Some parents worry about the safety of their babies in the care of others.Thus they go home to check on their babies during their free time, such as lunch or tea break.
-
-
-
 ## Related Links
 1. [Project page]( https://cepdnaclk.github.io/e17-3yp-Smart-Cradle/)
 2. [Github repo](https://github.com/cepdnaclk/e17-3yp-Smart-Cradle)
 3. [Department of computer engineering](http://www.ce.pdn.ac.lk/)
+
+
+## Problem
+<p align="justify">As we are very well familiar with the hurdles faced by Parents to nurture their infant and especially in case if both the Parents are working. To give 24 hours of time in such cases is next to impossible. However they still need to look after their babies,thereby increasing workload and stress. They either send their babies to their parents or hire a baby caregiver while they are working. Some parents worry about the safety of their babies in the care of others.Thus they go home to check on their babies during their free time, such as lunch or tea break.<br><br>
+
+<center>
+<img src="https://cepdnaclk.github.io/e17-3yp-Smart-Cradle/images/problem.jpg" style="width:500px;height:300px;"></img>
+</center>
+
+
+
+## Solution
+<p align="justify">A baby Monitoring System that can monitor the babies' condition real time is proposed to solve these problems. A baby monitoring System consisting of a vedio camera and microphone without limitations of coverage.It can send data and immediately notify the parents about urgent situations,thereby shortening the time needed to handle such scenarios.<br>
+The proposed solution involves live monitoring of the child through a mobile application remotely.Noice Sensor for the detection of the child's crying activity.When detect crying, cradle send a message to parent,plays a song.The Thermal sensor notifies the parent about the envioremental temperature near the baby and switch on the fan automatically with temperature. The proposed system uses the cloud service for remotely monitoring the child.<br> <br>
+
+## Solution Architecture
+<center>
+<img src="https://github.com/cepdnaclk/e17-3yp-Smart-Cradle/blob/main/docs/images/bigpic2.PNG?raw=true" style="width:700px;height:400px;"></img>
+</center>
+
+
+## Technologies Used
+<center>
+<img src="https://github.com/cepdnaclk/e17-3yp-Smart-Cradle/blob/main/docs/images/tech.png?raw=true" style="width:700px;height:400px;" ></img>
+</center>
+
 
 ## Team Members
 1. E/17/040 Chandrasena M.M.D [[e17040@eng.pdn.ac.lk](mailto:e17040@eng.pdn.ac.lk)]
