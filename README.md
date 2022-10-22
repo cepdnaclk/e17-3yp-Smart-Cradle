@@ -13,7 +13,12 @@
   5. Switch on a fan
   6. Monitor the baby
 
+## Related Links
 
+
+1. [Project page]( https://cepdnaclk.github.io/e17-3yp-Smart-Cradle/)
+2. [Github repo](https://github.com/cepdnaclk/e17-3yp-Smart-Cradle)
+3. [Department of computer engineering](http://www.ce.pdn.ac.lk/)
 
 ## Team Members
 1. E/17/040 Chandrasena M.M.D [[e17040@eng.pdn.ac.lk](mailto:e17040@eng.pdn.ac.lk)]
@@ -26,12 +31,7 @@
 2. Supervisor2 [[Website](http://www.ce.pdn.ac.lk/academic-staff/), [Email](mailto:lecturer@ce.pdn.ac.lk)]    -->
 
 
-## Links
 
-
-1. [Project page]( https://cepdnaclk.github.io/e17-3yp-Smart-Cradle/)
-2. [Github repo](https://github.com/cepdnaclk/e17-3yp-Smart-Cradle)
-3. [Department of computer engineering](http://www.ce.pdn.ac.lk/)
 
 <!--
 ## Publications
