@@ -12,7 +12,7 @@ an automated cradle that can be controlled by a mobile application.
 
 
 ## Problem
-<p align="justify">As we are very well familiar with the hurdles faced by Parents to nurture their infant and especially in case if both the Parents are working. To give 24 hours of time in such cases is next to impossible. However they still need to look after their babies,thereby increasing workload and stress. They either send their babies to their parents or hire a baby caregiver while they are working. Some parents worry about the safety of their babies in the care of others.Thus they go home to check on their babies during their free time, such as lunch or tea break.<br><br>
+<p align="justify">In the modern society parents are very busy and they can't always keep eyes on their babies.So they either send their babies to their parents or hire a baby caregiver while they are working. Some parents worry about the safety of their babies in the care of others.Thus they go home to check on their babies during their free time, such as lunch or tea break.<br><br>
 
 <center>
 <img src="https://cepdnaclk.github.io/e17-3yp-Smart-Cradle/images/problem.jpg" style="width:500px;height:300px;"></img>
