@@ -57,21 +57,21 @@ Router.post('/', ensureToken,function(req, res) {
                     }
         
                     if(result.length > 0){
-                        //== end of valid request
+                        //== valid request
+
+                        const data={
+                            fan_state:state,
+                            fan_speed:speed
+
+                        };
+
+                        var pub_data=JSON.stringify(data);
+                        //console.log("JSON :",pub_data);
 
                         // mqtt pub method
-                        client.on("connect",function(){
+                        client.publish('cradle/fan/speed/state',
+                                            'state and speed :'+pub_data);
 
-                                client.publish('Fan/state',
-                                'state :'+state.toString());
-
-                                client.publish('Fan/speed',
-                                'speed :'+speed.toString());
-                            
-                        
-                        
-                        
-                        });
                         // end of mqtt pub
 
                        

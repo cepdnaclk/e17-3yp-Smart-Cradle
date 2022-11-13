@@ -65,7 +65,7 @@ Router.post('/', ensureToken,function(req, res) {
 
                         client.on('connect',function(){
 
-                            client.subscribe("Temperature");
+                            client.subscribe("cradle/temperature");
                             console.log("Subscribed Successfully");
                         
                         
