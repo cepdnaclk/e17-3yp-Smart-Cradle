@@ -8,6 +8,10 @@ var mysqlConnection = require('../connection/connection')
 const jwt =require('jsonwebtoken')
 const  ensureToken  = require('../middleware/authenticate')
 
+// mqtt 
+const mqtt= require("mqtt");
+var client=mqtt.connect('mqtt://broker.hivemq.com');
+
 Router.post('/', ensureToken,function(req, res) {
   
 
@@ -53,7 +57,22 @@ Router.post('/', ensureToken,function(req, res) {
                     }
         
                     if(result.length > 0){
-                        //==
+                        //== end of valid request
+
+                        // mqtt pub method
+                        client.on("connect",function(){
+
+                                client.publish('Fan/state',
+                                'state :'+state.toString());
+
+                                client.publish('Fan/speed',
+                                'speed :'+speed.toString());
+                            
+                        
+                        
+                        
+                        });
+                        // end of mqtt pub
 
                        
 
@@ -85,7 +104,9 @@ Router.post('/', ensureToken,function(req, res) {
                             //==
                         }
                         
-                        //==
+                        ///
+
+
                     }
                     else{
                         res.json({Status:'Wrong Device ID'});
@@ -98,51 +119,7 @@ Router.post('/', ensureToken,function(req, res) {
 
 
 
-/*
-    mysqlConnection.query(sql,
-        [device_id],(error, result) => {
 
-            if(error){
-
-                console.log(error);
-
-            }
-
-            if(result.length > 0){
-                //==
-                if(fan=='on'){
-                    mysqlConnection.query(`UPDATE DEVICE set fan=1  WHERE device_id=${device_id};`,
-                    [fan],(error,rows,fileds)=>{
-                            if(!error){
-                                res.json({Status:'Successful'});
-                            }else{
-                                console.log(error);
-                            }
-
-    
-                    })
-                }
-                else if(fan=='off'){
-                    //==
-                    mysqlConnection.query(`UPDATE DEVICE set fan=0  WHERE device_id=${device_id};`,
-                    [fan],(error,rows,fileds)=>{
-                            if(!error){
-                                res.json({Status:'Successful'});
-                            }else{
-                                console.log(error);
-                            }
-
-    
-                    })
-                    //==
-                }
-                
-                //==
-            }
-            else{
-                res.json({Status:'Wrong Device ID'});
-            }
-        });   */
   })
 
   module.exports = Router
