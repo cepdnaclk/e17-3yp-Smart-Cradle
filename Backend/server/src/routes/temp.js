@@ -8,20 +8,20 @@ var mysqlConnection = require('../connection/connection')
 const jwt =require('jsonwebtoken')
 const  ensureToken  = require('../middleware/authenticate')
 
+const mqtt=require("mqtt");
+var client =mqtt.connect('mqtt://broker.hivemq.com');
+
+
 Router.post('/', ensureToken,function(req, res) {
   
 
     const {device_id}=req.body;
     console.log(req.body);
 
-   
     //console.log(state);
     //console.log(max_temp);
 
-    //console.log(speed);
-
     //server side validation
-
     const schema = Joi.object({
         device_id:Joi.string().pattern(/^[0-9]+$/).required(),
        // state:Joi.string().min(2).max(3).required(),
@@ -57,19 +57,41 @@ Router.post('/', ensureToken,function(req, res) {
         
                     if(result.length > 0){
                         //==
-                        res.json({Status:'Checking the Room tempereature....'});
+                        //res.json({Status:'Checking the Room tempereature....'});
                         console.log("Checking the Room temperature...");
-                       
 
+
+                        // mqtt sub method
+
+                        client.on('connect',function(){
+
+                            client.subscribe("Temperature");
+                            console.log("Subscribed Successfully");
                         
-            
-                            //})
                         
-                       
+                        });
+
+                        client.on('message',function(topic,message){
+
+                            console.log(message.toString());
+
+                            const temperature_val=message.toString();
+                            // sending the response to the mobile app
+                            return res.status(200).json({
+                                success: 1,
+                                message:temperature_val,
+                               
+                            })
+                            
+                        });
+
+                        // end of mqtt
                         
+                        
+
+
                         //==
-                    }
-                    else{
+                    }else{
                         res.json({Status:'Wrong Device ID'});
                     }
                 });
