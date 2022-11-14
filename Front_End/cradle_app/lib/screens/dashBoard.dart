@@ -32,7 +32,7 @@ class DashBoardPage extends StatelessWidget {
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://34.229.89.117:8000/video'),
+        Uri.parse('http://10.30.86.58:8000/video'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'
