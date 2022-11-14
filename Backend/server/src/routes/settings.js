@@ -8,6 +8,10 @@ var mysqlConnection = require('../connection/connection')
 const jwt =require('jsonwebtoken')
 const  ensureToken  = require('../middleware/authenticate')
 
+// mqtt 
+const mqtt= require("mqtt");
+var client=mqtt.connect('mqtt://broker.hivemq.com');
+
 Router.post('/', ensureToken,function(req, res) {
   
 
@@ -57,6 +61,23 @@ Router.post('/', ensureToken,function(req, res) {
         
                     if(result.length > 0){
                         //==
+
+                        //valid request
+                        // mqtt
+                        const data={
+                            fan_state:state,
+                            max_temperature:max_temp
+
+                        };
+
+                        var pub_data=JSON.stringify(data);
+                        //console.log("JSON :",pub_data);
+
+                        // mqtt pub method
+                        client.publish('cradle/settings/temperature/state',
+                                            'state and temerature :'+pub_data);
+
+                        // end of mqtt
 
                        
 

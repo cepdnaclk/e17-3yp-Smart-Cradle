@@ -8,6 +8,10 @@ var mysqlConnection = require('../connection/connection')
 const jwt =require('jsonwebtoken')
 const  ensureToken  = require('../middleware/authenticate')
 
+// mqtt 
+const mqtt= require("mqtt");
+var client=mqtt.connect('mqtt://broker.hivemq.com');
+
 Router.post('/', ensureToken,function(req, res) {
   
     //variable pattern to store the swing pattern
@@ -56,6 +60,23 @@ Router.post('/', ensureToken,function(req, res) {
                     }
         
                     if(result.length > 0){
+
+                        const data={
+                            swing_state:state,
+                            swing_pattern:pattern
+
+                        };
+
+                        var pub_data=JSON.stringify(data);
+                        //console.log("JSON :",pub_data);
+
+                        // mqtt pub method
+                        client.publish('cradle/swing/pattern/state',
+                                            'state and pattern :'+pub_data);
+
+
+
+
                         return res.status(200).json({
                             success: 1,
                             message:'Successfully updated',
