@@ -11,6 +11,14 @@ const  ensureToken  = require('../middleware/authenticate')
 const mqtt=require("mqtt");
 var client =mqtt.connect('mqtt://broker.hivemq.com');
 
+client.on('connect',function(){
+
+    client.subscribe("cradle/temperature");
+    console.log("Subscribed Successfully");
+
+
+});
+
 
 Router.post('/', ensureToken,function(req, res) {
   
@@ -28,6 +36,8 @@ Router.post('/', ensureToken,function(req, res) {
         
        // max_temp:Joi.string().min(2).max(3).required(),
     });
+
+    
 
     const result = schema.validate(req.body);
 
@@ -62,7 +72,7 @@ Router.post('/', ensureToken,function(req, res) {
 
 
                         // mqtt sub method
-
+/*
                         client.on('connect',function(){
 
                             client.subscribe("cradle/temperature");
@@ -70,6 +80,7 @@ Router.post('/', ensureToken,function(req, res) {
                         
                         
                         });
+                        */
 
                         client.on('message',function(topic,message){
 
@@ -85,15 +96,21 @@ Router.post('/', ensureToken,function(req, res) {
                             
                         });
 
+                       
+
+
                         // end of mqtt
                         
                         
 
 
                         //==
-                    }else{
+                    }
+                    
+                    else{
                         res.json({Status:'Wrong Device ID'});
                     }
+                    
                 });
             
 
