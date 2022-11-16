@@ -1,87 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:cradle_app/screens/dashBoard.dart';
-import 'package:cradle_app/screens/add_device.dart';
-import 'package:cradle_app/screens/login.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:http/http.dart' as http;
-import 'package:cradle_app/screens/signup.dart';
-import 'dart:convert';
-import 'InputDeco_design.dart';
 
 
-class Temp extends StatefulWidget {
-
-//
-  @override
-  State<Temp> createState() => _TempState();
-  
-}
-
-class _TempState extends State<Temp> {
- String temperature='';
-
-
- @override
-void initState() {
-    super.initState();
-     print("init");
-     readTemp();
-}
-
-  Future<String>  readTemp() async {
-    try {
-      //print("1\n");
-      FlutterSecureStorage storage = const FlutterSecureStorage();
-
-      String dev_id= await storage.read(key:"device_id");
-      String tok = await storage.read(key:"token");
-      print(tok);
-      String u_name = await storage.read(key:"user_name");
-      print(u_name);
-      final response = await http.post(
-        Uri.parse('http://192.168.56.1:8000/temp'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization':'Bearer $tok'
-        },
-        body: jsonEncode(<String, String>{
-          //'user_name': u_name,
-          'device_id':dev_id
-        })
-      );
-      print(response.statusCode);
-      print(response.body);
-      //////
-       if (response.statusCode == 200) {
-              Map<String, dynamic> output = json.decode(response.body);
-
-       
-        
-        setState(() {
-          temperature = output["message"];
-        });
-        print(temperature);
-        return temperature.toString();
-              
-      } 
-      
-      
-            
-            
-          else {
-        // If the server did not return a 201 CREATED response,
-        // then throw an exception.
-          print("throw");
-          throw Exception('Failed to create album.');
-         }
-    } on Exception catch (e) {
-      print(e);
-    } catch (e) {
-      print(e);
-    }
-  }
-
+class Temp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +10,7 @@ void initState() {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
-        title: Text(temperature,style: TextStyle(color: Colors.black),),
+        title: Text("Temperature",style: TextStyle(color: Colors.purple[900]),),
 
         backgroundColor: Colors.purple[100],
         leading: IconButton(
@@ -155,8 +75,7 @@ void initState() {
                 ),
               Column(
                   children: <Widget>[
-                    //readTemp(dev_id),
-                    Text("Room temperature is ${temperature}",
+                    Text("Room temperature is 28 celcius",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     SizedBox(height: 20,),
                     
@@ -177,6 +96,7 @@ void initState() {
       ),
     );
   }
+
 }
 
 
