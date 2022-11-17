@@ -71,8 +71,7 @@ Router.post('/', ensureToken,function(req, res) {
                         //console.log("JSON :",pub_data);
 
                         // mqtt pub method
-                        client.publish('cradle/songs/song_name/state',
-                                            'state and song :'+pub_data);
+                        client.publish('cradle/songs/song_name/state',pub_data);
 
                         return res.status(200).json({
                             success: 1,
