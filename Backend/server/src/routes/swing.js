@@ -71,8 +71,7 @@ Router.post('/', ensureToken,function(req, res) {
                         //console.log("JSON :",pub_data);
 
                         // mqtt pub method
-                        client.publish('cradle/swing/pattern/state',
-                                            'state and pattern :'+pub_data);
+                        client.publish('cradle/swing/pattern/state',pub_data);
 
 
 

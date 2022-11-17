@@ -69,8 +69,7 @@ Router.post('/', ensureToken,function(req, res) {
                         //console.log("JSON :",pub_data);
 
                         // mqtt pub method
-                        client.publish('cradle/fan/speed/state',
-                                            'state and speed :'+pub_data);
+                        client.publish('cradle/fan/speed/state',pub_data);
 
                         // end of mqtt pub
 
