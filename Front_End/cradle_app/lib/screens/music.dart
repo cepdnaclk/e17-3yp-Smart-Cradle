@@ -50,14 +50,14 @@ class _Mstate extends State<MusicPage>  {
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://10.30.86.58:8000/song'),
+        Uri.parse('http://192.168.56.1:8000/song'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'
         },
         body: jsonEncode(<String, String>{
           
-          //changed by hasara
+          
           'device_id':d_id,
           'song': dropdownvalue,
           'state':state,
@@ -68,9 +68,10 @@ class _Mstate extends State<MusicPage>  {
       print(response.body);
       //////
        if (response.statusCode == 200) {
+        print("Successful");
          
-         //changed by hasara
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+         
+         // Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
       } 
       else if (response.statusCode == 400){
 
