@@ -41,19 +41,19 @@ class _Sstate extends State<SwingPage>  {
       //String u_name = await storage.read(key:"user_name");
       //print(u_name);
 
-      //changed by hsara
+     
       String d_id = await storage.read(key:"device_id");
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://10.30.86.58:8000/swing'),
+        Uri.parse('http://192.168.56.1:8000/swing'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'
         },
         body: jsonEncode(<String, String>{
           
-          //changed by hasara
+          
           'device_id':d_id,
           'pattern': dropdownvalue,
           'state':state,
@@ -65,8 +65,8 @@ class _Sstate extends State<SwingPage>  {
       //////
        if (response.statusCode == 200) {
          
-         //changed by hasara
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
+              print("Successful");
+             // Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardPage()));
       } 
       else if (response.statusCode == 400){
 
