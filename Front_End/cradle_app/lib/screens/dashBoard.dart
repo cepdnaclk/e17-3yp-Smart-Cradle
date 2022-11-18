@@ -6,15 +6,31 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cradle_app/screens/music.dart';
 import 'package:cradle_app/screens/temperature.dart';
+import 'package:cradle_app/screens/temp_new.dart';
 import 'package:cradle_app/screens/FanPage.dart';
 import 'package:cradle_app/screens/cradle.dart';
 import 'package:cradle_app/screens/vedio.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
 
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
 import 'nav.dart';
+
+final Uri _url=Uri.parse('http://10.30.86.97');
+
+Future<void> _launchUrl()async {
+    
+    if (!await launchUrl(_url)){
+      
+      throw 'Could not launch $_url';
+    }
+  }
+
+
 
 
 
@@ -32,7 +48,7 @@ class DashBoardPage extends StatelessWidget {
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://10.30.86.58:8000/video'),
+        Uri.parse('http://192.168.56.1:8000/video'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'
@@ -199,11 +215,13 @@ class DashBoardPage extends StatelessWidget {
                         iconSize: 80,
                         color: Colors.indigo[900],
                         icon: Icon(Icons.videocam),
-                        onPressed: () {
-                          video();
+                        //onPressed: () {
+                         // video();
+                         onPressed: _launchUrl,
 
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> vedioPage())); //vediocam
-                        },
+
+                          //Navigator.push(context, MaterialPageRoute(builder: (context)=> vedioPage())); //vediocam
+                        
                        ),
                         SizedBox(
                           height: 0.0,
@@ -293,7 +311,7 @@ class DashBoardPage extends StatelessWidget {
                                   //Image.asset("assets/settings.png",width: 64.0,),
                                 IconButton(iconSize: 80,color: Colors.red[900],icon: Icon(Icons.thermostat),
                                   onPressed: (){
-                                    temp();
+                                    //temp();
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=> Temp()));
                                   },
                                 ),
