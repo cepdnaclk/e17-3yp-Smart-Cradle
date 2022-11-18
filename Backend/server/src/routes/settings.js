@@ -74,8 +74,7 @@ Router.post('/', ensureToken,function(req, res) {
                         //console.log("JSON :",pub_data);
 
                         // mqtt pub method
-                        client.publish('cradle/settings/temperature/state',
-                                            'state and temerature :'+pub_data);
+                        client.publish('cradle/settings/temperature/state',pub_data);
 
                         // end of mqtt
 
