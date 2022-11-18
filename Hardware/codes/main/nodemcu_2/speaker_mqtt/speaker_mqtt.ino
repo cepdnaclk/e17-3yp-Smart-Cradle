@@ -3,12 +3,21 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-// pin for sound sensor
-#define sound_analog  A0
 
-// libraries for the temperature sensor
-#include "DHTesp.h"
-DHTesp dht;
+// libraries for sound sensor
+#include <Arduino.h>
+
+#include "AudioFileSourcePROGMEM.h"
+#include "AudioGeneratorWAV.h"
+#include "AudioOutputI2SNoDAC.h"
+
+// VIOLA sample taken from https://ccrma.stanford.edu/~jos/pasp/Sound_Examples.html
+//#include "viola.h"
+#include "Hasara.h"
+AudioGeneratorWAV *wav;
+AudioFileSourcePROGMEM *file;
+AudioOutputI2SNoDAC *out;
+
 
 // wifi connection
 const char* ssid = "Eng-Student";
@@ -66,14 +75,9 @@ void reconnect() {
     // Attempt to connect
     if (client.connect(clientId.c_str())) {
       Serial.println("connected");
-      // Once connected, publish an announcement...
-
-      // publish topics 
-      client.publish("cradle/temperature", "MQTT server is connected");
-      client.publish("cradle/soundsensor", "MQTT server is connected");
 
       // subscribe topics
-      client.subscribe("cradle/fan/speed/state");
+      client.subscribe("cradle/songs/song_name/state");
       
     } else {
       Serial.print("failed, rc=");
@@ -104,45 +108,80 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.println();
 
  // check for the the signals from fan ---------------------------------------------------------------------------  FAN
- if(strcmp(topic, "cradle/fan/speed/state") == 0){ 
+ if(strcmp(topic,"cradle/songs/song_name/state") == 0){ 
+  int sum = 0;
+  if((char)payload[17] == 'n'){  // on 
 
-  digitalWrite(12 , HIGH);
-  digitalWrite(13, LOW);
+   // digitalWrite(BUILTIN_LED, LOW); 
+   digitalWrite(4,HIGH);  
+   Serial.printf("pqr\n");
+      audioLogger = &Serial;
+      file = new AudioFileSourcePROGMEM( viola, sizeof(viola) );
+      out = new AudioOutputI2SNoDAC();
+      wav = new AudioGeneratorWAV();
+      wav->begin(file, out);
+      delay(1000);
 
-  if((char)payload[15] == 'n'){  // on 
 
-   // digitalWrite(BUILTIN_LED,LOW);
-   
-    // cheching for speed
-    if((char)payload[31] == '1'){
-      analogWrite(15,160);
-      delay(5000);
-      
-    }else if((char)payload[31] == '2'){
-
-      analogWrite(15,200);
-      delay(5000);
-        
-    }else if((char)payload[31] == '3'){
-
-      analogWrite(15,255);
-      delay(5000);
-      
-    }
+   while(sum<1035*4){
     
-   }else if((char)payload[15] == 'f'){  //off
+//      Serial.printf("WAV done\n");
+//      audioLogger = &Serial;
+//      file = new AudioFileSourcePROGMEM( viola, sizeof(viola) );
+//      out = new AudioOutputI2SNoDAC();
+//      wav = new AudioGeneratorWAV();
+//      wav->begin(file, out);
+//      delay(1000);
+      
+     if (wav->isRunning()) {
+      Serial.print("abc");
+      sum++;
+      if (!wav->loop()) wav->stop();
+    } else {
+      Serial.printf("elser\n\n\n");
+      Serial.print(sum);
+      audioLogger = &Serial;
+      file = new AudioFileSourcePROGMEM( viola, sizeof(viola) );
+      out = new AudioOutputI2SNoDAC();
+      wav = new AudioGeneratorWAV();
+      wav->begin(file, out);
+      delay(1000);
+   }
 
-    //digitalWrite(BUILTIN_LED,HIGH);
+   //delay(1500);
+  }
+    
+   }
 
-     analogWrite(15,0);
-   // delay(5000);  
+    
+/*
+    if (wav->isRunning()) {
+      if (!wav->loop()) wav->stop();
+    } else {
+      Serial.printf("WAV done\n");
+      audioLogger = &Serial;
+      file = new AudioFileSourcePROGMEM( viola, sizeof(viola) );
+      out = new AudioOutputI2SNoDAC();
+      wav = new AudioGeneratorWAV();
+      wav->begin(file, out);
+      delay(1000);
+   }
+   */
+    
+   }else if((char)payload[17] == 'f'){  //off
+        // code to stop playing song
+
+        //digitalWrite(BUILTIN_LED,HIGH);  
+         digitalWrite(4,LOW);
+
+   
    }
   
   }
   //-------------------------------------------------------------------------------------------------   FAN-END
 
   
-}
+
 
 
 
@@ -151,30 +190,28 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 void setup() {
 
+  pinMode(BUILTIN_LED, OUTPUT); 
+  pinMode(4,OUTPUT);
 
-                                                                                                    //initialize pins related to temperature sensor
   Serial.begin(9600);
-  Serial.println();
+  delay(1000);
 
-  // temperature sensor
-  Serial.println("Status\t\tHumidity (%)\t\tTemperature (C)\t");
-  dht.setup(16, DHTesp::DHT11); // GPIO16
+  
+  Serial.printf("WAV start\n");
 
+  audioLogger = &Serial;
+  file = new AudioFileSourcePROGMEM( viola, sizeof(viola) );
+  out = new AudioOutputI2SNoDAC();
+  wav = new AudioGeneratorWAV();
+  wav->begin(file, out);
+  
 
-  // fan
-  pinMode(12 ,OUTPUT);
-  pinMode(13 ,OUTPUT);
-  pinMode(15, OUTPUT);
-
-  // sound sensor
-  pinMode(sound_analog,INPUT);  
-  delay(10);
 
                                                                                                     // hadling connection
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   
-  client.subscribe("cradle/fan/speed/state");
+  client.subscribe("cradle/songs/song_name/state");
   
   client.setCallback(callback);
 
@@ -193,34 +230,7 @@ void loop() {
   }
   client.loop();
 
- 
-
-  //-------------------------------------------------------------
-
-   // temperature sensor
-  delay(1500);
-  //float humidity = dht.getHumidity();
-  float temperature = dht.getTemperature();
-  snprintf(msg,MSG_BUFFER_SIZE,"Temperature is:%.2f",temperature);
-  Serial.print("Publish message: ");
-  Serial.println(msg);
-  client.publish("cradle/temperature",msg);
-
-  //-------------------------------------------------------------
-  // sound sensor
-  int sound_val_analog = analogRead(sound_analog);
-  if(sound_val_analog>100){
-      //Serial.print(val_analog);
-      //Serial.print("\n");
-      snprintf(msg,MSG_BUFFER_SIZE,"frequency is:%ld",sound_val_analog);
-      Serial.print("Publish message: ");
-      Serial.println(msg);
-      client.publish("cradle/soundsensor",msg);
-  }
-  delay(100);
-  
-
-
+  //client.setCallback(callback);
 }
 
 //======================================================================================================================================
