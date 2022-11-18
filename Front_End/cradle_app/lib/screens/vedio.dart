@@ -1,7 +1,22 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
+final Uri _url=Uri.parse('https://flutter.dev');
 
 
 class vedioPage extends StatelessWidget {
+////////
+    Future<void> _launchUrl()async {
+    
+    if (!await launchUrl(_url)){
+      
+      throw 'Could not launch $_url';
+    }
+  }
+
+  ///////////////////////////
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +42,8 @@ class vedioPage extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
+        ///////////////////////////////
+        /*
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -45,6 +62,8 @@ class vedioPage extends StatelessWidget {
                     color:Colors.indigo[900]),)
                   ],
                 ),
+
+
                
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 100),
@@ -79,6 +98,24 @@ class vedioPage extends StatelessWidget {
             ))
           ],
         ),
+
+        ///////////////////////////////////////////////////////////////////
+        ///
+        */
+
+       child: TextButton(
+              onPressed: _launchUrl,
+              child: 
+              //Text('Click here to get a live feedback of your baby'),
+              Text("Click Here to Monitor Your Baby",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color:Colors.indigo[900]),),
+            ),
+       
+
+
+
+
+
       ),
     );
   }
