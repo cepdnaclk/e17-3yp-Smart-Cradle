@@ -20,7 +20,7 @@ import 'package:http/http.dart' as http;
 
 import 'nav.dart';
 
-final Uri _url=Uri.parse('http://10.30.86.97');
+final Uri _url=Uri.parse('http://10.30.87.100');
 
 Future<void> _launchUrl()async {
     
