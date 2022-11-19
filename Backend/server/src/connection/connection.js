@@ -2,9 +2,9 @@ const mysql = require('mysql');
 
 const mysqlConnection=mysql.createConnection({
 
-    host:'localhost',
-    user:'root',
-    password:'',
+    host:'smartcradle.cmxw8nidv6uj.ap-northeast-1.rds.amazonaws.com',
+    user:'admin',
+    password:'madUSH1998',
     database:'cradle',
 
 });
