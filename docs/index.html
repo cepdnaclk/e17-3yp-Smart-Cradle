@@ -230,7 +230,7 @@
 										
 									</td>
 	
-									<td align='center' width='250'><img src="images/emu_ui/monitor.png" alt="" data-position="top center"  style="width:250px;height:450px;"> 
+									<td align='center' width='250'><img src="images/emu_ui/babymonitor.jpg" alt="" data-position="top center"  style="width:250px;height:450px;"> 
 										
 									</td>
 	
@@ -544,6 +544,65 @@
 									<img src="images/tech.png" alt="" data-position="top center"  style="width:800px;height:450px;"> 
 
 								</center>
+
+								<br><br>
+
+								<h3><center><font face ="Optima" size="6">MQTT</font></center></h3>
+								
+								MQTT is a lightweight IoT communication protocol based on the publish/subscribe model. 
+Used to establish a connection between sensors and actuators with the mobile application.
+HiveMQ MQTT Broker is used.
+
+							
+
+								<center>
+
+									<img src="images/MQTT images/hive.png" alt="" data-position="top center"  style="width:100px;height:100px;"> 
+
+								</center>
+								<br>
+
+								<center>
+
+									<img src="images/MQTT images/mqtt topics.PNG" alt="" data-position="top center"  style="width:700px;height:300x;"> 
+
+								</center>
+								<br>
+
+								<center>
+
+									<img src="images/MQTT images/mqtt1.PNG" alt="" data-position="top center"  style="width:800px;height:250x;"> 
+
+								</center>
+								<br>
+
+								<center>
+
+									<img src="images/MQTT images/mqtt2.PNG" alt="" data-position="top center"  style="width:800px;height:250x;"> 
+
+								</center>
+								<br>
+
+								<center>
+
+									<img src="images/MQTT images/mqtt3.PNG" alt="" data-position="top center"  style="width:800px;height:250x;"> 
+
+								</center>
+								<br>
+
+								<center>
+
+									<img src="images/MQTT images/mqtt4.PNG" alt="" data-position="top center"  style="width:800px;height:250x;"> 
+
+								</center>
+								<br>
+
+								<center>
+
+									<img src="images/MQTT images/mqtt5.PNG" alt="" data-position="top center"  style="width:800px;height:250x;"> 
+
+								</center>							
+
 	
 
 
@@ -564,7 +623,10 @@
 							  
 							  <td align='left' width='700'><img src="images/nodemcu2.jpg" alt="" data-position="top center"  style="width:330px;height:250px;"> 
 								<br>
+								
 									<b>NodeMCU</b>
+									<br>
+									This is used to control the sensor and actuators.
 									<ul>
 										
 										<li>GPIO pins + WIFI module inbuilt</li>
@@ -578,32 +640,52 @@
 									  </ul> 
 								
 							  </td>
-
-							  <td align='left' width='700'><img src="images/sound_sensor.jpg" alt="" data-position="top center"  style="width:380px;height:250px;"> 
+							  <td align='left' width='700'><img src="images/Hardware/uno.jpg" alt="" data-position="top center"  style="width:330px;height:250px;"> 
 								<br>
-									 <b>Sound sensor</b>
-									<li> Operating Voltage: 3.3V to 5V DC</li>
-									<li> LM393 comparator with threshold prest</li>
-									<li> Induction distance: 0.5 Meter</li>
-									<li> Operating current:  4~5 mA</li>
-									<li> Microphone Sensitivity (1kHz): 52 to 48 dB</li>
-									<li> Small, cheap and easily available</li>
-									
+								
+									<b>Arduino UNO ATmega328P</b>
+									<br>
+									To content the Stepper Motor.
+									<ul>
+										
+										
+										<li>Operating Voltage: 5V.</li>
+										<li>Input Voltage (recommended): 7-12V  </li>
+										<li>Input Voltage (limit): 6-20V </li>
+										<li>Digital I/O Pins: 14 (6 provide PWM output)</li>
+										<li>PWM Digital I/O Pins: 6. </li>
+										<li>Analog Input Pins: 6</li>
+										<li>DC Current per I/O Pin: 20 mA.</li>
+
+										
+										
+									  </ul> 
 								
 							  </td>
 
-							  <td align='left' width='700'><img src="images/motor_driver.jpg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
+							  <td align='left' width='700'><img src="images/Hardware/esp32cam.jpg" alt="" data-position="top center"  style="width:330px;height:250px;"> 
 								<br>
-									<b> Motor Driver</b>
-									
-									<li> Power Supply: DC 5 V - 35 V</li>
-									<li> Operating current range: 0 ~ 36mA</li>
-									<li> On-board +5V regulated Output supply</li>
-									
-				
-									
+								
+									<b>ESP32-CAM module</b>
+									<br>
+									To get live monitoring of the baby.
+									<ul>
+										
+										
+										<li>Onboard ESP32-S module, supports WiFi + Bluetooth</li>
+										<li> OV2640 camera with flash</li>
+										<li>Onboard TF card slot, supports up to 4G TF card for data storage</li>
+										<li>Supports WiFi video monitoring and WiFi image upload</li>
+										<li>Supports multi sleep modes, deep sleep current as low as 6mA</li>
+										<li>Control interface is accessible via pinheader, easy to be integrated and embedded into user products</li>
+							
+									  </ul> 
 								
 							  </td>
+
+							 
+
+							  
 							 
 							  
 							  
@@ -611,77 +693,209 @@
 
 							<tr>
 								
-								<td align='left' width='700'><img src="images/temp_sensor.jpg" alt="" data-position="top center"  style="width:330px;height:250px;"> 
+								<td align='left' width='700'><img src="images/Hardware/terml.jpeg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
 									<br>
-										<b> Thermal sensor</b>
+										<b>DHT11 Temperature and Humidity sensor</b>
+										<br>
+										To detect room temperature
 										<li> Working voltage: DC 3.3-5V</li>
-										<li> can measure : -55°C to 150°C </li>
-										<li> ±0.5°C  Accuracy</li>
-										<li> Drain current is less than 60uA  </li>
-										<li>Low cost temperature sensor</li>
-										<li> Small and hence suitable for remote applications</li>
+										<li> Operating current: 0.3mA (measuring) 60uA (standby)</li>
+										<li>Output: Serial data</li>
+										<li>Temperature Range: 0°C to 50°C</li>
+										<li>Resolution: 16-bit</li>
+										<li>Accuracy: ±1°C</li>
 										
 					
 										
 									
 								  </td>
 
-								  <td align='left' width='700'><img src="images/servo_motor.jpg" alt="" data-position="top center"  style="width:400px;height:250px;"> 
+								  <td align='left' width='700'><img src="images/Hardware/soundsensor.jpeg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
 									<br>
-										<b> Servo Motor</b>
+										<b>LM393 Sound Detection Module </b>
+										<br>
+										For the cry detection purpose
 
-										<li> Torque: 5.5kg/cm (at 4.8V)</li>
-										<li> Working Voltage: 4.8V-6V</li>
-										<li> Current Usage: <1000mA</li>
-										
-					
-										
+										<li>Operating Voltage: 3.3V to 5V DC</li>
+										<li>LM393 comparator with threshold preset</li>
+										<li>PCB Size: 3.4cm * 1.6cm</li>
+										<li>Induction distance: 0.5 Meter</li>
+										<li>Operating current:  4~5 mA</li>
+										<li>Microphone Sensitivity (1kHz): 52 to 48 dB</li>
+										<li>Easy to use with Microcontrollers or even with normal Digital/Analog IC</li>
+										<li>Small, cheap and easily available</li>	
 									
 								  </td>
 
-								  <td align='left' width='700'><img src="images/cam.PNG" alt="" data-position="top center"  style="width:300px;height:250px;"> 
+								  <td align='left' width='700'><img src="images/Hardware/stepper motor.jpeg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
 									<br>
-										<b> Camera Shield</b>
+										<b>Stepper Motor</b>
+										<br>
+										To Swing the cradle
 
-										<li> Voltage: 2.5V to 3.0V</li>
-										<li> Lens Size: 1/6" , Vision Angle: 25 degree</li>
-										<li> High sensitivity for low-light operation</li>
-										<li> Color saturation level auto adjust</li>
+										<li>Shaft diameter: 5 mm “D”</li>
+										<li>Steps per revolution: 200</li>
+										<li>Current rating: 1.2 A per coil</li>
+										<li>Voltage rating: 4 V</li>
+										<li>Resistance: 3.3 Ω per coil</li>
+										<li>Holding torque: 3.2 kg-cm (44 oz-in)</li>
+										<li>Inductance: 2.8 mH per coil</li>
+										<li>Output shaft supported by two ball bearings</li>
 								  </td>
 
 
 								
 								
-								
-							</tr>
-
-						</table>
-
-						<table style="width:100%">
-
-							<tr>
-
-								<td align='center' width='700'><img src="images/fan1.jpg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
-									<br>
-										<b> Mini fan</b>
-										
-										<li> DC Mode: 450 ~ 2150 RPM </li>
-										<li> Operating Voltage: DC 5V～13.2V </li>
-									
-								</td>
-
-								
-								<td align='center' width='700'><img src="images/speaker.crdownload" alt="" data-position="top center"  style="width:300px;height:250px;"> 
-									<br>
-										<b>speaker</b>
-									
-								</td>
-
-
 								
 							</tr>
 							
+
+							<tr>
+								
+								<td align='left' width='700'><img src="images/Hardware/stepper.jpg" alt="" data-position="top center"  style="width:330px;height:250px;"> 
+									<br>
+										<b>TB6600 Stepper Motor Driver
+										</b>
+										<br>
+										To provide microstepping ability to a stepper motor
+
+										<li>Operating voltage: 9-40V DC</li>
+										<li>Output Current: 0.7-4.0A</li>
+										<li>Pulse input frequency up to 20kHz</li>
+										<li>5V levels input signal</li>
+										<li>200-6400 pulse per revolution</li>
+										<li>Logic signal current: 8-15mA</li>
+										<li>Output current selectable in 8-steps via DIP switches</li>
+										<li>Suitable for 2 and 4 phase motors</li>
+										<li>Over current and over heat protection</li>						
+									
+								  </td>
+
+								  <td align='left' width='700'><img src="images/Hardware/12fan.jpg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
+									<br>
+										<b>12V Mini Fan</b>
+										<br>
+										
+
+										<li>Connector: 4pin.</li>
+										<li>Rated Voltage: DC 12V.</li>
+										<li>Rated Current: 0.11±0.02 Amp.</li>
+										<li>Rated Speed: 6500 ±10%rpm.</li>
+										<li>Air Flow:9.8CFM.</li>
+										<li>Noise: 15±10%dB.</li>
+										<li>
+											Bearing Type: Sleeve.</li>
+										<li>Dimension(Fan): 30mm x 30mm x 20mm.</li>	
+
+										
+
+
+
+
+
+
+
+									
+								  </td>
+
+								  <td align='left' width='700'><img src="images/Hardware/motor driver.jpg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
+									<br>
+										<b>L298N Motor driver
+										</b>
+										<br>
+										To control the fan
+
+										<li>Driver Model: L298N 2A</li>
+										<li>Driver Chip: Double H Bridge L298N</li>
+										<li>Motor Supply Voltage (Maximum): 46V</li>
+										<li>Motor Supply Current (Maximum): 2A</li>
+										<li>Logic Voltage: 5V</li>
+										<li>Driver Voltage: 5-35V</li>
+										<li>Driver Current:2A</li>
+										<li>Logical Current:0-36mA</li>
+								  </td>
+								
+							</tr>
+
+
+							<tr>
+								
+								<td align='left' width='700'><img src="images/Hardware/speaker.jpg" alt="" data-position="top center"  style="width:200px;height:250px;"> 
+									<br>
+										<b>Mini Speaker
+										</b>
+										<br>
+										To play music
+
+										<li>Power : 0.5W</li>
+										<li>Resistance : 8 Ohm</li>
+										<li>Type : Internal Magnet Speaker</li>
+										<li>Magnet Diameter : 14mm/ 0.55"</li>
+										<li>Size : 30 x 4.5mm/1.2" x 1.4"(D*T)</li>
+									
+								  </td>
+
+								  <td align='left' width='700'><img src="images/Hardware/5v power.jpeg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
+									<br>
+										<b>5V Power pack</b>
+											
+										<br>
+										To give power to ESP8266 NodeMCU and ESP32 CAM Module
+
+
+										<li>AC input voltage: 110 - 240 VAC</li>
+										<li>AC input frequency: 47Hz - 63Hz</li>
+										<li>AC input current: 0.3A max.</li>
+										<li>Max. inrush current: 30A max.</li>
+										<li>Leakage current: max. 0.75 mA</li>
+										<li>Efficiency: 70% typical at full load</li>
+										<li>No load power consumption 0.5W</li>
+										<li>DC output voltage: +5VDC</li>
+
+								  </td>
+
+								  <td align='left' width='700'><img src="images/Hardware/transis.jpeg" alt="" data-position="top center"  style="width:300px;height:250px;"> 
+									<br>
+										<b>2N3904 Transistor
+
+										</b>
+										<br>
+										To amplify the signal giving to the speaker
+
+
+										<li>Bi-Polar NPN Transistor</li>
+										<li>DC Current Gain is 300 maximum</li>
+										<li>Continuous Collector current is 200mA</li>
+										<li>Base- Emitter Voltage (VBE) 6V</li>
+										<li>Collector-Emitter Voltage is 40V</li>
+										<li>Collector-Base Voltage is 60V</li>
+										
+
+								  </td>
+								
+							</tr>
+
+
+
 						</table>
+
+						<h3><center><font face ="Optima" size="6">Circuit Diagrams</font></center></h3>
+
+						<center>
+							<img src="images/Circuit Diagrams/cct1.PNG" alt="" data-position="top center"  style="width:800px;height:450px;"> 
+						</center>
+						<br>
+
+						<center>
+							<img src="images/Circuit Diagrams/cct2.PNG" alt="" data-position="top center"  style="width:800px;height:450px;"> 
+						</center>
+						<br>
+
+						<center>
+							<img src="images/Circuit Diagrams/cct3.PNG" alt="" data-position="top center"  style="width:800px;height:450px;"> 
+						</center>
+						<br>
+						
 						<h3><center><font face ="Optima" size="6">Schematic Circuit Diagram</font></center></h3>
 
 						<center>
@@ -765,6 +979,13 @@
 							</tr>
 							
 						</table>
+						<center><b> 3D View</b</center>
+						
+						<center>
+							<video width="750" height="500" controls align="center">
+								<source src="assets/video/animation_8mb_video.mp4">
+							</video></center>
+							
 
 
 
