@@ -110,7 +110,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
  // check for the the signals from fan ---------------------------------------------------------------------------  FAN
  if(strcmp(topic,"cradle/songs/song_name/state") == 0){ 
   int sum = 0;
-  if((char)payload[17] == 'n'){  // on 
+  if((char)payload[21] == 'r'){  // on 
 
    // digitalWrite(BUILTIN_LED, LOW); 
    digitalWrite(4,HIGH);  

@@ -39,7 +39,7 @@ class _Add_deviceState extends State<Add_devicePage> {
       String u_name = await storage.read(key:"user_name");
       print(u_name);
       final response = await http.post(
-        Uri.parse('http://10.30.6.80:8000/add'),
+        Uri.parse('http://192.168.43.95:9000/add'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'

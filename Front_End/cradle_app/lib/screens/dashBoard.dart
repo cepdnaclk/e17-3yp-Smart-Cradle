@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cradle_app/screens/music.dart';
 import 'package:cradle_app/screens/temperature.dart';
-import 'package:cradle_app/screens/temp_new.dart';
+//import 'package:cradle_app/screens/temp_new.dart';
 import 'package:cradle_app/screens/FanPage.dart';
 import 'package:cradle_app/screens/cradle.dart';
 import 'package:cradle_app/screens/vedio.dart';
@@ -48,7 +48,7 @@ class DashBoardPage extends StatelessWidget {
       print(d_id);
 
       final response = await http.post(
-        Uri.parse('http://192.168.56.1:8000/video'),
+        Uri.parse('http://192.168.43.95:9000/video'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'

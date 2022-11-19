@@ -39,7 +39,7 @@ class _Remove_deviceState extends State<Remove_devicePage> {
       String u_name = await storage.read(key:"user_name");
       print(u_name);
       final response = await http.post(
-        Uri.parse('http://192.168.56.1:8000/remove'),
+        Uri.parse('http://192.168.43.95:9000/remove'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'

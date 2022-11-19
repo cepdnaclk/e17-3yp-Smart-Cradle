@@ -39,7 +39,7 @@ String dev_id='';
       String u_name = await storage.read(key:"user_name");
       print(u_name);
       final response = await http.post(
-        Uri.parse('http://10.30.86.58:8000/select'),
+        Uri.parse('http://192.168.43.95:9000/select'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'

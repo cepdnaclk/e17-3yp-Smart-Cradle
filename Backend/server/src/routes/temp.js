@@ -19,12 +19,27 @@ client.on('connect',function(){
 
 });
 
+var temperature_val='';
+
+client.on('message',function(topic,message){
+
+    console.log(message.toString());
+
+    temperature_val=message.toString();
+    // sending the response to the mobile app
+   
+    
+});
+
 
 Router.post('/', ensureToken,function(req, res) {
   
 
     const {device_id}=req.body;
     console.log(req.body);
+
+
+   
 
     //console.log(state);
     //console.log(max_temp);
@@ -82,6 +97,7 @@ Router.post('/', ensureToken,function(req, res) {
                         });
                         */
 
+                        /*
                         client.on('message',function(topic,message){
 
                             console.log(message.toString());
@@ -95,6 +111,16 @@ Router.post('/', ensureToken,function(req, res) {
                             })
                             
                         });
+                        
+                        */
+
+                        return res.status(200).json({
+                            success: 1,
+                            message:temperature_val,
+                           
+                        });
+
+                       client.end();
 
                        
 
