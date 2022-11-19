@@ -40,7 +40,7 @@ void initState() {
       String u_name = await storage.read(key:"user_name");
       print(u_name);
       final response = await http.post(
-        Uri.parse('http://192.168.43.95:9000/temp'),
+        Uri.parse('http://10.30.84.209:9000/temp'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':'Bearer $tok'
@@ -156,7 +156,7 @@ void initState() {
               Column(
                   children: <Widget>[
                     //readTemp(dev_id),
-                    Text("Room temperature is ${temperature}",
+                    Text("Room  ${temperature}",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     SizedBox(height: 20,),
                     

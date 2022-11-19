@@ -244,7 +244,7 @@ void loop() {
   delay(1500);
   //float humidity = dht.getHumidity();
   float temperature = dht.getTemperature();
-  snprintf(msg,MSG_BUFFER_SIZE,"Temperature is:%.2f",temperature);
+  snprintf(msg,MSG_BUFFER_SIZE,"Temperature is : %.2f",temperature);
   Serial.print("Publish message: ");
   Serial.println(msg);
   client.publish("cradle/temperature",msg);
