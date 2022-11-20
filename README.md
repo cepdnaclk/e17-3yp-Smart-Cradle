@@ -25,6 +25,14 @@ an automated cradle that can be controlled by a mobile application.
 The proposed solution involves live monitoring of the child through a mobile application remotely.Noice Sensor for the detection of the child's crying activity.When detect crying, cradle send a message to parent,plays a song.The Thermal sensor notifies the parent about the envioremental temperature near the baby and switch on the fan automatically with temperature. The proposed system uses the cloud service for remotely monitoring the child.<br> <br>
  <img src="https://github.com/cepdnaclk/e17-3yp-Smart-Cradle/blob/main/3D-Design/cradle_1.png" "width:500px;height:300px;"></img>
   
+  
+ 
+## 3D Model
+
+
+https://user-images.githubusercontent.com/86120874/202894547-3af0307d-3b2a-4fb7-aeca-b2e770536987.mp4
+
+
 
 ## Solution Architecture
 <center>
