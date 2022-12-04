@@ -24,6 +24,11 @@ an automated cradle that can be controlled by a mobile application.
 <p align="justify">A baby Monitoring System that can monitor the babies' condition real time is proposed to solve these problems. A baby monitoring System consisting of a vedio camera and microphone without limitations of coverage.It can send data and immediately notify the parents about urgent situations,thereby shortening the time needed to handle such scenarios.<br>
 The proposed solution involves live monitoring of the child through a mobile application remotely.Noice Sensor for the detection of the child's crying activity.When detect crying, cradle send a message to parent,plays a song.The Thermal sensor notifies the parent about the envioremental temperature near the baby and switch on the fan automatically with temperature. The proposed system uses the cloud service for remotely monitoring the child.<br> <br>
  <img src="https://github.com/WijesooriyaHD/e17-3yp-Smart-Cradle/blob/main/Diagrams/product.jpg" "width:500px;height:300px;"></img>
+ 
+ <br>
+ 
+ ![image](https://user-images.githubusercontent.com/86120874/205497195-1f6d0441-8516-4d54-b720-a946ecfc99c3.png)
+
   
   
  
